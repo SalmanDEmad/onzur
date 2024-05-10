@@ -1,0 +1,115 @@
+<!-- services.html -->
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+        background-color: #1E1C1C;
+    }
+
+    h2, h3 {
+        color: #87CEEB; /* Sky blue color, for contrast and visibility */
+        text-shadow: 0 0 3px #87CEEB, 0 0 5px #87CEEB; /* Glowing effect */
+    }
+
+    p, li {
+        color: #FFFFFF; /* White color for high contrast */
+        text-shadow: 0 0 5px rgba(200, 200, 200, 0.5); /* Light gray glow */
+    }
+
+    .card {
+        background-color: #333333;
+        color: white;
+    }
+
+    .card-header {
+        background-color: #212121;
+        border-bottom: 1px solid #444444;
+    }
+
+    .card-body {
+        background-color: #2C2C2C;
+    }
+
+</style>
+
+<div class="container p-3">
+    <!-- Services Section -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2>Our Services</h2>
+            <p>Explore our wide range of digital solutions designed to help your business grow.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">Digital Marketing</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Boost Your Presence</h3>
+                        <p class="card-text">From SEO to social media advertising, our strategies are tailored to meet your specific business needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">Web Development</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Create Stunning Websites</h3>
+                        <p class="card-text">Our web development team builds responsive, secure, and efficient websites to capture your audience's attention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">Analytics</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Data Driven Decisions</h3>
+                        <p class="card-text">Leverage the power of data with our comprehensive analytics tools to enhance decision making and optimize performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-5 bg-gray rounded">
+        <div class="row">
+            <div class="col">
+                <div class="p-4 col-4 bg-dark rounded shadow-lg mb-6 bg-light mx-auto">
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" color="#198754" fill="currentColor" class="bi bi-check-lg pr-2" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                </svg>
+                                <span class="font-weight-medium mx-2">Build</span>
+                            </div>
+                            <span class="text-success">1m 21s</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-4 col-4 bg-dark rounded shadow-lg mb-6 bg-light mx-auto">
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" color="#198754" fill="currentColor" class="bi bi-check-lg pr-2" viewBox="0 0 16 16">
+                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                </svg>
+                                <span class="font-weight-medium mx-2">Build</span>
+                            </div>
+                            <span class="text-success">1m 21s</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+                
+    </section>
+</div>
+
+{% endblock %}

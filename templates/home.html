@@ -1,0 +1,179 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    h2 {
+        color: #87CEEB; /* Sky blue color, for contrast and visibility */
+        text-shadow: 0 0 10px #87CEEB, 0 0 20px #87CEEB; /* Glowing effect */
+    }
+
+    p {
+        color: #FFFFFF; /* White color for high contrast */
+        text-shadow: 0 0 5px rgba(200, 200, 200, 0.5); /* Light gray glow */
+        font-size: 18px !important;
+
+    }
+    
+    .bg-gray {
+        background-color: #212121;
+    }
+    
+    .ticker-wrap {
+        position: relative;
+        top: -150px; /* Move the element 10 pixels up */
+        transform: rotate(-9deg); /* Adjust the angle as needed */
+        width: 130%;
+        margin-left: -8vw;
+        overflow: hidden;
+        white-space: nowrap;
+        background-color: #ffffff;
+        z-index: 1; /* Set a high z-index value */
+    }
+
+    .ticker-wrap2 {
+        position: relative;
+        top: -150px; /* Move the element 10 pixels up */
+        transform: rotate(10deg); /* Adjust the angle as needed */
+        width: 130%;
+        margin-left: -8vw;
+        overflow: hidden;
+        white-space: nowrap;
+        background-color: #ffffff;
+        z-index: 1; /* Set a high z-index value */
+    }
+    
+
+    .ticker {
+        display: inline-block;
+        margin-top: 5px;
+        animation: marquee 20s linear infinite;
+    }
+
+    .item-collection-1 {
+        position: relative;
+        left: 0%;
+        animation: swap 20s linear infinite;
+    }
+
+    .item {
+        display: inline-block;
+        padding: 0 1rem;
+        font-size: 4rem;
+        color: black;
+        font-weight: 800;
+    }
+
+    /* Transition */
+    @keyframes marquee {
+        0% {
+            transform: translateX(0)
+        }
+
+        100% {
+            transform: translateX(-100%)
+        }
+    }
+
+    @keyframes swap {
+        0%,
+        50% {
+            left: 0%;
+        }
+
+        50.01%,
+        100% {
+            left: 100%;
+        }
+    }
+</style>
+
+<div class="container p-3">
+    <!-- Section 1 -->
+<section class="py-5">
+    <div class="container position-relative pt-3 pt-sm-8 pt-lg-12 container-xl">
+        <div class="row">
+            <div class="col-md-6 px-5 my-auto">
+                <h2><b>Onzur:</b> Be Seen, Not Just Watched</h2>
+                <p>At Onzur Marketing, we bridge the gap between looking and being looked at. Leveraging the latest in digital marketing trends and cutting-edge technology, we ensure your business doesn't just observe the marketplace but stands out within it. Through innovative strategies and advanced tech solutions, we help you lead in visibility and influence.</p>
+                <a href="#" class="btn btn-light btn-lg">Start Your Journey</a>
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{ url_for('static', path='images/bozgort.png') }}" alt="My Image">
+            </div>
+        </div>
+    </div>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span class="item-collection-1">
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+            </span>
+            <span class="item-collection-2">
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+            </span>
+        </div>
+    </div>
+    <div class="ticker-wrap2 shadow-lg">
+        <div class="ticker">
+            <span class="item-collection-1">
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+            </span>
+            <span class="item-collection-2">
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+                <span class="item">Under Construction ⚠️</span>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section 2 -->
+<section class="py-5 bg-gray rounded">
+  <div class="container">
+    <div class="row justify-content-center ">
+      <div class="col-md-6 text-center mb-3 mb-md-0">
+        <h2>Section 2</h2>
+        <p>Content for section 2...</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img class="img-fluid rounded-5" src="https://picsum.photos/400/400" alt="My Image 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="py-5">
+    <div class="container">
+        <h2>Section 3</h2>
+        <p>Content for section 3...</p>
+    </div>
+</section>
+
+<!-- Section 4 -->
+<section class="py-5 bg-gray rounded">
+    <div class="container">
+        <h2>Section 4</h2>
+        <p>Content for section 4...</p>
+    </div>
+</section>
+
+<!-- Ticker Section -->
+<section class="py-5">
+
+</section>
+
+{% endblock %}

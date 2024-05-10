@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<!-- About Us Section -->
+<section class="py-5">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum, risus eget convallis pellentesque, justo sem volutpat mauris, at ullamcorper justo risus vel tortor. Integer in ipsum eu eros gravida scelerisque. Quisque posuere nisi et massa vehicula tristique. Nullam auctor fermentum lorem eget commodo. Duis vehicula ultrices dolor, non mattis elit tristique sit amet. In vel magna consectetur, consectetur ipsum eget, ultrices est.</p>
+        <p>Nullam in turpis massa. Pellentesque ut lacus mauris. Donec ac eros nec nulla elementum posuere. Maecenas lacinia sagittis diam, nec finibus magna malesuada id. Duis egestas elit ut libero efficitur, a vehicula quam egestas. Integer ut quam in magna pharetra dictum. Vivamus pulvinar at dui sit amet mattis. Phasellus ut libero in turpis vestibulum cursus eget at velit. Vestibulum sodales commodo tristique.</p>
+        <p>Curabitur id neque dolor. Vestibulum gravida ex id tincidunt tincidunt. Aliquam erat volutpat. Integer eu dui scelerisque, scelerisque risus non, pellentesque ex. Vivamus elementum non mi id fringilla. Sed venenatis, metus non sollicitudin malesuada, neque risus placerat sem, eu vestibulum magna justo nec lacus. Morbi faucibus malesuada quam, nec sollicitudin lectus suscipit sed. Duis id convallis ipsum.</p>
+    </div>
+</section>
+
+<style>
+.vouch-card {
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    }
+.reviewer-img {
+    width: auto;
+    max-width: 100% !important;
+}
+.testimonials-title {
+    font-size: 4.5rem;
+}
+
+.timeline-left {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-center {
+    position: relative;
+    width: 4px;
+    height: 100%;
+    background-color: #007bff;
+    margin: 0 auto;
+}
+
+.timeline-right {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-item bg-dark {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.timeline-description {
+    margin-bottom: 15px;
+}
+
+.timeline-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.invisible {
+   opacity: 0;
+}
+
+.circle {
+   width: 200px;
+   height: 28px;
+   background-color: #007bff;
+   border-radius: 50%;
+ }
+
+.circle:hover {
+   transform: scale(1.2);
+ }
+         
+</style>
+
+<section>
+   <div class="container mt-5">
+       <div class="row">
+           <!-- Left Column -->
+           <div class="col-md-5">
+               <div class="timeline-left">
+                   <div class="row mb-5">
+                       <div class="col-12">
+                           <div class="timeline-item text-end rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 1</h3>
+                               <p class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                               <span class="timeline-date">January 2022</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5 invisible">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 2</h3>
+                               <p class="timeline-description">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <span class="timeline-date">March 2022</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5">
+                       <div class="col-12">
+                           <div class="timeline-item text-end rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 3</h3>
+                               <p class="timeline-description">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                               <span class="timeline-date">June 2022</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5 invisible">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 4</h3>
+                               <p class="timeline-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                               <span class="timeline-date">August 2022</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5">
+                       <div class="col-12">
+                           <div class="timeline-item text-end rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 5</h3>
+                               <p class="timeline-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                               <span class="timeline-date">October 2022</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!-- Center Column -->
+           <div class="col-md-2">
+               <div class="timeline-center">
+                  <div class="row justify-content-center align-items-center">
+                     <div class="circle"></div>
+                     <div class="row mb-5">
+                        <div class="col-12">
+                            <div class="timeline-item invisible rounded bg-dark p-3 m-2">
+                                <h3 class="timeline-title">T<br>t</h3>
+                                <p class="timeline-description">..</p>
+                                <span class="timeline-date">January 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                   <div class="row justify-content-center align-items-center">
+                     <div class="circle"></div>
+
+                   </div>
+                   <div class="row justify-content-center align-items-center">
+                     <div class="circle"></div>
+
+                   </div>
+                   <div class="row justify-content-center align-items-center">
+                     <div class="circle"></div>
+
+                   </div>
+                   <div class="row justify-content-center align-items-center">
+                     <div class="circle"></div>
+
+                   </div>
+
+               </div>
+           </div>
+           <!-- Right Column -->
+           <div class="col-md-5">
+               <div class="timeline-right">
+                   <div class="row mb-5 invisible">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 6</h3>
+                               <p class="timeline-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                               <span class="timeline-date">January 2023</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 7</h3>
+                               <p class="timeline-description">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <span class="timeline-date">March 2023</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5 invisible">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 8</h3>
+                               <p class="timeline-description">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                               <span class="timeline-date">June 2023</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 9</h3>
+                               <p class="timeline-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                               <span class="timeline-date">August 2023</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row mb-5 invisible">
+                       <div class="col-12">
+                           <div class="timeline-item rounded bg-dark p-3 m-2">
+                               <h3 class="timeline-title">Title 10</h3>
+                               <p class="timeline-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                               <span class="timeline-date">October 2023</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+
+
+<!-- Team Section -->
+
+    <div class="container">
+        <h1 class="text-center testimonials-title mt-5">Find Out From Our Happy Customers !</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+           <!-- Card 1 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <!-- Image Column (Left) -->
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/bozo.jpg'" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <!-- Text Column (Right) -->
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Stephanie</h5>
+                          <!-- Add your text content here -->
+                       </div>
+                    </div>
+                    <h5 class="card-title">Unforgettable Experience</h5>
+                    <p class="card-text text-muted">Our recent trip was truly unforgettable. The landscapes we encountered were absolutely breathtaking, and we had the chance to learn so much about the local culture. I wholeheartedly recommend this tour to anyone looking to explore new destinations</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Card 2 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/abu retard al retardi.jpg" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Karen</h5>
+                       </div>
+                    </div>
+                    <h5 class="card-title">Highly Recommended</h5>
+                    <p class="card-text text-muted">This tour exceeded all our expectations. From stunning landscapes to enriching cultural encounters, it was an unforgettable adventure. I enthusiastically recommend it to fellow travelers seeking new horizons.</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Card 3 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/banu zindiq.jpg" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Skyler White</h5>
+                       </div>
+                    </div>
+                    <h5 class="card-title">Fun and Educational</h5>
+                    <p class="card-text text-muted">I can't stop raving about our tour! The scenery was awe-inspiring, and the cultural experiences were eye-opening. If you have a wanderlust and a desire to explore, this tour is a must-try.</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Card 4 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/binte teez.jpg" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Kevin McLovin</h5>
+                       </div>
+                    </div>
+                    <h5 class="card-title">Exceeded Expectations</h5>
+                    <p class="card-text text-muted">Our journey was nothing short of extraordinary. We marveled at breathtaking landscapes and delved deep into the local culture. If you're passionate about travel and discovery, this tour is the perfect choice.</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Card 5 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/zeb taweel.jpg" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Zeb Taweel</h5>
+                       </div>
+                    </div>
+                    <h5 class="card-title">Spectacular Views</h5>
+                    <p class="card-text text-muted">What an incredible tour! The landscapes left us in awe, and the cultural immersion was a real highlight. Don't miss out on this opportunity to explore new destinations and create unforgettable memories.</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+           <!-- Card 6 -->
+           <div class="col mb-3">
+              <div class="card vouch-card p-4 mx-auto">
+                 <div class="card-body">
+                    <div class="row mb-3">
+                       <div class="col-md-3 col-2">
+                          <img src="static/images/testimonials/umm takfiri.jpg" alt="..." class="reviewer-img rounded-5">
+                       </div>
+                       <div class="col-md-9 col-10 my-auto">
+                          <h5>Bob</h5>
+                       </div>
+                    </div>
+                    <h5 class="card-title">Unforgettable Memories</h5>
+                    <p class="card-text text-muted">The tour was an unforgettable experience. I got to witness breathtaking landscapes and immerse myself in the local culture. I highly recommend this tour to anyone seeking to travel and explore new destinations</p>
+                    <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+{% endblock %}

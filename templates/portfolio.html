@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<style>
+    /* Existing CSS styles */
+    h2, h3 {
+        color: #87CEEB; /* Sky blue color, for contrast and visibility */
+    }
+
+    .portfolio-carousel {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .portfolio-slide {
+        display: none; /* Hide all slides by default */
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        transition: transform 0.5s ease;
+    }
+
+    .portfolio-item {
+        flex: 0 0 30%; /* Adjust width of portfolio items as needed */
+        background-color: #333333;
+        color: white;
+        border-radius: 10px;
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
+
+    .portfolio-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .portfolio-description {
+        font-size: 18px;
+    }
+
+    /* Hover effect */
+    .portfolio-item:hover {
+        transform: scale(1.05); /* Scale up on hover */
+    }
+
+    .active-slide {
+        display: flex; /* Only active slide is displayed */
+    }
+
+    /* New styles for animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in-up {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    .portfolio-item:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    .image-container {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .image-text {
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .image-container:hover .image-text {
+        opacity: 1;
+    }
+        
+</style>
+
+<div class="container py-5">
+    <!-- Navigation for Carousel -->
+        <div class="row">
+            <div class="col justify-content-center">
+                <div id="portfolio-item1" class="portfolio-item p-3" onclick="changeSlide(1)">
+                    <h3 class="portfolio-title">Websites and Designs</h3>
+                    <p class="portfolio-description">Click to view our web designs and websites for various different industries</p>
+                </div>
+            </div>
+            <div class="col justify-content-center">
+                <div id="portfolio-item2" class="portfolio-item p-3" onclick="changeSlide(2)">
+                    <h3 class="portfolio-title">Commercials and edits</h3>
+                    <p class="portfolio-description">Click to view advertisements and video content for clients</p>
+                </div>
+            </div>
+            <div class="col justify-content-center">
+                <div id="portfolio-item3" class="portfolio-item p-3" onclick="changeSlide(3)">
+                    <h3 class="portfolio-title">Tab 3</h3>
+                    <p class="portfolio-description">Click to view Tab 3 content.</p>
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="container mt-4">
+        <!-- Content Tabs -->
+            <div class="tab-content mt-3">
+                <div id="tab-content1" class="tab-pane fade show active">
+                    <div class="row bg-dark rounded p-4 mb-4">
+                        <h4 class="p-0">ahlulhaqqnetwork.com</h4>
+                        <p class="p-0">A news organization providing in-depth coverage and analysis of current events.</p>
+                        <img src="https://picsum.photos/800/300?random=1" class="img-fluid-lg p-0" alt="Ahlulhaqq Network">
+                    </div>
+                    <div class="row bg-dark rounded p-4 mb-4">
+                        <h4 class="p-0">doctorquk.com</h4>
+                        <p class="p-0">A beauty specialist offering expert advice and treatments for skin care and aesthetics.</p>
+                        <img src="https://picsum.photos/800/300?random=2" class="img-fluid p-0" alt="Doctor Q UK">
+                    </div>
+                    <div class="row bg-dark rounded p-4 mb-4">
+                        <h4 class="p-0">dev.onzur.net</h4>
+                        <p class="p-0">A website for artists to display their portfolio and reach a wider audience.</p>
+                        <img src="https://picsum.photos/800/300?random=3" class="img-fluid p-0" alt="Onzur Dev">
+                    </div>
+                    
+                </div>
+                <div id="tab-content2" class="tab-pane fade">
+<div class="row bg-dark rounded">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=1'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 1</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=2'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 2</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=3'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 3</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=4'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 4</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=5'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 5</span>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-12 p-0 position-relative image-container" style="background-image: url('https://picsum.photos/500/500?random=6'); height: 300px;">
+        <div class="image-text position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+            <span class="text-white">Random Image 6</span>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <div id="tab-content3" class="tab-pane fade p-4">
+                    <h4 class="p-0">Content for Tab 3</h4>
+                    <p class="p-0">Details and information for Tab 3.</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script>
+    function changeSlide(num) {
+        const allContents = document.querySelectorAll('.tab-pane');
+        const allItems = document.querySelectorAll('.portfolio-item');
+    
+        allContents.forEach((content, index) => {
+            if (index === num - 1) {
+                content.classList.add('show', 'active');
+            } else {
+                content.classList.remove('show', 'active');
+            }
+        });
+    
+        allItems.forEach((item, index) => {
+            if (index === num - 1) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach(item => {
+            const top = item.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (top < windowHeight * 0.8) { // Trigger animation when item is 80% visible
+                item.classList.add('fade-in-up');
+            }
+        });
+    });
+</script>
+
+
+{% endblock %}
