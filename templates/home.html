@@ -13,8 +13,7 @@
     p.section-p {
         color: #FFFFFF; /* White color for high contrast */
         text-shadow: 0 0 5px rgba(200, 200, 200, 0.5); /* Light gray glow */
-        font-size: 18px !important;
-
+        font-size: 20px !important;
     }
     
     .bg-gray {
@@ -99,10 +98,16 @@
     <div class="container position-relative pt-3 pt-sm-8 pt-lg-12 container-xl">
         <div class="row">
             <div class="col-md-6 px-5 my-auto">
-                <h1><b>Onzur:</b> Be Seen, Not Just Watched</h1>
-                <p class="section-p">We are a Digital Marketing Agency, that will transform your business from zero to hero. Our expert skills and experience in the field has helped dozens of businesses with zero sales to achieving thousand leads a day. For inquiry, contact our representative on call directly now:</p>
-                <a href="#" class="btn btn-light btn-lg">Start Your Journey</a>
-            </div>
+                <h1><b>Be Seen, Not Just Watched</b></h1>
+                <p class="section-p">We are a Digital Marketing Agency, that will transform your business from zero to hero. Our expert skills and experience in the field have helped dozens of businesses with zero sales to achieving thousand leads a day. For inquiries, contact our representative directly now:</p>
+                <div class="d-flex align-items-left">
+                    <a href="#" class="btn btn-light btn-lg rounded-pill me-2">Start Your Journey</a>
+                    <div class="vr mx-2"></div>
+                    <a href="#" class="btn btn-light btn-lg rounded-pill mx-2">Button 1</a>
+                    <a href="#" class="btn btn-light btn-lg rounded-pill">Button 2</a>
+                </div>
+            </div>            
+                        
             <div class="col-md-6">
                 <img class="img-fluid" src="{{ url_for('static', filename='images/bozgort.png') }}" alt="My Image">
             </div>
