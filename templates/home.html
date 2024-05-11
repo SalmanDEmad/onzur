@@ -5,12 +5,12 @@
 
 {% block content %}
 <style>
-    h2 {
+    h1 {
         color: #87CEEB; /* Sky blue color, for contrast and visibility */
-        text-shadow: 0 0 10px #87CEEB, 0 0 20px #87CEEB; /* Glowing effect */
+        text-shadow: 0 0 10px rgba(200, 200, 200, 0.5); /* Light gray glow */
     }
 
-    p {
+    p.section-p {
         color: #FFFFFF; /* White color for high contrast */
         text-shadow: 0 0 5px rgba(200, 200, 200, 0.5); /* Light gray glow */
         font-size: 18px !important;
@@ -66,6 +66,10 @@
         font-weight: 800;
     }
 
+    .video-section {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 1) 50%, rgba(9, 9, 121, 0) 70%, rgba(255, 255, 255, 1) 100%);
+    }
+
     /* Transition */
     @keyframes marquee {
         0% {
@@ -90,22 +94,21 @@
     }
 </style>
 
-<div class="container p-3">
     <!-- Section 1 -->
 <section class="py-5">
     <div class="container position-relative pt-3 pt-sm-8 pt-lg-12 container-xl">
         <div class="row">
             <div class="col-md-6 px-5 my-auto">
-                <h2><b>Onzur:</b> Be Seen, Not Just Watched</h2>
-                <p>At Onzur Marketing, we bridge the gap between looking and being looked at. Leveraging the latest in digital marketing trends and cutting-edge technology, we ensure your business doesn't just observe the marketplace but stands out within it. Through innovative strategies and advanced tech solutions, we help you lead in visibility and influence.</p>
+                <h1><b>Onzur:</b> Be Seen, Not Just Watched</h1>
+                <p class="section-p">We are a Digital Marketing Agency, that will transform your business from zero to hero. Our expert skills and experience in the field has helped dozens of businesses with zero sales to achieving thousand leads a day. For inquiry, contact our representative on call directly now:</p>
                 <a href="#" class="btn btn-light btn-lg">Start Your Journey</a>
             </div>
             <div class="col-md-6">
-                <img class="img-fluid" src="{{ url_for('static', path='images/bozgort.png') }}" alt="My Image">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/bozgort.png') }}" alt="My Image">
             </div>
         </div>
     </div>
-    <div class="ticker-wrap">
+    <!-- <div class="ticker-wrap">
         <div class="ticker">
             <span class="item-collection-1">
                 <span class="item">Under Construction ⚠️</span>
@@ -136,27 +139,11 @@
                 <span class="item">Under Construction ⚠️</span>
             </span>
         </div>
-    </div>
-</section>
-
-
-<!-- Section 2 -->
-<section class="py-5 bg-gray rounded">
-  <div class="container">
-    <div class="row justify-content-center ">
-      <div class="col-md-6 text-center mb-3 mb-md-0">
-        <h2>Section 2</h2>
-        <p>Content for section 2...</p>
-      </div>
-      <div class="col-md-6 text-center">
-        <img class="img-fluid rounded-5" src="https://picsum.photos/400/400" alt="My Image 2">
-      </div>
-    </div>
-  </div>
+    </div> -->
 </section>
 
 <!-- Section 3 -->
-<section class="py-5">
+<section class="py-5 bg-light">
     <div class="container">
         <h2>Section 3</h2>
         <p>Content for section 3...</p>

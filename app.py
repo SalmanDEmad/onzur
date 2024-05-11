@@ -2,6 +2,10 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Set TEMPLATES_AUTO_RELOAD to True
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['DEBUG'] = True
+
 @app.route("/")
 def home():
     return render_template("home.html")
