@@ -69,6 +69,11 @@
             background: linear-gradient(180deg, rgba(0, 0, 0, 1) 50%, rgba(9, 9, 121, 0) 70%, rgba(255, 255, 255, 1) 100%);
     }
 
+    .vouch-card {
+        border-radius: 15px;
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+        }
+
     /* Transition */
     @keyframes marquee {
         0% {
@@ -91,6 +96,14 @@
             left: 100%;
         }
     }
+
+    .reviewer-img {
+    width: auto;
+    max-width: 100% !important;
+    }
+    .testimonials-title {
+    font-size: 4.5rem;
+    }
 </style>
 
     <!-- Section 1 -->
@@ -101,10 +114,9 @@
                 <h1><b>Be Seen, Not Just Watched</b></h1>
                 <p class="section-p">We are a Digital Marketing Agency, that will transform your business from zero to hero. Our expert skills and experience in the field have helped dozens of businesses with zero sales to achieving thousand leads a day. For inquiries, contact our representative directly now:</p>
                 <div class="d-flex align-items-left">
-                    <a href="#" class="btn btn-light btn-lg rounded-pill me-2">Start Your Journey</a>
+                    <a href="#" class="btn btn-light me-2">⚡10-30x your sales!</a>
                     <div class="vr mx-2"></div>
-                    <a href="#" class="btn btn-light btn-lg rounded-pill mx-2">Button 1</a>
-                    <a href="#" class="btn btn-light btn-lg rounded-pill">Button 2</a>
+                    <a href="#" class="btn btn-outline-light mx-2"><i class="bi bi-telephone"> </i>Book Call</a>
                 </div>
             </div>            
                         
@@ -113,7 +125,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="ticker-wrap">
+    <div class="ticker-wrap">
         <div class="ticker">
             <span class="item-collection-1">
                 <span class="item">Under Construction ⚠️</span>
@@ -144,28 +156,183 @@
                 <span class="item">Under Construction ⚠️</span>
             </span>
         </div>
-    </div> -->
+    </div>
 </section>
 
 <!-- Section 3 -->
-<section class="py-5 bg-light">
+<section class="py-5">
     <div class="container">
-        <h2>Section 3</h2>
-        <p>Content for section 3...</p>
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <h2 class="display-4">Our Expertise</h2>
+                <p class="lead">We leverage cutting-edge technology and industry best practices to deliver exceptional results.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                    <path d="M1 1h1v14H1V1zm14 14h-1V7h1v8zM13 4h1v11h-1V4zm-3-2h1v13h-1V2zM9 7h1v9H9V7zm-3-4h1v13H6V3zm-3 7h1v6H3V7zm-1-6h1v12H2V1z"/>
+                </svg>
+                <h4 class="mb-3">Data-Driven Strategies</h4>
+                <p>Our approach is based on data analysis and market research to craft strategies that drive success.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                    <path d="M.5 13.5a.5.5 0 0 1 .5.5V15h15v-1.5a.5.5 0 0 1 1 0V15a1 1 0 0 1-1 1H0a1 1 0 0 1-1-1v-.5a.5.5 0 0 1 .5-.5zM4 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9.5 7.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1 0-1h8a.5.5 0 0 1 .5.5zm-4-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4-5a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H11a3 3 0 0 1-3 3 3 3 0 0 1-3-3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h11z"/>
+                </svg>
+                <h4 class="mb-3">Client-Centric Approach</h4>
+                <p>We place our clients at the heart of everything we do, ensuring personalized and impactful solutions.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-bullseye" viewBox="0 0 16 16">
+                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6a6 6 0 1 0 0 12A6 6 0 0 0 8 2zM5.5 8a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0z"/>
+                    <path d="M6 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm-.5 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0z"/>
+                </svg>
+                <h4 class="mb-3">Result-Oriented Campaigns</h4>
+                <p>Our campaigns are designed to achieve measurable results, helping you reach and exceed your goals.</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Section 4 -->
 <section class="py-5 bg-gray rounded">
     <div class="container">
-        <h2>Section 4</h2>
-        <p>Content for section 4...</p>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="text-center text-lg-start mb-5 mb-lg-0">
+                    <h2 class="display-4 fw-bold text-white">Unlock Your Potential</h2>
+                    <p class="lead text-white">Experience our exclusive offer tailored just for you. Elevate your business to new heights with premium features and personalized support.</p>
+                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-4 py-3">Get Started</a>
+                </div>
+            </div>
+            <div class="col-lg-6">  
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/exclusive offer.png') }}"" class="img-fluid" alt="Exclusive Offer Image">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Ticker Section -->
-<section class="py-5">
-
-</section>
+<section class="section-5" style="font-family: 'Inter', sans-serif">
+    <div class="container">
+       <h1 class="text-center testimonials-title mt-5">Find Out From Our Happy Customers !</h1>
+       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <!-- Card 1 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <!-- Image Column (Left) -->
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/abu bozo.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <!-- Text Column (Right) -->
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Stephanie</h5>
+                         <!-- Add your text content here -->
+                      </div>
+                   </div>
+                   <h5 class="card-title">Unforgettable Experience</h5>
+                   <p class="card-text text-muted">Our recent trip was truly unforgettable. The landscapes we encountered were absolutely breathtaking, and we had the chance to learn so much about the local culture. I wholeheartedly recommend this tour to anyone looking to explore new destinations</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/abu retard al retardi.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Karen</h5>
+                      </div>
+                   </div>
+                   <h5 class="card-title">Highly Recommended</h5>
+                   <p class="card-text text-muted">This tour exceeded all our expectations. From stunning landscapes to enriching cultural encounters, it was an unforgettable adventure. I enthusiastically recommend it to fellow travelers seeking new horizons.</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/banu zindiq.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Skyler White</h5>
+                      </div>
+                   </div>
+                   <h5 class="card-title">Fun and Educational</h5>
+                   <p class="card-text text-muted">I can't stop raving about our tour! The scenery was awe-inspiring, and the cultural experiences were eye-opening. If you have a wanderlust and a desire to explore, this tour is a must-try.</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/binte teez.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Kevin McLovin</h5>
+                      </div>
+                   </div>
+                   <h5 class="card-title">Exceeded Expectations</h5>
+                   <p class="card-text text-muted">Our journey was nothing short of extraordinary. We marveled at breathtaking landscapes and delved deep into the local culture. If you're passionate about travel and discovery, this tour is the perfect choice.</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/zeb taweel.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Zeb Taweel</h5>
+                      </div>
+                   </div>
+                   <h5 class="card-title">Spectacular Views</h5>
+                   <p class="card-text text-muted">What an incredible tour! The landscapes left us in awe, and the cultural immersion was a real highlight. Don't miss out on this opportunity to explore new destinations and create unforgettable memories.</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="col">
+             <div class="card mx-auto p-3 bg-light vouch-card mb-4">
+                <div class="card-body">
+                   <div class="row mb-3">
+                      <div class="col-md-3 col-2">
+                         <img src="{{ url_for('static', filename='images/testimonials/umm takfiri.jpg') }}" alt="..." class="reviewer-img rounded-5">
+                      </div>
+                      <div class="col-md-9 col-10 my-auto">
+                         <h5>Bob</h5>
+                      </div>
+                   </div>
+                   <h5 class="card-title">Unforgettable Memories</h5>
+                   <p class="card-text text-muted">The tour was an unforgettable experience. I got to witness breathtaking landscapes and immerse myself in the local culture. I highly recommend this tour to anyone seeking to travel and explore new destinations</p>
+                   <h4>5.0 ⭐⭐⭐⭐⭐</h4>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ 
 
 {% endblock %}

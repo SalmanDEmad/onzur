@@ -22,5 +22,9 @@ def portfolio():
 def about():
     return render_template("about.html")
 
+@app.errorhandler(404)
+def pagenotfound(e):
+    return "404 Not Found", 404
+
 if __name__ == "__main__":
     app.run(debug=True)
