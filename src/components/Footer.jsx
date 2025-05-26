@@ -109,10 +109,11 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.text}>
-                    <Link href={link.href} legacyBehavior>
-                      <a className="text-base font-light hover:opacity-80 transition-opacity leading-relaxed">
-                        {link.text}
-                      </a>
+                    <Link
+                      href={link.href}
+                      className="text-base font-light hover:opacity-80 transition-opacity leading-relaxed"
+                    >
+                      {link.text}
                     </Link>
                   </li>
                 ))}
@@ -142,22 +143,23 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-[#30AFFF] pt-8">
           <div className="mb-6 md:mb-0">
-            <Link href="/" legacyBehavior>
-              <a className="flex items-center hover:opacity-80 transition-opacity">
-                <Image
-                  src="/assets/images/digital-silk-logo-footer.svg"
-                  alt="Digital Silk Logo Part 1"
-                  width={155}
-                  height={30}
-                  className="mr-0.5"
-                />
-                <Image
-                  src="/assets/images/digital-silk-logo-footer-text.svg"
-                  alt="Digital Silk Logo Part 2"
-                  width={74}
-                  height={30}
-                />
-              </a>
+            <Link
+              href="/"
+              className="flex items-center hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src="/assets/images/digital-silk-logo-footer.svg"
+                alt="Digital Silk Logo Part 1"
+                width={155}
+                height={30}
+                className="mr-0.5"
+              />
+              <Image
+                src="/assets/images/digital-silk-logo-footer-text.svg"
+                alt="Digital Silk Logo Part 2"
+                width={74}
+                height={30}
+              />
             </Link>
           </div>
 
@@ -166,15 +168,17 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-4 text-sm">
-            <Link href="/privacy-policy" legacyBehavior>
-              <a className="hover:opacity-80 transition-opacity">
-                Privacy Policy
-              </a>
+            <Link
+              href="/privacy-policy"
+              className="hover:opacity-80 transition-opacity"
+            >
+              Privacy Policy
             </Link>
-            <Link href="/accessibility" legacyBehavior>
-              <a className="hover:opacity-80 transition-opacity">
-                Accessibility
-              </a>
+            <Link
+              href="/accessibility"
+              className="hover:opacity-80 transition-opacity"
+            >
+              Accessibility
             </Link>
             <a
               href="tel:8002069413"

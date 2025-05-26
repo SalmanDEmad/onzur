@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useFormState } from "react-dom"; // React 19 / Next.js 15 way for form state with Server Actions
 import Image from "next/image";
+import { submitContactForm } from "../app/actions"; // Import the server action
 
 const socialLinks = [
   { href: "#", src: "/assets/images/instagram-contact.svg", alt: "Instagram" },
@@ -35,25 +36,9 @@ const formFields = [
 ];
 
 export default function ContactUsSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form data submitted:", formData);
-    // Potentially reset form: setFormData({ name: '', company: '', email: '', phone: '', message: '' });
-  };
+  // useFormState for handling server action response
+  const initialState = { message: null, success: null };
+  const [state, formAction] = useFormState(submitContactForm, initialState);
 
   return (
     <section className="relative bg-[#00042A] text-white py-20 md:py-28 overflow-hidden">
@@ -103,7 +88,7 @@ export default function ContactUsSection() {
             <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center lg:text-left">
               Start A Conversation With Us
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action={formAction} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {formFields.map((field) => (
                   <div key={field.id} className="relative">
@@ -118,10 +103,9 @@ export default function ContactUsSection() {
                     </div>
                     <input
                       type={field.type}
-                      name={field.id}
+                      name={field.id} // Name attribute is crucial for FormData
                       id={field.id}
-                      value={formData[field.id]}
-                      onChange={handleChange}
+                      // value and onChange removed, relying on native form handling with Server Actions
                       placeholder={field.label}
                       required
                       className="w-full pl-12 pr-4 py-3.5 bg-transparent border-b border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-[#04E4FF] transition-colors text-lg"
@@ -140,10 +124,9 @@ export default function ContactUsSection() {
                   />
                 </div>
                 <textarea
-                  name="message"
+                  name="message" // Name attribute is crucial
                   id="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  // value and onChange removed
                   placeholder="Your Message*"
                   rows={4}
                   required
@@ -168,6 +151,16 @@ export default function ContactUsSection() {
                   />
                 </button>
               </div>
+              {/* Display server action response */}
+              {state?.message && (
+                <p
+                  className={`mt-4 text-center text-sm ${
+                    state.success ? "text-green-400" : "text-red-400"
+                  }`}
+                >
+                  {state.message}
+                </p>
+              )}
             </form>
           </div>
         </div>

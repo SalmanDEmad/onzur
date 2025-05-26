@@ -191,17 +191,18 @@ export default function FeaturedRedesignsSection() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <Link href="/portfolio" legacyBehavior>
-            <a className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border border-transparent text-base md:text-lg font-medium rounded-md text-white bg-[#01AFE9] hover:bg-[#019BD6] transition-colors">
-              Click here to view more
-              <Image
-                src="/assets/images/arrow-right-long-redesign.svg"
-                alt=""
-                width={20}
-                height={10}
-                className="ml-3 w-5 h-auto"
-              />
-            </a>
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border border-transparent text-base md:text-lg font-medium rounded-md text-white bg-[#01AFE9] hover:bg-[#019BD6] transition-colors"
+          >
+            Click here to view more
+            <Image
+              src="/assets/images/arrow-right-long-redesign.svg"
+              alt=""
+              width={20}
+              height={10}
+              className="ml-3 w-5 h-auto"
+            />
           </Link>
         </div>
       </div>

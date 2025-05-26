@@ -1,4 +1,11 @@
+"use client";
+import { useFormState } from "react-dom";
+import { submitNewsletter } from "../app/actions";
+
 export default function NewsletterSignupSection() {
+  const initialState = { message: null, success: null };
+  const [state, formAction] = useFormState(submitNewsletter, initialState);
+
   return (
     <section className="relative bg-[#0A0D34] py-20 md:py-28 overflow-hidden">
       {/* Decorative gradient circle */}
@@ -16,12 +23,17 @@ export default function NewsletterSignupSection() {
           </div>
 
           <div className="md:w-1/2 w-full max-w-xl">
-            <form className="flex flex-col sm:flex-row items-stretch gap-3 p-1.5 border border-white/30 rounded-lg bg-white/5 backdrop-blur-sm">
+            <form
+              action={formAction}
+              className="flex flex-col sm:flex-row items-stretch gap-3 p-1.5 border border-white/30 rounded-lg bg-white/5 backdrop-blur-sm"
+            >
               <input
                 type="email"
+                name="email"
                 placeholder="Enter Your Email"
                 className="flex-grow px-5 py-4 text-lg text-white bg-transparent border-none rounded-md focus:outline-none focus:ring-2 focus:ring-[#00B9FF] placeholder-white/70"
                 aria-label="Email for newsletter"
+                required
               />
               <button
                 type="submit"
@@ -30,6 +42,15 @@ export default function NewsletterSignupSection() {
                 Sign Up
               </button>
             </form>
+            {state?.message && (
+              <p
+                className={`mt-4 text-center sm:text-left text-sm ${
+                  state.success ? "text-green-400" : "text-red-400"
+                }`}
+              >
+                {state.message}
+              </p>
+            )}
           </div>
         </div>
       </div>

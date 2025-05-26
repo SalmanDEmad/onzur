@@ -1,6 +1,12 @@
+"use client";
 import Image from "next/image";
+import { useFormState } from "react-dom";
+import { submitDownloadForm } from "../app/actions";
 
 export default function StayAheadSection() {
+  const initialState = { message: null, success: null };
+  const [state, formAction] = useFormState(submitDownloadForm, initialState);
+
   return (
     <section className="bg-gradient-to-br from-[#154485] via-[#20074C] to-[#552293] py-16 md:py-24 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -20,12 +26,17 @@ export default function StayAheadSection() {
               Branding & Web Design
             </p>
 
-            <form className="flex flex-col sm:flex-row items-stretch max-w-xl border border-white/30 rounded-md p-1">
+            <form
+              action={formAction}
+              className="flex flex-col sm:flex-row items-stretch max-w-xl border border-white/30 rounded-md p-1"
+            >
               <input
                 type="email"
+                name="email"
                 placeholder="Enter Your Email"
                 className="flex-grow bg-transparent text-white placeholder-white/50 px-4 py-4 text-lg focus:outline-none focus:ring-1 focus:ring-white/50 rounded-l-md sm:rounded-none sm:rounded-l-md"
                 aria-label="Email for trends download"
+                required
               />
               <button
                 type="submit"
@@ -43,6 +54,15 @@ export default function StayAheadSection() {
                 </span>
               </button>
             </form>
+            {state?.message && (
+              <p
+                className={`mt-3 text-sm ${
+                  state.success ? "text-green-300" : "text-red-300"
+                }`}
+              >
+                {state.message}
+              </p>
+            )}
           </div>
 
           {/* Right Column: Image */}

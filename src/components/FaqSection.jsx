@@ -18,10 +18,11 @@ const tocItems = [
 ];
 
 const LinkComponent = ({ href, children }) => (
-  <Link href={href || "#"} legacyBehavior>
-    <a className="text-[#3B7BCE] hover:text-[#0056b3] border-b border-[#8842DC] hover:border-[#5a1aa1] transition-colors">
-      {children}
-    </a>
+  <Link
+    href={href || "#"}
+    className="text-[#3B7BCE] hover:text-[#0056b3] border-b border-[#8842DC] hover:border-[#5a1aa1] transition-colors"
+  >
+    {children}
   </Link>
 );
 

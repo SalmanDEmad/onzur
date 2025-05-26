@@ -1,7 +1,14 @@
+"use client";
 import Image from "next/image";
+import PlayActionButton from "./PlayActionButton";
 
 const CreativeAgencySection = () => {
   const checkMarkIcon = "/assets/images/check-mark-1.svg"; // Or check-mark-2.svg, decide which one to use or combine
+
+  const handlePlayAction = () => {
+    // Add logic for when the play button is clicked, e.g., open a video modal
+    console.log("Play action button clicked");
+  };
 
   return (
     <section className="bg-[#00042A] text-white py-36">
@@ -100,6 +107,7 @@ const CreativeAgencySection = () => {
               alt="Digital Silk Web Designs with Trophy"
               width={665}
               height={595}
+              priority
               className="rounded-lg shadow-2xl"
             />
           </div>
@@ -123,24 +131,9 @@ const CreativeAgencySection = () => {
             {/* Overlay */}
           </div>
 
-          {/* Button Content */}
+          {/* Button Content using new PlayActionButton component */}
           <div className="relative flex items-center pl-[280px] z-10">
-            <div className="relative w-[100px] h-[100px] mr-5">
-              <Image
-                src="/assets/images/play-button.png"
-                alt="Play button"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-            <div>
-              <p className="text-xl md:text-[22px] font-medium leading-tight capitalize">
-                See Our Work In action
-              </p>
-              <p className="text-base font-normal uppercase tracking-wider">
-                1 minute
-              </p>
-            </div>
+            <PlayActionButton onClick={handlePlayAction} />
           </div>
         </div>
       </div>

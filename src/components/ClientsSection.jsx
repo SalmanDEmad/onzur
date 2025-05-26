@@ -4,7 +4,7 @@ import Link from "next/link";
 const clients = [
   { name: "Babies R Us", logo: "/assets/images/babiesrus-logo.png" },
   { name: "Rollink", logo: "/assets/images/rollink-logo.svg" }, // Placeholder, will need to be updated
-  { name: "J&H Tackle", logo: "/assets/images/jhtackle-logo.png" },
+  { name: "J&H Tackle", logo: "/assets/images/jh-tackle-logo.png" },
   {
     name: "Northwestern University",
     logo: "/assets/images/northwestern-logo.svg",
