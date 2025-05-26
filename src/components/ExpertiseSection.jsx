@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const expertiseData = [
   {
-    icon: "/assets/images/custom-web-design-icon.svg", // Placeholder
+    icon: "/assets/images/placeholder-icon.svg", // Using generic placeholder icon
     title: "Custom Web Design",
     description:
       "Each website we create is meticulously crafted to deliver a 100% unique online experience tailored to your brand. Our expert designers transform your vision into a dynamic, custom design that enhances your brand's visibility, boosts engagement, and drives conversions. With us, your website will not only stand out but also connect deeply with your audience.",

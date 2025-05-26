@@ -9,7 +9,7 @@ const caseStudiesData = [
     id: "hp",
     name: "HP",
     logo: "/assets/images/hp-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/hp-logo-dark-case-study.svg", // Placeholder
+    logoDark: "/assets/images/placeholder-logo-dark.svg", // Using generic dark placeholder
     bgColor: "#04E4FF", // Approx color from active tab
     title: "From Concept To Market:",
     subtitle: "We Engineer Projects For Superior Performance",

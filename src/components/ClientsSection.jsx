@@ -13,13 +13,17 @@ const clients = [
   { name: "Buddha Brands", logo: "/assets/images/buddha-brands-logo.svg" },
   { name: "Absolute Dogs", logo: "/assets/images/absolute-dogs-logo.png" },
   { name: "Mitsui Plastics", logo: "/assets/images/mitsui-plastics-logo.png" },
-  { name: "Puma Energy", logo: "/assets/images/puma-logo.svg" },
+  { name: "Puma Energy", logo: "/assets/images/puma-energy-logo.svg" },
   { name: "Xerox", logo: "/assets/images/xerox-logo.png" },
   {
     name: "Enchant Christmas",
-    logo: "/assets/images/enchant-logo.svg",
+    logo: "/assets/images/enchant-christmas-logo.svg",
   },
   { name: "Grenco Science", logo: "/assets/images/grenco-logo.png" },
+  {
+    name: "Valued Partners",
+    logo: "/assets/images/placeholder-logo-white.svg",
+  },
 ];
 
 const ClientsSection = () => {
