@@ -3,23 +3,23 @@ import Link from "next/link";
 
 const clients = [
   { name: "Babies R Us", logo: "/assets/images/babiesrus-logo.png" },
-  { name: "Rollink", logo: "/assets/images/rollink-logo.svg" }, // Placeholder, will need to be updated
+  { name: "Rollink", logo: "/assets/images/rollink-logo.svg" },
   { name: "J&H Tackle", logo: "/assets/images/jh-tackle-logo.png" },
   {
     name: "Northwestern University",
     logo: "/assets/images/northwestern-logo.svg",
-  }, // Placeholder
-  { name: "IBM", logo: "/assets/images/ibm-logo.svg" }, // Placeholder
-  { name: "Buddha Brands", logo: "/assets/images/buddha-brands-logo.svg" }, // Placeholder
+  },
+  { name: "IBM", logo: "/assets/images/ibm-logo.svg" },
+  { name: "Buddha Brands", logo: "/assets/images/buddha-brands-logo.svg" },
   { name: "Absolute Dogs", logo: "/assets/images/absolute-dogs-logo.png" },
   { name: "Mitsui Plastics", logo: "/assets/images/mitsui-plastics-logo.png" },
-  { name: "Puma Energy", logo: "/assets/images/puma-energy-logo.svg" }, // Placeholder
+  { name: "Puma Energy", logo: "/assets/images/puma-logo.svg" },
   { name: "Xerox", logo: "/assets/images/xerox-logo.png" },
   {
     name: "Enchant Christmas",
-    logo: "/assets/images/enchant-christmas-logo.svg",
-  }, // Placeholder
-  { name: "Grenco Science", logo: "/assets/images/grenco-science-logo.png" },
+    logo: "/assets/images/enchant-logo.svg",
+  },
+  { name: "Grenco Science", logo: "/assets/images/grenco-logo.png" },
 ];
 
 const ClientsSection = () => {
@@ -59,31 +59,17 @@ const ClientsSection = () => {
           {clients.map((client) => (
             <div
               key={client.name}
-              className="bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col items-center justify-center aspect-[3/2] transition-all duration-300 hover:bg-white/10"
+              className="bg-white/5 border border-white/10 rounded-lg p-6 flex flex-col items-center justify-center aspect-[3/2] transition-all duration-300 hover:bg-white/10 group"
             >
-              {client.logo.endsWith(".svg") ? (
-                <div className="w-3/4 h-16 relative">
-                  {" "}
-                  {/* Placeholder for SVGs */}
-                  <Image
-                    src="/assets/images/placeholder-logo.svg" // You'll need a generic placeholder
-                    alt={`${client.name} logo placeholder`}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    className="opacity-70"
-                  />
-                </div>
-              ) : (
-                <div className="w-3/4 h-16 relative">
-                  <Image
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    className="opacity-70 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              )}
+              <div className="w-3/4 h-16 relative">
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="opacity-70 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
               <p className="text-white/70 text-sm mt-3 text-center">
                 {client.name}
               </p>

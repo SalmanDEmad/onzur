@@ -26,7 +26,7 @@ const redesignData = [
   {
     id: "ventura-foods",
     name: "Ventura Foods",
-    logo: "/assets/images/ventura-foods-logo-redesign.png",
+    logo: "/assets/images/ventura-foods-logo.png",
     beforeAfterImage: "/assets/images/placeholder-before-after.png", // Placeholder
   },
   {

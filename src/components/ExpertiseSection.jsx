@@ -100,10 +100,9 @@ const ExpertiseSection = () => {
                 className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-xl p-6 md:p-8 flex flex-col"
               >
                 <div className="w-16 h-16 mb-5 relative">
-                  {/* Placeholder for icon - replace src with actual icon path */}
                   <Image
-                    src="/assets/images/placeholder-icon.svg"
-                    alt={`${item.title} icon placeholder`}
+                    src={item.icon}
+                    alt={`${item.title} icon`}
                     fill
                     style={{ objectFit: "contain" }}
                     className="opacity-80"

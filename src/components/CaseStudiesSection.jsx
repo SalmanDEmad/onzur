@@ -161,12 +161,8 @@ const CaseStudiesSection = () => {
                   }`}
                 >
                   <div className="w-24 h-12 relative mr-4 flex items-center justify-start">
-                    {/* Placeholder for logo */}
                     <Image
-                      src={
-                        study.logo ||
-                        "/assets/images/placeholder-logo-white.svg"
-                      }
+                      src={study.logo}
                       alt={`${study.name} logo`}
                       width={
                         study.name === "Xerox" ||
@@ -206,12 +202,8 @@ const CaseStudiesSection = () => {
         {/* Right Panel: Content */}
         <div className="w-full lg:flex-1 p-8 md:p-16 lg:p-24 relative">
           <div className="absolute top-10 right-10 opacity-5 w-1/2 max-w-xs">
-            {/* Placeholder for dark logo */}
             <Image
-              src={
-                activeStudy.logoDark ||
-                "/assets/images/placeholder-logo-dark.svg"
-              }
+              src={activeStudy.logoDark}
               alt={`${activeStudy.name} dark logo`}
               width={200}
               height={200}
@@ -229,12 +221,8 @@ const CaseStudiesSection = () => {
 
             <div className="flex items-center mb-8">
               <div className="w-24 h-24 relative mr-6 flex items-center justify-center">
-                {/* Placeholder for dark logo, larger */}
                 <Image
-                  src={
-                    activeStudy.logoDark ||
-                    "/assets/images/placeholder-logo-dark.svg"
-                  }
+                  src={activeStudy.logoDark}
                   alt={`${activeStudy.name} dark logo`}
                   width={80}
                   height={80}
