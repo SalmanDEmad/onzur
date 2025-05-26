@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,11 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.className} font-roboto`}>{children}</body>
+      <body className={`${inter.className} font-roboto bg-[#00042A]`}>
+        <Navbar />
+        <main className="pt-[82px]">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
