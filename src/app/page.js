@@ -12,6 +12,8 @@ import PricingInfoSection from "../components/PricingInfoSection.jsx";
 import FeaturedRedesignsSection from "../components/FeaturedRedesignsSection.jsx";
 import FaqSection from "../components/FaqSection.jsx";
 import StayAheadSection from "../components/StayAheadSection.jsx";
+import WhyChooseUsSection from "../components/WhyChooseUsSection.jsx";
+import MoreFaqsSection from "../components/MoreFaqsSection.jsx";
 
 export default function Home() {
   return (
@@ -29,6 +31,8 @@ export default function Home() {
       <FeaturedRedesignsSection />
       <FaqSection />
       <StayAheadSection />
+      <WhyChooseUsSection />
+      <MoreFaqsSection />
     </main>
   );
 }
