@@ -3,127 +3,77 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { commonStyles } from "../lib/design-system";
 
 const caseStudiesData = [
   {
-    id: "hp",
-    name: "HP",
-    logo: "/assets/images/hp-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/placeholder-logo-dark.svg", // Using generic dark placeholder
-    bgColor: "#04E4FF", // Approx color from active tab
-    title: "From Concept To Market:",
-    subtitle: "We Engineer Projects For Superior Performance",
-    mainDescription: "HP needed to implement a global rewards program.",
-    achievementIntro: "In 6 months, we achieved:",
-    metric1: {
-      value: "40",
-      unit: "K",
-      description: "active members inside the program",
-    },
-    metric2: {
-      value: "56",
-      unit: "%",
-      description: "of customers are repeat customers",
-    },
-    ctaLink: "/case-studies/hp",
-    ctaText: "Read HP Case Study",
-  },
-  {
-    id: "xerox",
-    name: "Xerox",
-    logo: "/assets/images/xerox-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/xerox-logo-dark.svg", // Placeholder - assuming a dark version exists
-    bgColor: "#04E4FF", // Default, will be overridden by active tab style
-    title: "Driving Growth for Xerox:",
-    subtitle: "Strategic Web Solutions for a Tech Giant",
-    mainDescription:
-      "Xerox aimed to enhance their online engagement and lead generation.",
-    achievementIntro: "Our campaign resulted in:",
+    id: "spice-fusion",
+    name: "Spice Fusion",
+    logo: "/assets/images/spice-fusion-logo.svg", // Placeholder
+    logoDark: "/assets/images/spice-fusion-logo-dark.svg", // Placeholder
+    bgColor: "#04E4FF",
+    title: "Spice Fusion Restaurant:",
+    subtitle: "Transforming Food Delivery with Professional Photography",
+    mainDescription: "Spice Fusion needed professional menu photography and integration with delivery platforms.",
+    achievementIntro: "Our solution delivered:",
     metric1: {
       value: "30",
       unit: "%",
-      description: "increase in qualified leads",
+      description: "increase in online orders",
     },
     metric2: {
-      value: "25",
+      value: "100",
       unit: "%",
-      description: "growth in organic traffic",
+      description: "integration with Talabat & Snoonu",
     },
-    ctaLink: "/case-studies/xerox",
-    ctaText: "Read Xerox Case Study",
-  },
-  // Add other case studies here, using placeholders for logos
-  {
-    id: "doforms",
-    name: "doForms",
-    logo: "/assets/images/doforms-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/doforms-logo-dark.svg", // Placeholder
-    bgColor: "#04E4FF",
-    title: "Mobile Forms Transformation:",
-    subtitle: "Empowering Field Teams with doForms",
-    mainDescription:
-      "doForms required a platform to showcase their mobile form solutions effectively.",
-    achievementIntro: "We delivered:",
-    metric1: {
-      value: "200",
-      unit: "%",
-      description: "uplift in demo requests",
-    },
-    metric2: {
-      value: "70",
-      unit: "%",
-      description: "reduction in bounce rate",
-    },
-    ctaLink: "/case-studies/doforms",
-    ctaText: "Read doForms Case Study",
+    ctaLink: "/case-studies/spice-fusion",
+    ctaText: "Read Spice Fusion Case Study",
   },
   {
-    id: "fieldedge",
-    name: "FieldEdge",
-    logo: "/assets/images/fieldedge-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/fieldedge-logo-dark.svg", // Placeholder
+    id: "megabyte-store",
+    name: "Megabyte Store",
+    logo: "/assets/images/megabyte-logo.svg", // Placeholder
+    logoDark: "/assets/images/megabyte-logo-dark.svg", // Placeholder
     bgColor: "#04E4FF",
-    title: "Streamlining Field Services:",
-    subtitle: "Digital Overhaul for FieldEdge",
-    mainDescription:
-      "FieldEdge sought to improve their digital presence and user journey.",
-    achievementIntro: "Key outcomes:",
+    title: "Megabyte Store:",
+    subtitle: "From Low Sales to Viral Success",
+    mainDescription: "Megabyte Store had low sales and weak online presence. We implemented a comprehensive Meta & TikTok advertising strategy.",
+    achievementIntro: "Results achieved:",
     metric1: {
-      value: "45",
-      unit: "%",
-      description: "conversion rate improvement",
+      value: "8",
+      unit: "M",
+      description: "TikTok views in 3-4 months",
     },
     metric2: {
-      value: "15K",
-      unit: "+",
-      description: "new monthly active users",
+      value: "10-12",
+      unit: "",
+      description: "daily product sales",
     },
-    ctaLink: "/case-studies/fieldedge",
-    ctaText: "Read FieldEdge Case Study",
+    ctaLink: "/case-studies/megabyte-store",
+    ctaText: "Read Megabyte Case Study",
   },
   {
-    id: "mcds",
-    name: "MCDS",
-    logo: "/assets/images/mcds-logo-case-study.svg", // Placeholder
-    logoDark: "/assets/images/mcds-logo-dark.svg", // Placeholder
+    id: "islamic-scholars",
+    name: "Islamic Scholars",
+    logo: "/assets/images/islamic-scholars-logo.svg", // Placeholder
+    logoDark: "/assets/images/islamic-scholars-logo-dark.svg", // Placeholder
     bgColor: "#04E4FF",
-    title: "Educational Excellence Online:",
-    subtitle: "Crafting a New Web Experience for MCDS",
-    mainDescription:
-      "Miami Country Day School needed a website that reflected its prestige.",
-    achievementIntro: "The new site led to:",
+    title: "Islamic Scholars Project:",
+    subtitle: "Amplifying Islamic Knowledge Through Digital Storytelling",
+    mainDescription: "Our mission was to amplify Islamic knowledge through strategic TikTok content creation for Dr. Shaybani and other scholars.",
+    achievementIntro: "Impact achieved:",
     metric1: {
-      value: "60",
-      unit: "%",
-      description: "increase in parent engagement",
+      value: "80",
+      unit: "K",
+      description: "followers for Dr. Shaybani",
     },
     metric2: {
-      value: "90",
-      unit: "%",
-      description: "positive feedback from community",
+      value: "4",
+      unit: "M",
+      description: "views in 2 months",
     },
-    ctaLink: "/case-studies/mcds",
-    ctaText: "Read MCDS Case Study",
+    ctaLink: "/case-studies/islamic-scholars",
+    ctaText: "Read Islamic Scholars Case Study",
   },
 ];
 
@@ -146,8 +96,8 @@ const CaseStudiesSection = () => {
             className="opacity-60"
           />
           <div className="relative z-10">
-            <h2 className="text-6xl md:text-7xl font-bold mb-12 text-shadow-custom">
-              Case <span className="text-[#131848]">Studies</span>
+            <h2 className={`${commonStyles.heading1} mb-12 text-shadow-lg`}>
+              Case <span className="text-[#04E4FF]">Studies</span>
             </h2>
             <div className="space-y-1">
               {caseStudiesData.map((study) => (
@@ -212,10 +162,10 @@ const CaseStudiesSection = () => {
           </div>
 
           <div className="max-w-2xl relative z-10">
-            <h3 className="text-3xl md:text-4xl font-light mb-2">
+            <h3 className={`${commonStyles.heading2} font-light mb-2 text-[#1B2C5C]`}>
               {activeStudy.title}
             </h3>
-            <h4 className="text-3xl md:text-4xl font-light mb-10">
+            <h4 className={`${commonStyles.heading3} font-light mb-10 text-[#1B2C5C]/80`}>
               {activeStudy.subtitle}
             </h4>
 
@@ -232,10 +182,10 @@ const CaseStudiesSection = () => {
               <hr className="flex-grow border-t-2 border-[#04E4FF]" />
             </div>
 
-            <p className="text-xl md:text-2xl font-normal mb-6">
+            <p className={`${commonStyles.bodyLarge} font-normal mb-6 text-[#1B2C5C]`}>
               {activeStudy.mainDescription}
             </p>
-            <p className="text-xl md:text-2xl font-bold mb-10">
+            <p className={`${commonStyles.bodyLarge} font-bold mb-10 text-[#1B2C5C]`}>
               {activeStudy.achievementIntro}
             </p>
 
@@ -267,34 +217,41 @@ const CaseStudiesSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={activeStudy.ctaLink}
-                className="inline-flex items-center justify-center bg-white/10 text-[#3B7BCE] text-lg font-bold uppercase py-4 px-8 rounded-md border-2 border-[#3B7BCE] hover:bg-[#3B7BCE]/10 transition-colors group relative shadow-md hover:shadow-lg"
+                className={`${commonStyles.buttonSecondary} group`}
               >
-                <span className="absolute inset-[-3px] border-4 border-[#3B7BCE]/60 rounded-lg blur-[4px] opacity-60 group-hover:opacity-80 transition-opacity"></span>
                 <span className="relative">{activeStudy.ctaText}</span>
-                <div className="relative w-3 h-4 ml-3">
-                  {/* Placeholder for arrow icon */}
-                  <Image
-                    src="/assets/images/arrow-right-blue.svg"
-                    alt="Arrow right"
-                    fill
-                    style={{ objectFit: "contain" }}
+                <svg
+                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
                   />
-                </div>
+                </svg>
               </Link>
               <Link
                 href="/request-a-quote"
-                className="inline-flex items-center justify-center bg-[#3B7BCE] text-white text-lg font-bold uppercase py-4 px-8 rounded-md border-2 border-[#3B7BCE] hover:bg-[#3068b0] transition-colors group relative shadow-md hover:shadow-lg"
+                className={`${commonStyles.buttonPrimary} group`}
               >
                 <span className="relative">Get a custom plan</span>
-                <div className="relative w-3 h-4 ml-3">
-                  {/* Placeholder for arrow icon, should be white */}
-                  <Image
-                    src="/assets/images/arrow-right-white.svg"
-                    alt="Arrow right"
-                    fill
-                    style={{ objectFit: "contain" }}
+                <svg
+                  className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
                   />
-                </div>
+                </svg>
               </Link>
             </div>
           </div>

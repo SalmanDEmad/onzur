@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { commonStyles } from "../lib/design-system";
 
 const HeroSection = () => {
   const clientLogos = [
@@ -68,9 +69,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="bg-[#00042A] text-white overflow-hidden">
+    <section className={`${commonStyles.sectionDark} text-white overflow-hidden`}>
       {/* Main Hero Content */}
-      <div className="relative container mx-auto px-4 max-w-7xl flex flex-col items-center justify-center min-h-[535px] pt-20 pb-10 z-10">
+      <div className={`relative ${commonStyles.container} flex flex-col items-center justify-center min-h-[535px] pt-20 pb-10 z-10`}>
         {/* Background Images - positioned absolutely within the relative parent */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           {backgroundImages.map((img, index) => (
@@ -97,34 +98,34 @@ const HeroSection = () => {
         </div>
 
         <div className="relative z-20 flex flex-col items-start text-left w-full max-w-3xl">
-          <p className="text-[26px] font-medium uppercase tracking-[10%] mb-4">
-            Premium Web Design Agency
+          <p className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]">
+            Onzur Media Studio
           </p>
-          <h1 className="text-[70px] sm:text-[80px] md:text-[100px] font-bold uppercase leading-[0.9] mb-8">
-            We Grow
+          <h1 className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}>
+            Creative
             <br />
-            Brands Online
+            Storytelling
           </h1>
-          <p className="text-xl sm:text-2xl md:text-[24px] font-normal leading-normal mb-10 max-w-xl">
-            Custom Websites, Branding & Digital Marketing
+          <p className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}>
+            Video Production, Editing & Digital Content for Businesses, Scholars & Organizations
           </p>
 
-          <button className="relative group bg-transparent text-white text-lg sm:text-xl font-bold uppercase tracking-wider py-4 px-8 rounded-full overflow-hidden border-2 border-transparent hover:border-white/0 transition-all duration-300">
-            <span className="absolute inset-[-1px] -z-10">
-              <span className="absolute inset-0 bg-gradient-to-r from-[#00B9FF] to-[#9536E5] blur-[9px] rounded-full" />
-              <span className="absolute inset-0 bg-white rounded-full" />
-            </span>
+          <button className={`${commonStyles.buttonPrimary} uppercase tracking-wider group`}>
             <span className="relative z-10 flex items-center justify-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00B9FF] to-[#9536E5] group-hover:text-white transition-colors duration-300">
-                Request a Quote
-              </span>
-              <Image
-                src="/assets/images/request-quote-arrow.svg"
-                alt="Arrow"
-                width={15}
-                height={16}
-                className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
-              />
+              Request a Quote
+              <svg
+                className="ml-2 w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </span>
           </button>
 

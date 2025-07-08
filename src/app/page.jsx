@@ -2,9 +2,11 @@ import Image from "next/image";
 import FeaturedProjects from "../components/FeaturedProjects";
 import CreativeAgencySection from "../components/CreativeAgencySection.jsx";
 import HeroSection from "../components/HeroSection.jsx";
+import TeamSection from "../components/TeamSection.jsx";
 import ClientsSection from "../components/ClientsSection.jsx";
 import ExpertiseSection from "../components/ExpertiseSection.jsx";
 import CaseStudiesSection from "../components/CaseStudiesSection.jsx";
+import PortfolioSection from "../components/PortfolioSection.jsx";
 import TestimonialsSection from "../components/TestimonialsSection.jsx";
 import CmsPlatformsSection from "../components/CmsPlatformsSection.jsx";
 import DesignProcessSection from "../components/DesignProcessSection.jsx";
@@ -23,23 +25,11 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <CreativeAgencySection />
-      <FeaturedProjects />
-      <ClientsSection />
+      <TeamSection />
       <ExpertiseSection />
       <CaseStudiesSection />
+      <PortfolioSection />
       <TestimonialsSection />
-      <CmsPlatformsSection />
-      <DesignProcessSection />
-      <PricingInfoSection />
-      <FeaturedRedesignsSection />
-      <FaqSection />
-      <StayAheadSection />
-      <WhyChooseUsSection />
-      <LocationsSection />
-      <MoreFaqsSection />
-      <AwardsSection />
-      <NewsletterSignupSection />
       <ContactUsSection />
     </main>
   );

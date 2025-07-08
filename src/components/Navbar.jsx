@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { commonStyles } from "../lib/design-system";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,12 +12,31 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/our-work", label: "Our Work" },
-    { href: "/about-us", label: "About Us" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact-us", label: "Contact Us" },
+    { href: "#services", label: "Services", isAnchor: true },
+    { href: "#team", label: "Our Team", isAnchor: true },
+    { href: "#portfolio", label: "Portfolio", isAnchor: true },
+    { href: "#testimonials", label: "Testimonials", isAnchor: true },
+    { href: "#contact", label: "Contact", isAnchor: true },
   ];
+
+  const handleSmoothScroll = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.slice(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const navbarHeight = 82; // Account for fixed navbar
+        const targetPosition = targetElement.offsetTop - navbarHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
 
   return (
     <header className="bg-gradient-to-b from-black/50 to-transparent fixed top-0 left-0 right-0 z-50">
@@ -24,37 +44,35 @@ const Navbar = () => {
         <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between h-[82px]">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative w-[230px] h-[31px] md:w-[250px] md:h-[40px]">
-              <Image
-                src="/assets/images/digital-silk-logo-main.svg"
-                alt="Digital Silk Logo Main"
-                fill
-                style={{ objectFit: "contain" }}
-              />
+            <div className="relative text-white text-xl md:text-2xl font-bold">
+              <span className={commonStyles.gradientText}>Onzur</span>
+              <span className="text-white ml-2">Media Studio</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                className="text-white hover:text-gray-300 transition-colors text-lg font-medium"
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="text-white hover:text-[#04E4FF] transition-colors text-lg font-medium cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </nav>
 
           {/* Right side: CTA and Mobile Menu Button */}
           <div className="flex items-center">
-            <Link
-              href="/request-a-quote"
-              className="hidden sm:inline-block bg-white/10 text-white text-sm font-medium uppercase py-3 px-7 rounded-md border border-white hover:bg-white/20 transition-colors mr-6"
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, '#contact')}
+              className={`hidden sm:inline-block ${commonStyles.buttonSecondary} text-sm mr-6 cursor-pointer`}
             >
-              Request a Quote
-            </Link>
+              Get Started
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -92,22 +110,22 @@ const Navbar = () => {
         <div className="lg:hidden fixed inset-0 bg-[#132761]/95 backdrop-blur-md z-40 pt-[82px]">
           <nav className="flex flex-col items-center space-y-6 py-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                className="text-white hover:text-gray-300 transition-colors text-2xl font-medium"
-                onClick={toggleMobileMenu}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="text-white hover:text-[#04E4FF] transition-colors text-2xl font-medium cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
-            <Link
-              href="/request-a-quote"
-              className="bg-white/10 text-white text-xl font-medium uppercase py-4 px-10 rounded-md border border-white hover:bg-white/20 transition-colors mt-8"
-              onClick={toggleMobileMenu}
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, '#contact')}
+              className={`${commonStyles.buttonPrimary} text-xl mt-8 cursor-pointer`}
             >
-              Request a Quote
-            </Link>
+              Get Started
+            </a>
           </nav>
         </div>
       )}

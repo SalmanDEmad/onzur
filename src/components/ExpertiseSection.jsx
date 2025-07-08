@@ -1,47 +1,36 @@
 import Image from "next/image";
+import { commonStyles } from "../lib/design-system";
 
 const expertiseData = [
   {
     icon: "/assets/images/placeholder-icon.svg", // Using generic placeholder icon
-    title: "Custom Web Design",
+    title: "Web and Software Development",
     description:
-      "Each website we create is meticulously crafted to deliver a 100% unique online experience tailored to your brand. Our expert designers transform your vision into a dynamic, custom design that enhances your brand's visibility, boosts engagement, and drives conversions. With us, your website will not only stand out but also connect deeply with your audience.",
+      "Focus on presentable, scalable, and efficient solutions tailored to audience needs. We create custom websites and software that not only look professional but also perform optimally across all devices and platforms.",
   },
   {
     icon: "/assets/images/responsive-web-design-icon.svg", // Placeholder
-    title: "Responsive Web Design",
+    title: "Content Creation",
     description:
-      "We deliver seamless user experiences across all devices. Our responsive designs adapt flawlessly to any screen size, ensuring that your website not only meets but exceeds user expectations. From planning to design and development, we ensure a consistent, engaging experience for every visitor, no matter how they access your site.",
+      "Support from ideation to execution with innovative strategies. Our creative team helps bring your vision to life through compelling video production, editing, and digital storytelling that resonates with your target audience.",
   },
   {
     icon: "/assets/images/website-redesign-icon.svg", // Placeholder
-    title: "Website Redesign",
+    title: "Social Media Management",
     description:
-      "Whether you need a design refresh or a complete website overhaul, we analyze your site's pain points and opportunities to revitalize your digital presence. Our award-winning web designers will breathe new life into your website, enhancing its functionality, user experience, and aesthetic appeal. The result? A modern, dynamic site that drives increased traffic and bolsters your industry reputation.",
+      "Craft content customized to the target demographic based on cultural and behavioral cues. We understand the nuances of different platforms and create content that drives engagement and builds meaningful connections with your audience.",
   },
   {
     icon: "/assets/images/ux-ui-web-design-icon.svg", // Placeholder
-    title: "UX/UI Web Design",
+    title: "PPC and Social Media Marketing",
     description:
-      "Our award-winning designers use trusted methods and innovative approaches to create engaging visual experiences and seamless user journeys. Whether you're looking to build a custom UX/UI or redesign your current one, we'll enhance your visual identity and ensure your website is both aesthetically pleasing and highly functional.",
-  },
-  {
-    icon: "/assets/images/seo-icon.svg", // Placeholder
-    title: "Search Engine Optimization",
-    description:
-      "We offer a comprehensive range of services designed to boost your website's ranking and attract organic, non-paid Google search traffic. Our team can conduct a thorough SEO audit of your website, providing actionable insights and strategies to enhance your organic reach and visibility on search engines.",
-  },
-  {
-    icon: "/assets/images/ecommerce-design-icon.svg", // Placeholder
-    title: "eCommerce Design & Development",
-    description:
-      "We specialize in design and development for leading content management systems (CMSs) like Shopify, Magento, and WooCommerce. Our experts can help you build and scale your eCommerce website across platforms, ensuring a seamless and robust online shopping experience for your customers.",
+      "Use data-driven strategies on platforms like Instagram, Facebook, LinkedIn to deliver immediate results. Our targeted campaigns are designed to maximize ROI and drive measurable growth for your business.",
   },
 ];
 
 const ExpertiseSection = () => {
   return (
-    <section className="bg-[#00042A] py-20 relative overflow-hidden">
+    <section id="services" className={`${commonStyles.sectionDark} relative overflow-hidden`}>
       {/* Gradient Backgrounds */}
       <div
         className="absolute w-[960px] h-[960px] top-[217px] left-[-384px] bg-radial-gradient-blue opacity-20 rounded-full"
@@ -65,22 +54,21 @@ const ExpertiseSection = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+      <div className={`${commonStyles.container} relative z-10`}>
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Text Content & Image */}
           <div className="lg:col-span-5">
-            <p className="text-[#00B9FF] text-xl font-bold tracking-[0.05em] uppercase mb-3">
-              WHY DIGITAL SILK?
+            <p className="text-[#04E4FF] text-xl font-bold tracking-wider uppercase mb-6">
+              WHY ONZUR MEDIA STUDIO?
             </p>
-            <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Discover Our Expertise as a Web Design Company
+            <h2 className={`${commonStyles.heading2} text-white mb-6 leading-tight`}>
+              Our Creative Services for Your Digital Success
             </h2>
-            <p className="text-white/90 text-lg mb-10">
-              As a full-service web design agency, we handle all your digital
-              needs under one roof. Our custom web design services include
-              thorough research and planning, bespoke designs and digital
-              strategies tailored to grow your reach, drive traffic and
-              encourage engagement.
+            <p className={`${commonStyles.bodyLarge} text-white/90 mb-10 leading-relaxed`}>
+              As a creative team based in Qatar, we specialize in video production, 
+              editing, and digital storytelling for businesses, scholars, and organizations. 
+              Our comprehensive services help you connect with your audience and achieve 
+              your digital goals.
             </p>
             <div className="relative w-full aspect-[778/549] max-w-xl mx-auto lg:mx-0 mb-10 lg:mb-0">
               <Image
@@ -93,25 +81,23 @@ const ExpertiseSection = () => {
           </div>
 
           {/* Right Column: Expertise Cards */}
-          <div className="lg:col-span-7 grid md:grid-cols-2 gap-6">
+          <div className="lg:col-span-7 grid md:grid-cols-2 gap-8">
             {expertiseData.map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-xl p-6 md:p-8 flex flex-col"
+                className={commonStyles.cardGlass}
               >
-                <div className="w-16 h-16 mb-5 relative">
-                  <Image
-                    src={item.icon}
-                    alt={`${item.title} icon`}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    className="opacity-80"
-                  />
+                <div className="w-16 h-16 mb-6 relative">
+                  <div className="w-full h-full bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] rounded-lg flex items-center justify-center">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z"/>
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-white text-2xl font-bold mb-3">
+                <h3 className={`${commonStyles.heading3} text-white mb-4`}>
                   {item.title}
                 </h3>
-                <p className="text-white/80 text-base leading-relaxed">
+                <p className={`${commonStyles.bodyBase} text-white/80 leading-relaxed`}>
                   {item.description}
                 </p>
               </div>

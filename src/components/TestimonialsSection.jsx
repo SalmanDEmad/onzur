@@ -3,55 +3,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { commonStyles } from "../lib/design-system";
 
 const testimonials = [
   {
-    logo: "/assets/images/growpath-logo-testimonial.svg",
-    company: "GrowPath",
-    name: "Tara", // Placeholder name
-    title: "Chief Marketing Officer", // Placeholder title
+    logo: "/assets/images/spice-fusion-logo.svg",
+    company: "Spice Fusion",
+    name: "Aslam KA",
+    title: "Owner", 
     quote:
-      "Digital Silk is a first class agency. They are knowledgeable, responsive, and a pleasure to work with. They helped us increase traffic by over 200% and attract more qualified traffic and leads. I highly recommend them!",
+      "Onzur helped us integrate with Talabat & Snoonu through amazing visual content. The professional food photography transformed our online presence and significantly increased our orders.",
   },
   {
-    logo: "/assets/images/matrix-logo-placeholder.svg", // Combined placeholder for matrix vectors
-    company: "Matrix",
-    name: "John Doe", // Placeholder
-    title: "CEO", // Placeholder
+    logo: "/assets/images/megabyte-logo.svg",
+    company: "Megabyte Store",
+    name: "Mohammed Raihan",
+    title: "Owner",
     quote:
-      "Working with Digital Silk has been a game changer for our business. Their strategic approach to web design and digital marketing is unparalleled. We've seen significant growth since partnering with them.",
+      "The results exceeded all expectations - 8M+ TikTok views, 40-50 daily leads, and dramatically improved sales. Onzur's strategic approach to social media marketing is truly exceptional.",
   },
   {
-    logo: "/assets/images/ngf-logo-placeholder.svg", // Combined placeholder for NGF vectors
-    company: "National Golf Foundation",
-    name: "Ted Eleftheriou, PGA",
-    title: "Vice President at National Golf Foundation",
+    logo: "/assets/images/islamic-scholars-logo.svg",
+    company: "Islamic Education",
+    name: "Dr. Shaybani",
+    title: "Islamic Scholar",
     quote:
-      "The team at Digital Silk is professional, creative, and results-driven. They took the time to understand our needs and delivered a website that exceeded our expectations. Highly recommended!",
-  },
-  {
-    logo: "/assets/images/smartsoft-logo-placeholder.svg", // Combined placeholder
-    company: "Smart Software Solutions",
-    name: "Ivana Kljajic-Peric",
-    title: "Software Tester at Smart Software Solutions Company",
-    quote:
-      "Digital Silk's expertise in UI/UX and web development is evident in the quality of their work. They are a reliable partner and a valuable asset to any project.",
-  },
-  {
-    logo: "/assets/images/promptcare-logo-placeholder.svg", // Combined placeholder
-    company: "PromptCare",
-    name: "Holly Rohleder",
-    title: "VP of Marketing at PromptCare",
-    quote:
-      "We are thrilled with the new website Digital Silk created for us. It's not only visually stunning but also highly functional and user-friendly. Their team was a pleasure to collaborate with.",
-  },
-  {
-    logo: "/assets/images/benigro-logo-main.svg", // Direct use if simple enough
-    company: "BeniGro",
-    name: "Jane Smith", // Placeholder
-    title: "Marketing Director", // Placeholder
-    quote:
-      "The results speak for themselves. Digital Silk has helped us achieve significant improvements in our online presence and lead generation. Their team is top-notch.",
+      "In just 2 months, we gained 80K followers and achieved 4M views. Onzur's understanding of digital storytelling for Islamic content is remarkable and highly effective.",
   },
 ];
 
@@ -80,7 +57,7 @@ const TestimonialsSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="relative bg-[#00042A] py-16 text-white overflow-hidden">
+    <section id="testimonials" className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}>
       <div className="absolute inset-0 opacity-30">
         <Image
           src="/assets/images/testimonial-bg-gradient.svg"
@@ -90,7 +67,7 @@ const TestimonialsSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center">
+      <div className={`${commonStyles.container} relative z-10 flex flex-col lg:flex-row items-center`}>
         {/* Left side: Testimonial Slider */}
         <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
           <div className="relative min-h-[300px] sm:min-h-[350px] flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
@@ -121,12 +98,12 @@ const TestimonialsSection = () => {
             </button>
 
             <div className="w-full transition-opacity duration-500 ease-in-out">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#18CCFC] mb-6 uppercase tracking-wider">
+              <h2 className={`${commonStyles.heading3} text-[#04E4FF] mb-6 uppercase tracking-wider`}>
                 What our clients LOVE about our work
               </h2>
               <blockquote className="mb-6">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight sm:leading-tight md:leading-tight mb-8">
-                  {currentTestimonial.quote}
+                <p className={`${commonStyles.heading3} font-bold leading-tight mb-8`}>
+                  "{currentTestimonial.quote}"
                 </p>
               </blockquote>
               <div className="flex items-center justify-center lg:justify-start">

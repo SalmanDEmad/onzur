@@ -1,103 +1,73 @@
 import Link from "next/link";
 import Image from "next/image";
+import { commonStyles } from "../lib/design-system";
 
 const footerLinks = [
   {
-    title: "Main Services",
+    title: "Our Services",
     links: [
-      { href: "/services/custom-web-design", text: "Custom Web Design" },
-      { href: "/services/branding", text: "Branding Services" },
-      { href: "/services/ecommerce-design", text: "eCommerce Design" },
-      {
-        href: "/services/shopify-website-design",
-        text: "Shopify Website Design",
-      },
-      { href: "/services/wordpress-web-design", text: "WordPress Web Design" },
-      { href: "/services/digital-marketing", text: "Digital Marketing" },
+      { href: "/services/video-production", text: "Video Production" },
+      { href: "/services/content-creation", text: "Content Creation" },
+      { href: "/services/social-media-management", text: "Social Media Management" },
+      { href: "/services/ppc-marketing", text: "PPC Marketing" },
+      { href: "/services/web-development", text: "Web Development" },
     ],
   },
   {
-    title: "Apps & Development",
+    title: "Portfolio",
     links: [
-      {
-        href: "/tools/website-cost-calculator",
-        text: "Website Cost Calculator",
-      },
-      {
-        href: "/tools/conversion-rate-calculator",
-        text: "Conversion Rate Calculator",
-      },
-      {
-        href: "/services/custom-web-development",
-        text: "Custom Web Development",
-      },
-      { href: "/services/magento-development", text: "Magento Development" },
-      {
-        href: "/services/ecommerce-development",
-        text: "eCommerce Development",
-      },
-      {
-        href: "/services/woocommerce-development",
-        text: "WooCommerce Development",
-      },
+      { href: "/portfolio/islamic-scholars", text: "Islamic Scholars" },
+      { href: "/portfolio/spice-fusion", text: "Spice Fusion" },
+      { href: "/portfolio/megabyte-store", text: "Megabyte Store" },
+      { href: "https://daanishrayn.my.canva.site/portfolio-web", text: "Daanish Portfolio" },
+      { href: "https://vt.tiktok.com/ZShBBeJnj/", text: "Ayham Portfolio" },
     ],
   },
   {
-    title: "Location Services",
+    title: "Collaborations",
     links: [
-      { href: "/locations/nyc", text: "NYC Web Design" },
-      { href: "/locations/california", text: "California Web Design" },
-      { href: "/locations/miami", text: "Miami Web Design" },
-      { href: "/locations/los-angeles", text: "Los Angeles Web Design" },
-      { href: "/locations/denver", text: "Denver Web Design" },
-      { href: "/locations/san-francisco", text: "San Francisco Web Design" },
+      { href: "https://www.instagram.com/sharia_qusrb", text: "Qatar University" },
+      { href: "https://www.instagram.com/qsn.mazad", text: "QSN Mazad" },
+      { href: "https://mgbyt.com", text: "Megabyte Store" },
+      { href: "https://www.tiktok.com/@mgbytcom", text: "Megabyte TikTok" },
     ],
   },
   {
     title: "Company",
     links: [
       { href: "/about", text: "About Us" },
+      { href: "/team", text: "Our Team" },
       { href: "/case-studies", text: "Case Studies" },
-      { href: "/digital-trends", text: "Digital Trends" },
-      { href: "/top-companies", text: "Top Companies" },
-      { href: "/reviews", text: "Reviews" },
-      { href: "/sitemap", text: "Sitemap" },
-      { href: "/locations", text: "Locations" },
       { href: "/contact", text: "Contact Us" },
     ],
   },
 ];
 
-const locations = [
+const contactInfo = [
   {
-    short: "MI",
-    city: "Miami",
-    address: "17975 Collins Avenue\nSunny Isles Beach, FL 33160",
+    type: "location",
+    label: "Based in Qatar",
+    info: "Doha, Qatar",
   },
   {
-    short: "NY",
-    city: "New York",
-    address: "18 West 18th Street\nNew York, NY 10011",
+    type: "phone",
+    label: "Phone (Calls)",
+    info: "+974 5999 0137",
   },
   {
-    short: "CH",
-    city: "Chicago",
-    address: "625 W Adams St\nChicago, IL 60661",
-  },
-  {
-    short: "CA",
-    city: "California",
-    address: "600 B St,\nSan Diego, CA 92101",
+    type: "whatsapp",
+    label: "WhatsApp",
+    info: "+974 7750 7972",
   },
 ];
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#0570B8] to-[#00B9FF] text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
+    <footer className={`${commonStyles.gradientPrimary} text-white pt-16 pb-8`}>
+      <div className={commonStyles.container}>
         <div className="mb-12">
-          <h2 className="text-6xl md:text-7xl font-bold mb-12 max-w-2xl">
-            Let's Grow Your Brand
+          <h2 className={`${commonStyles.heading1} mb-12 max-w-2xl`}>
+            Let's Create Your Story
           </h2>
         </div>
 
@@ -123,19 +93,19 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-[#30AFFF] pt-12 mb-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
-            {locations.map((loc) => (
-              <div key={loc.short} className="flex items-start space-x-3">
-                <span className="text-7xl font-black opacity-15 leading-none mt-1">
-                  {loc.short}
-                </span>
-                <div>
-                  <p className="font-semibold text-sm whitespace-pre-line">
-                    {loc.city}
-                    {"\n"}
-                    {loc.address}
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+            {contactInfo.map((contact, index) => (
+              <div key={index} className="text-center">
+                <h3 className="font-bold text-lg mb-2">{contact.label}</h3>
+                <p className="text-base">
+                  {contact.type === 'phone' || contact.type === 'whatsapp' ? (
+                    <a href={`tel:${contact.info}`} className="hover:opacity-80 transition-opacity">
+                      {contact.info}
+                    </a>
+                  ) : (
+                    contact.info
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -147,24 +117,12 @@ const Footer = () => {
               href="/"
               className="flex items-center hover:opacity-80 transition-opacity"
             >
-              <Image
-                src="/assets/images/digital-silk-logo-footer.svg"
-                alt="Digital Silk Logo Part 1"
-                width={155}
-                height={30}
-                className="mr-0.5"
-              />
-              <Image
-                src="/assets/images/digital-silk-logo-footer-text.svg"
-                alt="Digital Silk Logo Part 2"
-                width={74}
-                height={30}
-              />
+              <span className="text-2xl font-bold">Onzur Media Studio</span>
             </Link>
           </div>
 
           <div className="text-sm text-center md:text-left mb-4 md:mb-0">
-            &copy;{new Date().getFullYear()} Digital Silk. All rights reserved
+            &copy;{new Date().getFullYear()} Onzur Media Studio. All rights reserved
           </div>
 
           <div className="flex items-center space-x-4 text-sm">
@@ -181,10 +139,10 @@ const Footer = () => {
               Accessibility
             </Link>
             <a
-              href="tel:8002069413"
+              href="tel:+97459990137"
               className="hover:opacity-80 transition-opacity"
             >
-              Call us at (800) 206-9413
+              Call us at +974 5999 0137
             </a>
           </div>
           <div className="hidden md:flex flex-col space-y-1.5 items-end">
