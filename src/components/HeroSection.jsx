@@ -26,12 +26,12 @@ const HeroSection = () => {
   }, []);
 
   const clientLogos = [
-    { src: "/assets/images/spice-fusion-logo.png", alt: "Spice Fusion Restaurant" },
-    { src: "/assets/images/megabyte-logo.png", alt: "Megabyte Store" },
-    { src: "/assets/images/qatar-university-logo.png", alt: "Qatar University" },
-    { src: "/assets/images/qsn-mazad-logo.png", alt: "QSN Mazad" },
-    { src: "/assets/images/dr-shaybani-logo.png", alt: "Dr. Shaybani" },
-    { src: "/assets/images/sheikh-qaradaghi-logo.png", alt: "Sheikh Ali Qaradaghi" },
+    { src: "/assets/images/ibm-logo.svg", alt: "IBM" },
+    { src: "/assets/images/sony-logo.png", alt: "Sony" },
+    { src: "/assets/images/nfl-logo.png", alt: "NFL" },
+    { src: "/assets/images/mcds-logo.png", alt: "McDonald's" },
+    { src: "/assets/images/g2-logo.png", alt: "G2" },
+    { src: "/assets/images/enchant-logo.png", alt: "Enchant" },
   ];
 
   // Duplicate for seamless scroll
@@ -156,21 +156,21 @@ const HeroSection = () => {
             className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]"
             variants={fadeInUp}
           >
-            Welcome to Onzur Media Studio
+            Qatar's Premier Digital Marketing Agency
           </motion.p>
           <motion.h1 
             className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}
             variants={fadeInUp}
           >
-            Creative Team
+            Turn Your Brand Into
             <br />
-            Based in Qatar
+            Viral Success
           </motion.h1>
           <motion.p 
             className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}
             variants={fadeInUp}
           >
-            Specializing in video production, editing, and digital storytelling for businesses, scholars, and organizations. From viral TikTok content to professional food photography.
+            We've generated 8M+ TikTok views and 40+ daily leads for our clients. From viral content creation to professional web development - we transform businesses into market leaders with proven strategies that deliver measurable results.
           </motion.p>
 
           <motion.button 
@@ -184,7 +184,7 @@ const HeroSection = () => {
             animate={pulse}
           >
             <span className="relative z-10 flex items-center justify-center">
-              Request a Quote
+              Get Your Strategy Session
               <motion.svg
                 className="ml-2 w-4 h-4"
                 fill="none"

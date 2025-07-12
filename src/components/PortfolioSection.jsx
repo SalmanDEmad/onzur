@@ -55,6 +55,27 @@ const portfolioProjects = [
     image: "/assets/contents/IMG-20250708-WA0013.jpg",
     link: "https://www.instagram.com/qsn.mazad",
   },
+  {
+    title: "Spice Fusion Restaurant",
+    description: "Professional food photography & branding",
+    metrics: "100% platform integration success",
+    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.22_322b9df6.jpg",
+    link: "#",
+  },
+  {
+    title: "Content Creation Showcase",
+    description: "Behind-the-scenes content production",
+    metrics: "Professional video & photo shoots",
+    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.23_a05b9299.jpg",
+    link: "#",
+  },
+  {
+    title: "Brand Photography",
+    description: "High-quality commercial photography",
+    metrics: "Enhanced visual storytelling",
+    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.25_9cd4cc89.jpg",
+    link: "#",
+  },
 ];
 
 const PortfolioSection = () => {

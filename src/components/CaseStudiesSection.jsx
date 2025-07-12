@@ -10,8 +10,8 @@ const caseStudiesData = [
   {
     id: "spice-fusion",
     name: "Spice Fusion Restaurant",
-    logo: "/assets/images/spice-fusion-logo.svg",
-    logoDark: "/assets/images/spice-fusion-logo-dark.svg",
+    logo: "/assets/images/placeholder-logo.svg",
+    logoDark: "/assets/images/placeholder-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Spice Fusion Restaurant:",
     subtitle: "Professional Food Photography & Platform Integration",
@@ -23,9 +23,9 @@ const caseStudiesData = [
       description: "successful integration with Talabat & Snoonu",
     },
     metric2: {
-      value: "Significant",
+      value: "Major",
       unit: "",
-      description: "improvement in online sales & customer engagement",
+      description: "boost in online sales & engagement",
     },
     ctaLink: "/case-studies/spice-fusion",
     ctaText: "View Spice Fusion Results",
@@ -33,8 +33,8 @@ const caseStudiesData = [
   {
     id: "megabyte-store",
     name: "Megabyte Store",
-    logo: "/assets/images/megabyte-logo.svg",
-    logoDark: "/assets/images/megabyte-logo-dark.svg",
+    logo: "/assets/images/placeholder-logo.svg",
+    logoDark: "/assets/images/placeholder-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Megabyte Store:",
     subtitle: "Electronics Store Digital Transformation",
@@ -56,8 +56,8 @@ const caseStudiesData = [
   {
     id: "islamic-scholars",
     name: "Islamic Scholars Project",
-    logo: "/assets/images/islamic-scholars-logo.svg",
-    logoDark: "/assets/images/islamic-scholars-logo-dark.svg",
+    logo: "/assets/images/placeholder-logo.svg",
+    logoDark: "/assets/images/placeholder-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Islamic Scholars Project:",
     subtitle: "Expanding Reach for Islamic Education",
@@ -100,7 +100,7 @@ const CaseStudiesSection = () => {
         {/* Left Panel: Tabs & Title */}
         <div className="w-full lg:w-[672px] bg-[#131848] relative text-white p-8 md:p-16">
           <Image
-            src="/assets/images/case-studies-bg.png"
+            src="/assets/images/hero-bg-1.png"
             alt="Case Studies Background"
             fill
             style={{ objectFit: "cover" }}
@@ -211,26 +211,30 @@ const CaseStudiesSection = () => {
               {activeStudy.achievementIntro}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-              <div>
-                <span className="text-7xl md:text-8xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF]">
-                  {activeStudy.metric1.value}
-                </span>
-                <span className="text-4xl md:text-5xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF] ml-1">
-                  {activeStudy.metric1.unit}
-                </span>
-                <p className="text-lg mt-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              <div className="flex flex-col">
+                <div className="flex items-baseline mb-2">
+                  <span className="text-6xl md:text-7xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF]">
+                    {activeStudy.metric1.value}
+                  </span>
+                  <span className="text-3xl md:text-4xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF] ml-1">
+                    {activeStudy.metric1.unit}
+                  </span>
+                </div>
+                <p className="text-base md:text-lg leading-relaxed">
                   {activeStudy.metric1.description}
                 </p>
               </div>
-              <div>
-                <span className="text-7xl md:text-8xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF]">
-                  {activeStudy.metric2.value}
-                </span>
-                <span className="text-4xl md:text-5xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF] ml-1">
-                  {activeStudy.metric2.unit}
-                </span>
-                <p className="text-lg mt-2">
+              <div className="flex flex-col">
+                <div className="flex items-baseline mb-2">
+                  <span className="text-6xl md:text-7xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF]">
+                    {activeStudy.metric2.value}
+                  </span>
+                  <span className="text-3xl md:text-4xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-[#04E4FF] to-[#00B9FF] ml-1">
+                    {activeStudy.metric2.unit}
+                  </span>
+                </div>
+                <p className="text-base md:text-lg leading-relaxed">
                   {activeStudy.metric2.description}
                 </p>
               </div>
@@ -260,7 +264,7 @@ const CaseStudiesSection = () => {
                 href="/request-a-quote"
                 className={`${commonStyles.buttonPrimary} group`}
               >
-                <span className="relative">Get a custom plan</span>
+                <span className="relative">Start Your Success Story</span>
                 <svg
                   className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"

@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
       <body className={`font-roboto bg-[#00042A] antialiased`}>
         <Navbar />
-        <main className="pt-[82px] overflow-x-hidden">{children}</main>
+        <main className="pt-[82px]">{children}</main>
         <Footer />
       </body>
     </html>

@@ -99,7 +99,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`${commonStyles.gradientPrimary} text-white pt-16 pb-8`}>
+    <footer className={`${commonStyles.sectionDark} text-white pt-16 pb-8`}>
       <div className={commonStyles.container}>
         <motion.div 
           className="mb-12"

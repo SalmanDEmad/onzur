@@ -5,27 +5,27 @@ import { motion } from "motion/react"
 const expertiseData = [
   {
     icon: "/assets/images/web-development-icon.svg",
-    title: "Web and Software Development",
+    title: "Web & Software Development",
     description:
-      "Help your website and application bring you your ideal audience or client. We focus on building presentable, efficient and scalable software solutions that appeals to your needs to help you reach your ideal target audience in order to further your brand.",
+      "Transform your online presence into a lead-generating machine. Our custom websites and applications don't just look stunning—they convert visitors into customers and scale with your business growth.",
   },
   {
     icon: "/assets/images/content-creation-icon.svg",
-    title: "Content Creation",
+    title: "Viral Content Creation",
     description:
-      "With our team, you will be able to reach millions of audience in no time at all. We offer to help you in your content creation journey from scratch and equip you with all out of the box and innovative industry crushing techniques.",
+      "From zero to millions of views—we've done it before, we'll do it for you. Our content strategies have generated 8M+ TikTok views and built massive followings for brands across Qatar.",
   },
   {
     icon: "/assets/images/social-media-icon.svg",
-    title: "Social Media Management",
+    title: "Social Media Domination",
     description:
-      "We use our specialty in organic content creation to take your brand awareness to heights never seen before. We specialize in creating content that is specifically crafted to appeal to your target demographic depending on their age, interest, hobbies, sense of humor, pop culture and more.",
+      "Stop posting into the void. Our organic content strategies turn your social media into a powerful customer acquisition engine that works 24/7 to grow your brand and drive sales.",
   },
   {
     icon: "/assets/images/ppc-marketing-icon.svg",
-    title: "PPC and Social Media Marketing",
+    title: "High-ROI Paid Advertising",
     description:
-      "We aim to bring you immediate traffic and results through targeted ads on various social media platforms. Our data driven strategies ensure a high ROI by focusing on the right audience and ad placements. We help you build a strong presence through these targeted ads on Instagram, Facebook, LinkedIn and MORE.",
+      "Get immediate results with ads that actually work. Our data-driven campaigns on Instagram, Facebook, LinkedIn, and TikTok consistently deliver 40+ daily leads and maximize your advertising spend.",
   },
 ];
 
@@ -69,17 +69,15 @@ const ExpertiseSection = () => {
               WHY ONZUR MEDIA STUDIO?
             </p>
             <h2 className={`${commonStyles.heading2} text-white mb-6 leading-tight`}>
-              Main Services with Descriptions
+              Services That Drive Real Growth
             </h2>
             <p className={`${commonStyles.bodyLarge} text-white/90 mb-10 leading-relaxed`}>
-              As a creative team based in Qatar, we specialize in video production,
-              editing, and digital storytelling for businesses, scholars, and organizations.
-              From viral TikTok content to professional web development - we deliver results.
+              Stop struggling with ineffective marketing. Our proven strategies have helped businesses across Qatar achieve viral success, generate quality leads, and dominate their markets. Ready to be next?
             </p>
             <div className="relative w-full aspect-[778/549] max-w-xl mx-auto lg:mx-0 mb-10 lg:mb-0">
               <Image
-                src="/assets/images/explore-web-design-services.png"
-                alt="Explore Our Web Design Services"
+                src="/assets/images/trophy-image.png"
+                alt="Our Services Excellence"
                 fill
                 style={{ objectFit: "contain" }}
               />

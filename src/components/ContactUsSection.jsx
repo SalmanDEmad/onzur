@@ -51,7 +51,7 @@ export default function ContactUsSection() {
     <section id="contact" className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}>
       <div className="absolute inset-0 opacity-50">
         <Image
-          src="/assets/images/contact-section-bg.png"
+          src="/assets/images/hero-bg-2.png"
           alt="Abstract background design"
           layout="fill"
           objectFit="cover"
@@ -64,15 +64,15 @@ export default function ContactUsSection() {
           {/* Left Column */}
           <div className="lg:w-5/12 flex flex-col justify-center text-center lg:text-left py-8">
             <p className={`${commonStyles.bodyLarge} uppercase tracking-wider font-semibold text-[#04E4FF] mb-6`}>
-              Contact Onzur Media Studio
+              Ready to Scale Your Business?
             </p>
             <h2 className={`${commonStyles.heading1} mb-8 leading-tight`}>
               <span className="text-[#04E4FF] [text-shadow:_0_0_10px_theme(colors.cyan.400)]">
-                Let's Create
+                Let's Discuss
               </span>
               <br />
               <span className="text-[#04E4FF] [text-shadow:_0_0_10px_theme(colors.cyan.400)]">
-                Together
+                Your Project
               </span>
             </h2>
             <div className="w-12 h-0.5 bg-[#01AFE9] mb-6 mx-auto lg:mx-0"></div>
@@ -104,7 +104,7 @@ export default function ContactUsSection() {
           {/* Right Column - Form */}
           <div className={`lg:w-7/12 ${commonStyles.cardGlass}`}>
             <h3 className={`${commonStyles.heading2} mb-8 text-center lg:text-left text-white`}>
-              Ready to Start Your Project?
+              Tell Us About Your Goals
             </h3>
             <form action={formAction} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -151,7 +151,7 @@ export default function ContactUsSection() {
                   className={`${commonStyles.buttonPrimary} group uppercase tracking-wider`}
                 >
                   <span className="relative z-10 uppercase tracking-wider">
-                    Submit
+                    Start Your Project
                   </span>
                   <ChevronRight
                     size={16}

@@ -10,18 +10,11 @@ const PlayActionButton = ({ onClick }) => {
     >
       <div className="relative w-[100px] h-[100px] mr-5 shrink-0">
         <Image
-          src="/assets/images/play-icon-normal.png"
+          src="/assets/images/play-button.png"
           alt="Play button"
           layout="fill"
           objectFit="contain"
-          className="transition-opacity duration-300 ease-in-out group-hover:opacity-0"
-        />
-        <Image
-          src="/assets/images/play-icon-hover.png"
-          alt="Play button hover state"
-          layout="fill"
-          objectFit="contain"
-          className="absolute inset-0 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100"
+          className="transition-all duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
       <div>

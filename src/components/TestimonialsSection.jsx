@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
     <section id="testimonials" className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}>
       <div className="absolute inset-0 opacity-30">
         <Image
-          src="/assets/images/testimonial-bg-gradient.svg"
+          src="/assets/images/hero-bg-3.png"
           alt="Background Gradient"
           fill
           style={{ objectFit: "cover" }}
@@ -165,7 +165,7 @@ const TestimonialsSection = () => {
                 <div className="relative w-48 h-16 mb-3">
                   {/* Placeholder for combined DesignRush logo vectors/award bg */}
                   <Image
-                    src="/assets/images/designrush-logo-placeholder.svg"
+                    src="/assets/images/designrush-logo.png"
                     alt="DesignRush Logo"
                     fill
                     style={{ objectFit: "contain" }}
