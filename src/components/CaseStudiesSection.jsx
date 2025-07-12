@@ -96,7 +96,7 @@ const CaseStudiesSection = () => {
 
   return (
     <section className="bg-gradient-to-b from-[#D9F0FF] to-white text-[#1B2C5C]">
-      <div className="flex flex-col lg:flex-row min-h-[1100px] max-w-[1920px] mx-auto">
+      <div className="flex flex-col lg:flex-row min-h-[1100px] w-full max-w-full mx-auto">
         {/* Left Panel: Tabs & Title */}
         <div className="w-full lg:w-[672px] bg-[#131848] relative text-white p-8 md:p-16">
           <Image

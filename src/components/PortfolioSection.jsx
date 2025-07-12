@@ -1,9 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import { 
+  fadeInUp, 
+  fadeInScale, 
+  staggerContainer, 
+  hoverLift,
+  viewport 
+} from "../lib/animation-variants";
+import OptimizedImage from "./OptimizedImage";
 
 const portfolioProjects = [
   {
@@ -51,42 +58,14 @@ const portfolioProjects = [
 ];
 
 const PortfolioSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  // Use optimized shared variants
+  const optimizedStagger = {
+    ...staggerContainer,
     visible: {
-      opacity: 1,
+      ...staggerContainer.visible,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.9
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: { 
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
       }
     }
   };
@@ -126,18 +105,18 @@ const PortfolioSection = () => {
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          viewport={viewport}
+          variants={optimizedStagger}
         >
           <motion.h2 
             className={`${commonStyles.heading2} text-white mb-6`}
-            variants={textVariants}
+            variants={fadeInUp}
           >
             Featured Work & Real Analytics
           </motion.h2>
           <motion.p 
             className={`${commonStyles.bodyLarge} text-white/80 max-w-2xl mx-auto`}
-            variants={textVariants}
+            variants={fadeInUp}
           >
             Real results from our video production, content creation, and social media management projects. From viral TikTok content to professional brand campaigns.
           </motion.p>
@@ -147,36 +126,40 @@ const PortfolioSection = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
+          viewport={viewport}
+          variants={optimizedStagger}
         >
           {portfolioProjects.map((project, index) => (
             <motion.div
               key={index}
               className={`${commonStyles.cardGlass} overflow-hidden group cursor-pointer`}
-              variants={cardVariants}
+              variants={fadeInScale}
               whileHover={{ 
-                y: -10,
+                ...hoverLift,
                 scale: 1.02,
                 boxShadow: "0 25px 50px rgba(4, 228, 255, 0.15)"
               }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <motion.div 
                 className="relative h-48 overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image
+                <OptimizedImage
                   src={project.image}
                   alt={project.title}
                   fill
-                  style={{ objectFit: "cover" }}
+                  objectFit="cover"
                   className="transition-transform duration-500 group-hover:scale-110"
+                  priority={index < 3}
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                  whileHover={{ from: "rgba(0,0,0,0.8)", to: "rgba(0,0,0,0.2)" }}
+                  whileHover={{ opacity: 0.8 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <motion.div
                   className="absolute top-4 right-4 w-8 h-8 bg-[#04E4FF]/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100"
@@ -191,29 +174,29 @@ const PortfolioSection = () => {
               
               <motion.div 
                 className="p-6"
-                variants={containerVariants}
+                variants={optimizedStagger}
               >
                 <motion.h3 
                   className={`${commonStyles.heading3} text-white mb-3`}
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {project.title}
                 </motion.h3>
                 <motion.p 
                   className={`${commonStyles.bodyBase} text-white/80 mb-3`}
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {project.description}
                 </motion.p>
                 <motion.p 
                   className="text-[#04E4FF] font-semibold mb-4"
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {project.metrics}
                 </motion.p>
                 
                 {project.link !== "#" && (
-                  <motion.div variants={textVariants}>
+                  <motion.div variants={fadeInUp}>
                     <Link
                       href={project.link}
                       target="_blank"
@@ -223,7 +206,7 @@ const PortfolioSection = () => {
                       <motion.span
                         className="flex items-center"
                         whileHover={{ x: 3 }}
-                        transition={{ type: "spring", stiffness: 300 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       >
                         View Project
                         <motion.svg
@@ -232,7 +215,7 @@ const PortfolioSection = () => {
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                           whileHover={{ x: 2, y: -2 }}
-                          transition={{ type: "spring", stiffness: 300 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
                         >
                           <path
                             strokeLinecap="round"

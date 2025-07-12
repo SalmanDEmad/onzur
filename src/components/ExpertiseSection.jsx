@@ -40,21 +40,21 @@ const ExpertiseSection = () => {
     <section id="services" className={`${commonStyles.sectionDark} relative overflow-hidden`}>
       {/* Gradient Backgrounds */}
       <div
-        className="absolute w-[960px] h-[960px] top-[217px] left-[-384px] bg-radial-gradient-blue opacity-20 rounded-full"
+        className="absolute w-[400px] md:w-[600px] lg:w-[800px] h-[400px] md:h-[600px] lg:h-[800px] top-[100px] left-[-100px] md:left-[-150px] lg:left-[-200px] bg-radial-gradient-blue opacity-20 rounded-full"
         style={{
           background:
             "radial-gradient(circle, rgba(4, 228, 255, 0.8) 0%, rgba(4, 228, 255, 0) 70%)",
         }}
       ></div>
       <div
-        className="absolute w-[1344px] h-[1344px] top-[735px] left-[460px] bg-radial-gradient-purple opacity-50 rounded-full"
+        className="absolute w-[500px] md:w-[700px] lg:w-[900px] h-[500px] md:h-[700px] lg:h-[900px] top-[400px] left-[20%] bg-radial-gradient-purple opacity-50 rounded-full"
         style={{
           background:
             "radial-gradient(circle, rgba(136, 66, 220, 0.9) 0%, rgba(136, 66, 220, 0) 70%)",
         }}
       ></div>
       <div
-        className="absolute w-[960px] h-[1536px] top-[294px] right-[-480px] bg-radial-gradient-blue-right opacity-30 rounded-full"
+        className="absolute w-[400px] md:w-[600px] lg:w-[800px] h-[600px] md:h-[900px] lg:h-[1200px] top-[200px] right-[-100px] md:right-[-150px] lg:right-[-200px] bg-radial-gradient-blue-right opacity-30 rounded-full"
         style={{
           background:
             "radial-gradient(circle, rgba(4, 228, 255, 0.8) 0%, rgba(4, 228, 255, 0) 60%)",

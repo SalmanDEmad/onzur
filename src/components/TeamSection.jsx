@@ -1,9 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import { 
+  fadeInUp, 
+  fadeInScale, 
+  staggerContainer, 
+  hoverLift,
+  viewport 
+} from "../lib/animation-variants";
+import OptimizedImage from "./OptimizedImage";
 
 const teamMembers = [
   {
@@ -23,38 +30,14 @@ const teamMembers = [
 ];
 
 const TeamSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  // Use optimized variants from shared library
+  const optimizedStagger = {
+    ...staggerContainer,
     visible: {
-      opacity: 1,
+      ...staggerContainer.visible,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { 
-        duration: 0.6, 
-        ease: "easeOut" 
-      }
-    }
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
@@ -66,18 +49,18 @@ const TeamSection = () => {
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          viewport={viewport}
+          variants={optimizedStagger}
         >
           <motion.h2 
             className={`${commonStyles.heading2} text-[#1B2C5C] mb-6`}
-            variants={textVariants}
+            variants={fadeInUp}
           >
             Meet Our Creators
           </motion.h2>
           <motion.p 
             className={`${commonStyles.bodyLarge} text-[#1B2C5C]/80 max-w-2xl mx-auto`}
-            variants={textVariants}
+            variants={fadeInUp}
           >
             The creative minds behind Onzur Media Studio, bringing your vision to life through innovative storytelling and expert production.
           </motion.p>
@@ -87,31 +70,33 @@ const TeamSection = () => {
           className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
+          viewport={viewport}
+          variants={optimizedStagger}
         >
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
               className={`${commonStyles.cardSolid} group`}
-              variants={itemVariants}
+              variants={fadeInScale}
               whileHover={{ 
-                y: -10,
+                ...hoverLift,
                 boxShadow: "0 20px 40px rgba(4, 228, 255, 0.15)"
               }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <motion.div 
                 className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden"
                 whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
-                <Image
+                <OptimizedImage
                   src={member.image}
                   alt={member.name}
-                  fill
-                  style={{ objectFit: "cover" }}
+                  width={192}
+                  height={192}
                   className="transition-transform duration-500 group-hover:scale-110"
+                  priority={index === 0}
+                  quality={85}
                 />
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-[#04E4FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -120,29 +105,29 @@ const TeamSection = () => {
               
               <motion.div 
                 className="text-center"
-                variants={containerVariants}
+                variants={optimizedStagger}
               >
                 <motion.h3 
                   className={`${commonStyles.heading3} text-[#1B2C5C] mb-2`}
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {member.name}
                 </motion.h3>
                 <motion.p 
                   className="text-lg font-semibold mb-4 text-[#04E4FF]"
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {member.role}
                 </motion.p>
                 <motion.p 
                   className={`${commonStyles.bodyBase} text-[#1B2C5C]/80 mb-6 leading-relaxed`}
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   {member.description}
                 </motion.p>
                 
                 <motion.div
-                  variants={textVariants}
+                  variants={fadeInUp}
                 >
                   <Link
                     href={member.portfolioLink}
@@ -153,7 +138,7 @@ const TeamSection = () => {
                     <motion.span
                       className="flex items-center"
                       whileHover={{ x: 2 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
                       View Portfolio
                       <motion.svg
@@ -162,7 +147,7 @@ const TeamSection = () => {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         whileHover={{ x: 3, y: -3 }}
-                        transition={{ type: "spring", stiffness: 300 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       >
                         <path
                           strokeLinecap="round"

@@ -197,18 +197,7 @@ const Navbar = () => {
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
-              <span className="absolute -right-[10px] -top-[2px] text-[18px] font-bold uppercase tracking-[6%] hidden">
-                Menu
-              </span>
             </motion.button>
-            <motion.p 
-              className="hidden lg:block text-white text-lg font-bold uppercase tracking-wider ml-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              Menu
-            </motion.p>
           </div>
         </div>
       </motion.div>
