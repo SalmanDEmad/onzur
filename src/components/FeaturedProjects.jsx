@@ -2,87 +2,39 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { Star, Building, Users, ShoppingCart, ChevronDown, ArrowRight } from "lucide-react";
 
 const FeaturedProjects = () => {
   const [activeTab, setActiveTab] = useState("Featured");
 
   const tabs = [
-    {
-      id: "Featured",
-      label: "Featured",
-      icon: "/assets/images/featured-icon.svg",
-      active: true,
-    },
-    {
-      id: "B2B",
-      label: "B2B",
-      icon: "/assets/images/b2b-icon.svg",
-      active: false,
-    },
-    {
-      id: "B2C",
-      label: "B2C",
-      icon: "/assets/images/b2c-icon.svg",
-      active: false,
-    },
-    {
-      id: "eCommerce",
-      label: "eCommerce",
-      icon: "/assets/images/ecommerce-icon.svg",
-      active: false,
-    },
+    { id: "Featured", label: "Featured", icon: Star, active: true },
+    { id: "B2B", label: "B2B", icon: Building, active: false },
+    { id: "B2C", label: "B2C", icon: Users, active: false },
+    { id: "eCommerce", label: "eCommerce", icon: ShoppingCart, active: false },
   ];
 
   const projects = [
-    {
-      id: 1,
-      image: "/assets/images/project-1.png",
-      logo: "/assets/images/remax-logo.png",
-      alt: "Remax Project",
-    },
-    {
-      id: 2,
-      image: "/assets/images/project-2.png",
-      logo: "/assets/images/northwestern-logo.png",
-      alt: "Northwestern Project",
-    },
-    {
-      id: 3,
-      image: "/assets/images/project-3.png",
-      logo: "/assets/images/bang-olufsen-logo.png",
-      alt: "Bang & Olufsen Project",
-    },
-    {
-      id: 4,
-      image: "/assets/images/project-4.png",
-      logo: "/assets/images/rollink-logo.png",
-      alt: "Rollink Project",
-    },
-    {
-      id: 5,
-      image: "/assets/images/project-5.png",
-      logo: "/assets/images/paul-stuart-logo.png",
-      alt: "Paul Stuart Project",
-    },
-    {
-      id: 6,
-      image: "/assets/images/project-6.png",
-      logo: "/assets/images/g2-esports-logo.png",
-      alt: "G2 Esports Project",
-    },
-    {
-      id: 7,
-      image: "/assets/images/project-7.png",
-      logo: "/assets/images/ventura-foods-logo.png",
-      alt: "Ventura Foods Project",
-    },
-    {
-      id: 8,
-      image: "/assets/images/project-8.png",
-      logo: "/assets/images/ventura-foods-logo.png",
-      alt: "Featured Project",
-    },
+    { id: 1, image: "/assets/images/project-1.png", logo: "/assets/images/remax-logo.png", alt: "Remax Project" },
+    { id: 2, image: "/assets/images/project-2.png", logo: "/assets/images/northwestern-logo.png", alt: "Northwestern Project" },
+    { id: 3, image: "/assets/images/project-3.png", logo: "/assets/images/bang-olufsen-logo.png", alt: "Bang & Olufsen Project" },
+    { id: 4, image: "/assets/images/project-4.png", logo: "/assets/images/rollink-logo.png", alt: "Rollink Project" },
+    { id: 5, image: "/assets/images/project-5.png", logo: "/assets/images/paul-stuart-logo.png", alt: "Paul Stuart Project" },
+    { id: 6, image: "/assets/images/project-6.png", logo: "/assets/images/g2-esports-logo.png", alt: "G2 Esports Project" },
+    { id: 7, image: "/assets/images/project-7.png", logo: "/assets/images/ventura-foods-logo.png", alt: "Ventura Foods Project" },
+    { id: 8, image: "/assets/images/project-8.png", logo: "/assets/images/ventura-foods-logo.png", alt: "Featured Project" },
   ];
+
+  const tabVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const projectVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[#1E3075] to-[#131848] text-white py-20">
@@ -106,14 +58,15 @@ const FeaturedProjects = () => {
         <div className="flex justify-center mb-12">
           <div className="flex gap-2.5 bg-transparent p-0 pb-5">
             {tabs.map((tab) => (
-              <button
+              <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative flex flex-col items-center gap-[14.8px] px-5 py-6 transition-all duration-300 ${
-                  activeTab === tab.id
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`relative flex flex-col items-center gap-[14.8px] px-5 py-6 transition-all duration-300 ${activeTab === tab.id
                     ? "bg-white text-[#1B2C5C] shadow-[0px_0px_33px_0px_rgba(0,0,0,0.2)] rounded-[5px]"
                     : "bg-transparent text-white hover:bg-white/10"
-                }`}
+                  }`}
               >
                 {/* Background for active tab */}
                 {activeTab === tab.id && (
@@ -122,48 +75,55 @@ const FeaturedProjects = () => {
 
                 {/* Icon */}
                 <div className="relative z-10 w-10 h-[26px] flex items-center justify-center">
-                  <Image
-                    src={tab.icon}
-                    alt={`${tab.label} icon`}
-                    width={40}
-                    height={26}
+                  <tab.icon
+                    size={24}
                     className={
-                      activeTab === tab.id ? "filter-blue" : "filter-white"
+                      activeTab === tab.id ? "text-[#1B2C5C]" : "text-white"
                     }
                   />
                 </div>
 
                 {/* Label */}
                 <span
-                  className={`relative z-10 text-[22px] font-medium uppercase leading-[1.6] text-center ${
-                    activeTab === tab.id ? "text-[#1B2C5C]" : "text-white"
-                  }`}
+                  className={`relative z-10 text-[22px] font-medium uppercase leading-[1.6] text-center ${activeTab === tab.id ? "text-[#1B2C5C]" : "text-white"
+                    }`}
                 >
                   {tab.label}
                 </span>
 
                 {/* Arrow for active tab */}
                 {activeTab === tab.id && (
-                  <div className="relative z-10 w-[10.1px] h-[15px]">
-                    <Image
-                      src="/assets/images/arrow-icon.svg"
-                      alt="Arrow"
-                      width={10}
-                      height={15}
-                      className="filter-blue"
+                  <div className="relative z-10 w-[10.1px] h-[15px] flex items-center justify-center">
+                    <ChevronDown
+                      size={16}
+                      className="text-[#1B2C5C]"
                     />
                   </div>
                 )}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
         {/* Projects Grid */}
         <div className="relative">
-          <div className="grid grid-cols-2 gap-0 mb-16">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 gap-0 mb-16"
+          >
             {projects.map((project, index) => (
-              <div key={project.id} className="relative group cursor-pointer">
+              <motion.div
+                key={project.id}
+                variants={projectVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative group cursor-pointer"
+              >
                 {/* Project Image */}
                 <div className="relative w-full h-[528px] overflow-hidden">
                   <Image
@@ -186,9 +146,9 @@ const FeaturedProjects = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Gradient Overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-[10px] bg-gradient-to-r from-transparent via-[#04E4FF] to-transparent" />
@@ -196,36 +156,24 @@ const FeaturedProjects = () => {
 
         {/* Load More Button */}
         <div className="flex justify-center mt-12">
-          <button className="flex items-center gap-5 text-white hover:text-[#04E4FF] transition-colors duration-300 group">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-5 text-white hover:text-[#04E4FF] transition-colors duration-300 group"
+          >
             <span className="text-xl font-bold uppercase tracking-wide">
               Load More Examples
             </span>
-            <div className="w-4 h-[15px] transition-transform duration-300 group-hover:translate-x-1">
-              <Image
-                src="/assets/images/arrow-icon.svg"
-                alt="Arrow"
-                width={16}
-                height={15}
-                className="filter-white group-hover:filter-cyan"
+            <div className="w-4 h-[15px] transition-transform duration-300 group-hover:translate-x-1 flex items-center justify-center">
+              <ArrowRight
+                size={16}
+                className="text-white group-hover:text-[#04E4FF]"
               />
             </div>
-          </button>
+          </motion.button>
         </div>
       </div>
 
-      <style jsx>{`
-        .filter-blue {
-          filter: brightness(0) saturate(100%) invert(15%) sepia(45%)
-            saturate(1234%) hue-rotate(210deg) brightness(95%) contrast(95%);
-        }
-        .filter-white {
-          filter: brightness(0) saturate(100%) invert(100%);
-        }
-        .filter-cyan {
-          filter: brightness(0) saturate(100%) invert(70%) sepia(100%)
-            saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,32 +1,39 @@
 import Image from "next/image";
 import { commonStyles } from "../lib/design-system";
+import { motion } from "motion/react"
 
 const expertiseData = [
   {
-    icon: "/assets/images/placeholder-icon.svg", // Using generic placeholder icon
+    icon: "/assets/images/web-development-icon.svg",
     title: "Web and Software Development",
     description:
-      "Focus on presentable, scalable, and efficient solutions tailored to audience needs. We create custom websites and software that not only look professional but also perform optimally across all devices and platforms.",
+      "Help your website and application bring you your ideal audience or client. We focus on building presentable, efficient and scalable software solutions that appeals to your needs to help you reach your ideal target audience in order to further your brand.",
   },
   {
-    icon: "/assets/images/responsive-web-design-icon.svg", // Placeholder
+    icon: "/assets/images/content-creation-icon.svg",
     title: "Content Creation",
     description:
-      "Support from ideation to execution with innovative strategies. Our creative team helps bring your vision to life through compelling video production, editing, and digital storytelling that resonates with your target audience.",
+      "With our team, you will be able to reach millions of audience in no time at all. We offer to help you in your content creation journey from scratch and equip you with all out of the box and innovative industry crushing techniques.",
   },
   {
-    icon: "/assets/images/website-redesign-icon.svg", // Placeholder
+    icon: "/assets/images/social-media-icon.svg",
     title: "Social Media Management",
     description:
-      "Craft content customized to the target demographic based on cultural and behavioral cues. We understand the nuances of different platforms and create content that drives engagement and builds meaningful connections with your audience.",
+      "We use our specialty in organic content creation to take your brand awareness to heights never seen before. We specialize in creating content that is specifically crafted to appeal to your target demographic depending on their age, interest, hobbies, sense of humor, pop culture and more.",
   },
   {
-    icon: "/assets/images/ux-ui-web-design-icon.svg", // Placeholder
+    icon: "/assets/images/ppc-marketing-icon.svg",
     title: "PPC and Social Media Marketing",
     description:
-      "Use data-driven strategies on platforms like Instagram, Facebook, LinkedIn to deliver immediate results. Our targeted campaigns are designed to maximize ROI and drive measurable growth for your business.",
+      "We aim to bring you immediate traffic and results through targeted ads on various social media platforms. Our data driven strategies ensure a high ROI by focusing on the right audience and ad placements. We help you build a strong presence through these targeted ads on Instagram, Facebook, LinkedIn and MORE.",
   },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
+  hover: { scale: 1.05 },
+};
 
 const ExpertiseSection = () => {
   return (
@@ -62,13 +69,12 @@ const ExpertiseSection = () => {
               WHY ONZUR MEDIA STUDIO?
             </p>
             <h2 className={`${commonStyles.heading2} text-white mb-6 leading-tight`}>
-              Our Creative Services for Your Digital Success
+              Main Services with Descriptions
             </h2>
             <p className={`${commonStyles.bodyLarge} text-white/90 mb-10 leading-relaxed`}>
-              As a creative team based in Qatar, we specialize in video production, 
-              editing, and digital storytelling for businesses, scholars, and organizations. 
-              Our comprehensive services help you connect with your audience and achieve 
-              your digital goals.
+              As a creative team based in Qatar, we specialize in video production,
+              editing, and digital storytelling for businesses, scholars, and organizations.
+              From viral TikTok content to professional web development - we deliver results.
             </p>
             <div className="relative w-full aspect-[778/549] max-w-xl mx-auto lg:mx-0 mb-10 lg:mb-0">
               <Image
@@ -83,14 +89,20 @@ const ExpertiseSection = () => {
           {/* Right Column: Expertise Cards */}
           <div className="lg:col-span-7 grid md:grid-cols-2 gap-8">
             {expertiseData.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className={commonStyles.cardGlass}
               >
                 <div className="w-16 h-16 mb-6 relative">
                   <div className="w-full h-full bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] rounded-lg flex items-center justify-center">
                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z"/>
+                      <path d="M12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z" />
                     </svg>
                   </div>
                 </div>
@@ -100,7 +112,7 @@ const ExpertiseSection = () => {
                 <p className={`${commonStyles.bodyBase} text-white/80 leading-relaxed`}>
                   {item.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

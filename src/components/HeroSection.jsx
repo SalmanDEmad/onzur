@@ -1,21 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
 import { commonStyles } from "../lib/design-system";
 
 const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { scrollY } = useScroll();
+  const backgroundY = useTransform(scrollY, [0, 1000], [0, -300]);
+  const backgroundOpacity = useTransform(scrollY, [0, 500], [1, 0.3]);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   const clientLogos = [
-    { src: "/assets/images/xerox-logo.png", alt: "Xerox" },
-    { src: "/assets/images/sony-logo.png", alt: "Sony" },
-    { src: "/assets/images/pg-logo.png", alt: "P&G" },
-    { src: "/assets/images/nyc-logo.png", alt: "NYC" },
-    { src: "/assets/images/nfl-logo.png", alt: "NFL" },
-    { src: "/assets/images/microsoftteams-logo.png", alt: "Microsoft Teams" },
-    { src: "/assets/images/mcds-logo.png", alt: "McDonald's" },
-    { src: "/assets/images/grenco-logo.png", alt: "Grenco Science" },
-    { src: "/assets/images/g2-logo.png", alt: "G2" },
-    { src: "/assets/images/enchant-logo.png", alt: "Enchant" },
-    { src: "/assets/images/bru-logo.png", alt: "Bru" },
+    { src: "/assets/images/spice-fusion-logo.png", alt: "Spice Fusion Restaurant" },
+    { src: "/assets/images/megabyte-logo.png", alt: "Megabyte Store" },
+    { src: "/assets/images/qatar-university-logo.png", alt: "Qatar University" },
+    { src: "/assets/images/qsn-mazad-logo.png", alt: "QSN Mazad" },
+    { src: "/assets/images/dr-shaybani-logo.png", alt: "Dr. Shaybani" },
+    { src: "/assets/images/sheikh-qaradaghi-logo.png", alt: "Sheikh Ali Qaradaghi" },
   ];
 
   // Duplicate for seamless scroll
@@ -68,56 +74,142 @@ const HeroSection = () => {
     },
   ];
 
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" 
+      } 
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const floatingAnimation = {
+    y: [-10, 10, -10],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
   return (
     <section className={`${commonStyles.sectionDark} text-white overflow-hidden`}>
       {/* Main Hero Content */}
       <div className={`relative ${commonStyles.container} flex flex-col items-center justify-center min-h-[535px] pt-20 pb-10 z-10`}>
         {/* Background Images - positioned absolutely within the relative parent */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+        <motion.div 
+          className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+          style={{ y: backgroundY, opacity: backgroundOpacity }}
+        >
           {backgroundImages.map((img, index) => (
-            <div key={index} className={img.className}>
+            <motion.div 
+              key={index} 
+              className={img.className}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1, duration: 1.5 }}
+            >
               <Image
                 src={img.src}
                 alt={`Hero Background Image ${index + 1}`}
                 layout="fill"
                 objectFit="contain"
               />
-            </div>
+            </motion.div>
           ))}
           {/* Gradient overlay for background images */}
           <div className="absolute inset-0 w-full h-[112px] bg-gradient-to-b from-[#00042A]/50 via-[#00042A]/30 to-transparent z-10" />
           <div className="absolute bottom-0 inset-x-0 w-full h-[112px] bg-gradient-to-t from-[#00042A]/60 to-transparent z-10" />
 
           {/* Purple glow effect */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[768px] h-[324px]">
+          <motion.div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[768px] h-[324px]"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.9, 0.7, 0.9]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             <div
               className="w-full h-full bg-[#24004F] opacity-[0.9] blur-[250px] rounded-[273px]"
               style={{ boxShadow: "0px 0px 250px 400px rgba(36, 0, 78, 1)" }}
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="relative z-20 flex flex-col items-start text-left w-full max-w-3xl">
-          <p className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]">
-            Onzur Media Studio
-          </p>
-          <h1 className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}>
-            Creative
+        <motion.div 
+          className="relative z-20 flex flex-col items-start text-left w-full max-w-3xl"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isLoaded ? "visible" : "hidden"}
+        >
+          <motion.p 
+            className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]"
+            variants={textVariants}
+          >
+            Welcome to Onzur Media Studio
+          </motion.p>
+          <motion.h1 
+            className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}
+            variants={textVariants}
+          >
+            Creative Team
             <br />
-            Storytelling
-          </h1>
-          <p className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}>
-            Video Production, Editing & Digital Content for Businesses, Scholars & Organizations
-          </p>
+            Based in Qatar
+          </motion.h1>
+          <motion.p 
+            className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}
+            variants={textVariants}
+          >
+            Specializing in video production, editing, and digital storytelling for businesses, scholars, and organizations. From viral TikTok content to professional food photography.
+          </motion.p>
 
-          <button className={`${commonStyles.buttonPrimary} uppercase tracking-wider group`}>
+          <motion.button 
+            className={`${commonStyles.buttonPrimary} uppercase tracking-wider group`}
+            variants={textVariants}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 25px rgba(4, 228, 255, 0.3)"
+            }}
+            whileTap={{ scale: 0.98 }}
+            animate={pulseAnimation}
+          >
             <span className="relative z-10 flex items-center justify-center">
               Request a Quote
-              <svg
-                className="ml-2 w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+              <motion.svg
+                className="ml-2 w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <path
                   strokeLinecap="round"
@@ -125,63 +217,101 @@ const HeroSection = () => {
                   strokeWidth={2}
                   d="M9 5l7 7-7 7"
                 />
-              </svg>
+              </motion.svg>
             </span>
-          </button>
+          </motion.button>
 
-          <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8">
-            <div className="flex items-center">
-              <Image
-                src="/assets/images/designrush-logo.png"
-                alt="DesignRush Logo"
-                width={35}
-                height={48}
-                className="mr-3"
-              />
+          <motion.div 
+            className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8"
+            variants={textVariants}
+          >
+            <motion.div 
+              className="flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="mr-3">
+                <motion.div 
+                  className="w-8 h-8 bg-[#04E4FF] rounded-full flex items-center justify-center text-[#00042A] font-bold text-lg"
+                  animate={floatingAnimation}
+                  whileHover={{ 
+                    scale: 1.1,
+                    boxShadow: "0 5px 15px rgba(4, 228, 255, 0.5)"
+                  }}
+                >
+                  📞
+                </motion.div>
+              </div>
               <div>
                 <p className="text-lg sm:text-xl font-medium">
-                  5 Star DesignRush Reviews
+                  Contact Us
                 </p>
-                <Image
-                  src="/assets/images/stars.svg"
-                  alt="5 Stars"
-                  width={140}
-                  height={26}
-                />
+                <p className="text-[#04E4FF] font-medium">
+                  +974 5999 0137
+                </p>
               </div>
-            </div>
-            <div className="hidden sm:block w-px h-[63px] bg-gradient-to-b from-white/0 via-white/100 to-white/0 mx-4" />
-            <div className="flex items-center">
-              <div className="w-[112px] h-[30px] mr-3 relative">
-                <Image
-                  src="/assets/images/forbes-logo-vector.svg"
-                  alt="Forbes Logo Path"
-                  layout="fill"
-                  objectFit="contain"
-                  className="opacity-0"
-                />
-                <Image
-                  src="/assets/images/forbes-logo-group.svg"
-                  alt="Forbes Logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
+            </motion.div>
+            <motion.div 
+              className="hidden sm:block w-px h-[63px] bg-gradient-to-b from-white/0 via-white/100 to-white/0 mx-4"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: 1.5, duration: 0.5 }}
+            />
+            <motion.div 
+              className="flex items-center"
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="mr-3">
+                <motion.div 
+                  className="w-8 h-8 bg-[#04E4FF] rounded-full flex items-center justify-center text-[#00042A] font-bold text-lg"
+                  animate={{
+                    y: [-10, 10, -10],
+                    transition: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1.5
+                    }
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    boxShadow: "0 5px 15px rgba(4, 228, 255, 0.5)"
+                  }}
+                >
+                  💬
+                </motion.div>
               </div>
-              <p className="text-lg sm:text-xl font-medium">
-                Best Digital Agency of 2024
-              </p>
-            </div>
-          </div>
-        </div>
+              <div>
+                <p className="text-lg sm:text-xl font-medium">
+                  WhatsApp
+                </p>
+                <p className="text-[#04E4FF] font-medium">
+                  +974 7750 7972
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Client Logos Marquee */}
-      <div className="relative w-full h-[100px] bg-[#03042A] flex items-center overflow-hidden mt-[-1px] z-20">
+      <motion.div 
+        className="relative w-full h-[100px] bg-[#03042A] flex items-center overflow-hidden mt-[-1px] z-20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
         <div className="animate-marquee-infinite flex items-center">
           {duplicatedLogos.map((logo, index) => (
-            <div
+            <motion.div
               key={`logo-${index}`}
               className="mx-12 flex-shrink-0 h-[55px] flex items-center justify-center"
+              whileHover={{ 
+                scale: 1.1,
+                filter: "brightness(1.2)"
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <Image
                 src={logo.src}
@@ -202,10 +332,10 @@ const HeroSection = () => {
                 } // Adjust width
                 objectFit="contain"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
       <style jsx>{`
         @keyframes marquee-scroll {
           0% {

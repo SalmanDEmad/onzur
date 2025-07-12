@@ -4,15 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { commonStyles } from "../lib/design-system";
+import { ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
 const testimonials = [
   {
     logo: "/assets/images/spice-fusion-logo.svg",
-    company: "Spice Fusion",
+    company: "Spice Fusion Restaurant",
     name: "Aslam KA",
-    title: "Owner", 
+    title: "Manager", 
     quote:
-      "Onzur helped us integrate with Talabat & Snoonu through amazing visual content. The professional food photography transformed our online presence and significantly increased our orders.",
+      "Onzur Marketing's professional food photography helped us successfully integrate with Talabat and Snoonu. Our online visibility and customer engagement have grown significantly!",
   },
   {
     logo: "/assets/images/megabyte-logo.svg",
@@ -20,15 +21,15 @@ const testimonials = [
     name: "Mohammed Raihan",
     title: "Owner",
     quote:
-      "The results exceeded all expectations - 8M+ TikTok views, 40-50 daily leads, and dramatically improved sales. Onzur's strategic approach to social media marketing is truly exceptional.",
+      "With Onzur Marketing's expert ad management, we achieved 8 million TikTok views, 800K ad-driven views, and 40-50 daily leads—our sales have never been better!",
   },
   {
     logo: "/assets/images/islamic-scholars-logo.svg",
-    company: "Islamic Education",
-    name: "Dr. Shaybani",
+    company: "Islamic Scholars Project",
+    name: "Dr. Abdurrahman Shaybani",
     title: "Islamic Scholar",
     quote:
-      "In just 2 months, we gained 80K followers and achieved 4M views. Onzur's understanding of digital storytelling for Islamic content is remarkable and highly effective.",
+      "Thanks to Onzur Marketing, we reached 80,000 followers and 4 million views in just 2 months, allowing us to onboard more scholars and expand our initiative!",
   },
 ];
 
@@ -77,11 +78,9 @@ const TestimonialsSection = () => {
               className="absolute left-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -ml-4 sm:-ml-8 lg:-ml-12"
               aria-label="Previous testimonial"
             >
-              <Image
-                src="/assets/images/arrow-left-testimonial.svg"
-                alt="Previous"
-                width={24}
-                height={24}
+              <ChevronLeft
+                size={24}
+                className="text-white"
               />
             </button>
             <button
@@ -89,17 +88,15 @@ const TestimonialsSection = () => {
               className="absolute right-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -mr-4 sm:-mr-8 lg:-mr-12"
               aria-label="Next testimonial"
             >
-              <Image
-                src="/assets/images/arrow-right-testimonial.svg"
-                alt="Next"
-                width={24}
-                height={24}
+              <ChevronRight
+                size={24}
+                className="text-white"
               />
             </button>
 
             <div className="w-full transition-opacity duration-500 ease-in-out">
               <h2 className={`${commonStyles.heading3} text-[#04E4FF] mb-6 uppercase tracking-wider`}>
-                What our clients LOVE about our work
+                Client Testimonials
               </h2>
               <blockquote className="mb-6">
                 <p className={`${commonStyles.heading3} font-bold leading-tight mb-8`}>
@@ -177,24 +174,13 @@ const TestimonialsSection = () => {
                 <p className="text-2xl sm:text-3xl font-bold">4.9</p>
                 <div className="flex items-center my-1">
                   {[...Array(5)].map((_, i) => (
-                    <div
+                    <Star
                       key={i}
-                      className="w-5 h-5 sm:w-6 sm:h-6 mx-0.5 relative"
-                    >
-                      <Image
-                        src={
-                          i < 4
-                            ? "/assets/images/star-full-designrush.svg"
-                            : i < 4.9
-                            ? "/assets/images/star-full-designrush.svg"
-                            : "/assets/images/star-empty-designrush.svg"
-                        }
-                        alt={i < 4.9 ? "Full Star" : "Empty Star"}
-                        fill
-                        style={{ objectFit: "contain" }}
-                      />
-                      {/* For half star, overlay another image or use a more complex SVG logic */}
-                    </div>
+                      size={20}
+                      className={`mx-0.5 ${
+                        i < 4.9 ? "text-yellow-400 fill-current" : "text-gray-400"
+                      }`}
+                    />
                   ))}
                 </div>
                 <p className="text-sm sm:text-base uppercase tracking-wider">
@@ -210,14 +196,10 @@ const TestimonialsSection = () => {
                   className="inline-flex items-center justify-center text-[#01AFE9] hover:text-[#38d3ff] text-lg sm:text-xl font-bold uppercase group transition-colors"
                 >
                   View client reviews
-                  <div className="relative w-4 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    <Image
-                      src="/assets/images/arrow-right-link-testimonial.svg"
-                      alt="Arrow right"
-                      fill
-                      style={{ objectFit: "contain" }}
-                    />
-                  </div>
+                  <ArrowRight
+                    size={16}
+                    className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
               </div>
             </div>

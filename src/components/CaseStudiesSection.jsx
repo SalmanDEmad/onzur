@@ -3,79 +3,90 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "motion/react"
 import { commonStyles } from "../lib/design-system";
 
 const caseStudiesData = [
   {
     id: "spice-fusion",
-    name: "Spice Fusion",
-    logo: "/assets/images/spice-fusion-logo.svg", // Placeholder
-    logoDark: "/assets/images/spice-fusion-logo-dark.svg", // Placeholder
+    name: "Spice Fusion Restaurant",
+    logo: "/assets/images/spice-fusion-logo.svg",
+    logoDark: "/assets/images/spice-fusion-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Spice Fusion Restaurant:",
-    subtitle: "Transforming Food Delivery with Professional Photography",
-    mainDescription: "Spice Fusion needed professional menu photography and integration with delivery platforms.",
-    achievementIntro: "Our solution delivered:",
+    subtitle: "Professional Food Photography & Platform Integration",
+    mainDescription: "Challenge: Needed high-quality food photography for menu presentation and online delivery platform integration. Solution: Onzur Marketing conducted a professional food photography session, optimizing images for online menus.",
+    achievementIntro: "Results achieved:",
     metric1: {
-      value: "30",
-      unit: "%",
-      description: "increase in online orders",
-    },
-    metric2: {
       value: "100",
       unit: "%",
-      description: "integration with Talabat & Snoonu",
+      description: "successful integration with Talabat & Snoonu",
+    },
+    metric2: {
+      value: "Significant",
+      unit: "",
+      description: "improvement in online sales & customer engagement",
     },
     ctaLink: "/case-studies/spice-fusion",
-    ctaText: "Read Spice Fusion Case Study",
+    ctaText: "View Spice Fusion Results",
   },
   {
     id: "megabyte-store",
     name: "Megabyte Store",
-    logo: "/assets/images/megabyte-logo.svg", // Placeholder
-    logoDark: "/assets/images/megabyte-logo-dark.svg", // Placeholder
+    logo: "/assets/images/megabyte-logo.svg",
+    logoDark: "/assets/images/megabyte-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Megabyte Store:",
-    subtitle: "From Low Sales to Viral Success",
-    mainDescription: "Megabyte Store had low sales and weak online presence. We implemented a comprehensive Meta & TikTok advertising strategy.",
-    achievementIntro: "Results achieved:",
+    subtitle: "Electronics Store Digital Transformation",
+    mainDescription: "Challenge: Low product sales and limited online presence. Solution: Managed Meta and TikTok ads, created engaging content, and optimized campaigns for electronics and gadgets.",
+    achievementIntro: "Incredible results:",
     metric1: {
       value: "8",
-      unit: "M",
+      unit: "M+",
       description: "TikTok views in 3-4 months",
     },
     metric2: {
-      value: "10-12",
+      value: "40-50",
       unit: "",
-      description: "daily product sales",
+      description: "daily leads generated",
     },
     ctaLink: "/case-studies/megabyte-store",
-    ctaText: "Read Megabyte Case Study",
+    ctaText: "View Megabyte Analytics",
   },
   {
     id: "islamic-scholars",
-    name: "Islamic Scholars",
-    logo: "/assets/images/islamic-scholars-logo.svg", // Placeholder
-    logoDark: "/assets/images/islamic-scholars-logo-dark.svg", // Placeholder
+    name: "Islamic Scholars Project",
+    logo: "/assets/images/islamic-scholars-logo.svg",
+    logoDark: "/assets/images/islamic-scholars-logo-dark.svg",
     bgColor: "#04E4FF",
     title: "Islamic Scholars Project:",
-    subtitle: "Amplifying Islamic Knowledge Through Digital Storytelling",
-    mainDescription: "Our mission was to amplify Islamic knowledge through strategic TikTok content creation for Dr. Shaybani and other scholars.",
-    achievementIntro: "Impact achieved:",
+    subtitle: "Expanding Reach for Islamic Education",
+    mainDescription: "Challenge: Expanding reach for Islamic education on social media. Solution: Developed and managed Dr. Abdurrahman Shaybani's TikTok content strategy and onboarded multiple scholars.",
+    achievementIntro: "Outstanding growth:",
     metric1: {
       value: "80",
       unit: "K",
-      description: "followers for Dr. Shaybani",
+      description: "followers gained in 2 months",
     },
     metric2: {
       value: "4",
       unit: "M",
-      description: "views in 2 months",
+      description: "views achieved in 2 months",
     },
     ctaLink: "/case-studies/islamic-scholars",
-    ctaText: "Read Islamic Scholars Case Study",
+    ctaText: "View Scholar Analytics",
   },
 ];
+
+const tabVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const CaseStudiesSection = () => {
   const [activeTab, setActiveTab] = useState(caseStudiesData[0].id);
@@ -99,16 +110,21 @@ const CaseStudiesSection = () => {
             <h2 className={`${commonStyles.heading1} mb-12 text-shadow-lg`}>
               Case <span className="text-[#04E4FF]">Studies</span>
             </h2>
-            <div className="space-y-1">
+            <motion.div
+              className="space-y-1"
+              initial="hidden"
+              animate="visible"
+              variants={tabVariants}
+            >
               {caseStudiesData.map((study) => (
-                <button
+                <motion.button
                   key={study.id}
                   onClick={() => setActiveTab(study.id)}
-                  className={`w-full text-left p-5 pl-0 pr-10 transition-colors duration-300 relative flex items-center ${
-                    activeTab === study.id
-                      ? "text-white"
-                      : "text-white/70 hover:text-white"
-                  }`}
+                  whileHover={{ x: 5 }}
+                  className={`w-full text-left p-5 pl-0 pr-10 transition-colors duration-300 relative flex items-center ${activeTab === study.id
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
+                    }`}
                 >
                   <div className="w-24 h-12 relative mr-4 flex items-center justify-start">
                     <Image
@@ -116,15 +132,15 @@ const CaseStudiesSection = () => {
                       alt={`${study.name} logo`}
                       width={
                         study.name === "Xerox" ||
-                        study.name === "doForms" ||
-                        study.name === "FieldEdge"
+                          study.name === "doForms" ||
+                          study.name === "FieldEdge"
                           ? 100
                           : 50
                       }
                       height={
                         study.name === "Xerox" ||
-                        study.name === "doForms" ||
-                        study.name === "FieldEdge"
+                          study.name === "doForms" ||
+                          study.name === "FieldEdge"
                           ? 25
                           : 50
                       }
@@ -143,14 +159,20 @@ const CaseStudiesSection = () => {
                       style={{ backgroundColor: study.bgColor }}
                     ></div>
                   )}
-                </button>
+                </motion.button>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Right Panel: Content */}
-        <div className="w-full lg:flex-1 p-8 md:p-16 lg:p-24 relative">
+        <motion.div
+          key={activeTab}
+          initial="hidden"
+          animate="visible"
+          variants={contentVariants}
+          className="w-full lg:flex-1 p-8 md:p-16 lg:p-24 relative"
+        >
           <div className="absolute top-10 right-10 opacity-5 w-1/2 max-w-xs">
             <Image
               src={activeStudy.logoDark}
@@ -255,7 +277,7 @@ const CaseStudiesSection = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
