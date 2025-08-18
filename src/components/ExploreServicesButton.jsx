@@ -8,7 +8,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 
 const ExploreServicesButton = ({
   variant = "primary-gradient", // 'primary-gradient', 'primary-white', 'secondary-gradient', 'secondary-blue'
-  href = "/services",
+  href = "https://wa.me/97459990137?text=Hi! I'd like to learn more about your services.",
   text = "Explore All Services",
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -96,7 +96,7 @@ const ExploreServicesButton = ({
   };
 
   return (
-    <Link href={href} passHref>
+    <Link href={href} target="_blank" rel="noopener noreferrer" passHref>
       <motion.button
         className={`${baseStyles} ${buttonClasses} ${isLoading ? 'cursor-wait' : 'cursor-pointer'}`}
         whileHover={{ 

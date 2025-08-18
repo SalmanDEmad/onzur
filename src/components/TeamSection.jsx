@@ -15,17 +15,17 @@ import OptimizedImage from "./OptimizedImage";
 const teamMembers = [
   {
     name: "Daanish Ryan",
-    role: "Videographer/Editor",
-    image: "/assets/contents/IMG-20250708-WA0006.jpg", // Using one of the provided images
+    role: "Creative Director & Videographer",
+    image: "/assets/contents/IMG-20250708-WA0008.jpg",
     portfolioLink: "https://daanishrayn.my.canva.site/portfolio-web",
-    description: "Expert videographer and editor with a passion for creating compelling visual stories that resonate with audiences.",
+    description: "Award-winning creative director and videographer who brings brands to life through compelling visual storytelling and innovative content strategies.",
   },
   {
     name: "Ayham",
-    role: "Editor",
-    image: "/assets/contents/IMG-20250708-WA0007.jpg", // Using one of the provided images
+    role: "Senior Content Editor",
+    image: "/assets/contents/IMG-20250708-WA0010.jpg",
     portfolioLink: "https://vt.tiktok.com/ZShBBeJnj/",
-    description: "Skilled editor specializing in social media content creation with a focus on engaging and viral content.",
+    description: "Master editor specializing in viral social media content, with expertise in creating engaging videos that drive millions of views and conversions.",
   },
 ];
 

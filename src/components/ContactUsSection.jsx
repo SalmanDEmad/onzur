@@ -77,14 +77,14 @@ export default function ContactUsSection() {
             </h2>
             <div className="w-12 h-0.5 bg-[#01AFE9] mb-6 mx-auto lg:mx-0"></div>
             <div className="space-y-4 mb-6">
-              <div className="flex items-center justify-center lg:justify-start">
+              <a href="tel:+97459990137" className="flex items-center justify-center lg:justify-start hover:text-[#04E4FF] transition-colors cursor-pointer">
                 <Phone size={20} className="text-[#04E4FF] mr-3" />
                 <span className="text-lg font-medium">Phone: +974 5999 0137</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start">
+              </a>
+              <a href="https://wa.me/97477507972?text=Hello! I'm interested in your services." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center lg:justify-start hover:text-[#04E4FF] transition-colors cursor-pointer">
                 <MessageSquare size={20} className="text-[#04E4FF] mr-3" />
                 <span className="text-lg font-medium">WhatsApp: +974 7750 7972</span>
-              </div>
+              </a>
             </div>
             <p className="text-lg md:text-xl font-semibold mb-4">Follow Us</p>
             <div className="flex justify-center lg:justify-start space-x-4">

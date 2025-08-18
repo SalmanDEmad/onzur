@@ -8,7 +8,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 
 const RequestQuoteButton = ({
   variant = "primary",
-  href = "/request-a-quote",
+  href = "https://wa.me/97459990137?text=Hi! I'd like to request a quote for my project.",
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -63,6 +63,8 @@ const RequestQuoteButton = ({
     >
       <Link 
         href={href} 
+        target="_blank"
+        rel="noopener noreferrer"
         className={`${buttonBaseStyles}`}
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}

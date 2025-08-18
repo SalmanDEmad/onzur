@@ -156,25 +156,28 @@ const HeroSection = () => {
             className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]"
             variants={fadeInUp}
           >
-            Qatar's Premier Digital Marketing Agency
+            Your Digital Success Partner in Qatar
           </motion.p>
           <motion.h1 
             className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}
             variants={fadeInUp}
           >
-            Turn Your Brand Into
+            Transform Your Brand Into
             <br />
-            Viral Success
+            Market Leader
           </motion.h1>
           <motion.p 
             className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}
             variants={fadeInUp}
           >
-            We've generated 8M+ TikTok views and 40+ daily leads for our clients. From viral content creation to professional web development - we transform businesses into market leaders with proven strategies that deliver measurable results.
+            We've generated millions of views and countless leads for our clients across Qatar and beyond. From viral social media content to professional web development - we craft digital experiences that drive real business growth and measurable results.
           </motion.p>
 
-          <motion.button 
-            className={`${commonStyles.buttonPrimary} uppercase tracking-wider group`}
+          <motion.a 
+            href="https://wa.me/97459990137?text=Hi! I'd like to get a strategy session with Onzur Media Studio."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${commonStyles.buttonPrimary} uppercase tracking-wider group cursor-pointer`}
             variants={fadeInUp}
             whileHover={{
               ...buttonHover,
@@ -201,14 +204,15 @@ const HeroSection = () => {
                 />
               </motion.svg>
             </span>
-          </motion.button>
+          </motion.a>
 
           <motion.div 
             className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-8"
             variants={fadeInUp}
           >
-            <motion.div 
-              className="flex items-center"
+            <motion.a 
+              href="tel:+97459990137"
+              className="flex items-center cursor-pointer"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
@@ -233,15 +237,18 @@ const HeroSection = () => {
                   +974 5999 0137
                 </p>
               </div>
-            </motion.div>
+            </motion.a>
             <motion.div 
               className="hidden sm:block w-px h-[63px] bg-gradient-to-b from-white/0 via-white/100 to-white/0 mx-4"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ delay: 1.5, duration: 0.5 }}
             />
-            <motion.div 
-              className="flex items-center"
+            <motion.a 
+              href="https://wa.me/97477507972?text=Hello! I'm interested in your services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center cursor-pointer"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -272,7 +279,7 @@ const HeroSection = () => {
                   +974 7750 7972
                 </p>
               </div>
-            </motion.div>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
