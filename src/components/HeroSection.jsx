@@ -153,43 +153,42 @@ const HeroSection = () => {
           animate={isLoaded ? "visible" : "hidden"}
         >
           <motion.p 
-            className="text-xl md:text-2xl font-medium uppercase tracking-wider mb-6 text-[#04E4FF]"
+            className="text-lg md:text-xl font-medium mb-6 text-[#04E4FF]"
             variants={fadeInUp}
           >
             Your Digital Success Partner in Qatar
           </motion.p>
           <motion.h1 
-            className={`${commonStyles.heading1} uppercase leading-[0.9] mb-8 text-center lg:text-left`}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-center lg:text-left text-white"
             variants={fadeInUp}
           >
             Transform Your Brand Into
             <br />
-            Market Leader
+            <span className="text-[#04E4FF]">Market Leader</span>
           </motion.h1>
           <motion.p 
-            className={`${commonStyles.bodyLarge} font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left ${commonStyles.gradientText}`}
+            className="text-lg md:text-xl font-normal leading-relaxed mb-10 max-w-2xl text-center lg:text-left text-white/90"
             variants={fadeInUp}
           >
-            We've generated millions of views and countless leads for our clients across Qatar and beyond. From viral social media content to professional web development - we craft digital experiences that drive real business growth and measurable results.
+            We've generated millions of views and countless leads for our clients across Qatar and beyond. From viral social media content to professional web development - we craft digital experiences that drive real business growth.
           </motion.p>
 
           <motion.a 
             href="https://wa.me/97459990137?text=Hi! I'd like to get a strategy session with Onzur Media Studio."
             target="_blank"
             rel="noopener noreferrer"
-            className={`${commonStyles.buttonPrimary} uppercase tracking-wider group cursor-pointer`}
+            className="inline-flex items-center bg-[#04E4FF] text-[#00042A] px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:shadow-lg transition-all duration-300 cursor-pointer"
             variants={fadeInUp}
             whileHover={{
-              ...buttonHover,
+              scale: 1.05,
               boxShadow: "0 10px 25px rgba(4, 228, 255, 0.3)"
             }}
-            whileTap={buttonTap}
-            animate={pulse}
+            whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 flex items-center justify-center">
+            <span className="flex items-center">
               Get Your Strategy Session
               <motion.svg
-                className="ml-2 w-4 h-4"
+                className="ml-2 w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

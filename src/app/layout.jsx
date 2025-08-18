@@ -1,4 +1,4 @@
-import { Inter, Roboto } from "next/font/google";
+import { Inter, Roboto, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -10,17 +10,23 @@ const roboto = Roboto({
   display: "swap",
   variable: "--font-roboto",
 });
+const dmSans = DM_Sans({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
 
 export const metadata = {
-  title: "Digital Silk - Premium Web Design Agency",
+  title: "Onzur Media Studio - Qatar's Leading Digital Marketing Agency",
   description:
-    "Digital Silk is a premium web design agency specializing in custom websites, branding, and digital marketing to grow brands online.",
+    "Transform your brand with Onzur Media Studio. We create viral content, professional websites, and digital marketing strategies that drive real results in Qatar and beyond.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
-      <body className={`font-roboto bg-[#00042A] antialiased`}>
+    <html lang="en" className={`${inter.variable} ${roboto.variable} ${dmSans.variable}`}>
+      <body className={`font-dm-sans bg-[#00042A] antialiased`}>
         <Navbar />
         <main className="pt-[82px]">{children}</main>
         <Footer />

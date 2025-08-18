@@ -43,8 +43,8 @@ const TeamSection = () => {
   };
 
   return (
-    <section id="team" className={commonStyles.sectionLight}>
-      <div className={commonStyles.container}>
+    <section id="team" className="py-20 bg-white">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div 
           className="text-center mb-16"
           initial="hidden"
@@ -53,13 +53,13 @@ const TeamSection = () => {
           variants={optimizedStagger}
         >
           <motion.h2 
-            className={`${commonStyles.heading2} text-[#1B2C5C] mb-6`}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1B2C5C] mb-6"
             variants={fadeInUp}
           >
             Meet Our Creators
           </motion.h2>
           <motion.p 
-            className={`${commonStyles.bodyLarge} text-[#1B2C5C]/80 max-w-2xl mx-auto`}
+            className="text-lg md:text-xl text-[#1B2C5C]/80 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
             The creative minds behind Onzur Media Studio, bringing your vision to life through innovative storytelling and expert production.
@@ -76,7 +76,7 @@ const TeamSection = () => {
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
-              className={`${commonStyles.cardSolid} group`}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 group"
               variants={fadeInScale}
               whileHover={{ 
                 ...hoverLift,
@@ -108,7 +108,7 @@ const TeamSection = () => {
                 variants={optimizedStagger}
               >
                 <motion.h3 
-                  className={`${commonStyles.heading3} text-[#1B2C5C] mb-2`}
+                  className="text-xl md:text-2xl font-bold text-[#1B2C5C] mb-2"
                   variants={fadeInUp}
                 >
                   {member.name}
@@ -120,7 +120,7 @@ const TeamSection = () => {
                   {member.role}
                 </motion.p>
                 <motion.p 
-                  className={`${commonStyles.bodyBase} text-[#1B2C5C]/80 mb-6 leading-relaxed`}
+                  className="text-base text-[#1B2C5C]/80 mb-6 leading-relaxed"
                   variants={fadeInUp}
                 >
                   {member.description}
@@ -133,7 +133,7 @@ const TeamSection = () => {
                     href={member.portfolioLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${commonStyles.buttonPrimary} group/button`}
+                    className="inline-flex items-center bg-[#04E4FF] text-[#00042A] px-6 py-3 rounded-full font-semibold hover:bg-[#00B9FF] transition-colors group/button"
                   >
                     <motion.span
                       className="flex items-center"
