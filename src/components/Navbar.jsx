@@ -27,10 +27,10 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#services", label: "Services", isAnchor: true },
-    { href: "#team", label: "Our Team", isAnchor: true },
+    { href: "#team", label: "Team", isAnchor: true },
+    { href: "#case-studies", label: "Case Studies", isAnchor: true },
     { href: "#portfolio", label: "Portfolio", isAnchor: true },
     { href: "#testimonials", label: "Testimonials", isAnchor: true },
-    { href: "#contact", label: "Contact", isAnchor: true },
   ];
 
   const handleSmoothScroll = (e, href) => {
@@ -39,7 +39,7 @@ const Navbar = () => {
       const targetId = href.slice(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const navbarHeight = 82; // Account for fixed navbar
+        const navbarHeight = 98; // Account for fixed navbar + padding
         const targetPosition = targetElement.offsetTop - navbarHeight;
         window.scrollTo({
           top: targetPosition,
@@ -88,32 +88,32 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-0 left-0 right-0 z-50 px-4 pt-4"
       initial="hidden"
       animate="visible"
       variants={navVariants}
     >
       <motion.div
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-300 rounded-2xl mx-auto max-w-7xl ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200"
-            : "bg-white/90 backdrop-blur-sm"
+            ? "bg-[#00042A]/95 backdrop-blur-md shadow-2xl border border-[#04E4FF]/20"
+            : "bg-[#00042A]/90 backdrop-blur-sm shadow-lg"
         }`}
         style={{
           backdropFilter: `blur(${backdropBlur}px)`,
           backgroundColor: isScrolled
-            ? `rgba(255, 255, 255, ${backgroundOpacity})`
-            : `rgba(255, 255, 255, 0.9)`,
+            ? `rgba(0, 4, 42, 0.95)`
+            : `rgba(0, 4, 42, 0.9)`,
         }}
       >
-        <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between h-[82px]">
+        <div className="px-6 flex items-center justify-between h-[82px]">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link href="/" className="flex items-center">
-              <div className="relative text-[#1B2C5C] text-xl md:text-2xl font-bold">
+              <div className="relative text-white text-xl md:text-2xl font-poppins font-bold tracking-tight">
                 <motion.span
                   className="text-[#04E4FF]"
                   whileHover={{
@@ -122,14 +122,14 @@ const Navbar = () => {
                 >
                   Onzur
                 </motion.span>
-                <span className="text-[#1B2C5C] ml-2">Media Studio</span>
+                <span className="text-white ml-2 font-medium">Media Studio</span>
               </div>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <motion.nav
-            className="hidden lg:flex items-center space-x-8"
+            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -139,7 +139,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="relative text-[#1B2C5C] hover:text-[#04E4FF] transition-colors text-lg font-medium cursor-pointer group"
+                className="relative text-white hover:text-[#04E4FF] transition-colors text-base lg:text-lg font-source-sans font-medium cursor-pointer group tracking-wide"
                 variants={linkVariants}
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -159,25 +159,25 @@ const Navbar = () => {
             <motion.a
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="hidden sm:inline-block bg-[#04E4FF] text-[#00042A] px-6 py-2 rounded-full font-semibold text-sm mr-6 cursor-pointer hover:bg-[#00B9FF] transition-colors"
+              className="hidden sm:inline-block bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-6 py-2 rounded-full font-poppins font-semibold text-sm mr-6 cursor-pointer hover:scale-105 transition-all duration-300 tracking-wide"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 5px 15px rgba(4, 228, 255, 0.3)",
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Get Started
+              Contact Us
             </motion.a>
 
             {/* Mobile Menu Button */}
             <motion.button
               onClick={toggleMobileMenu}
-              className="lg:hidden text-[#1B2C5C] focus:outline-none relative w-[26px] h-[21px] flex flex-col justify-between items-end"
+              className="lg:hidden text-white focus:outline-none relative w-[26px] h-[21px] flex flex-col justify-between items-end"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <motion.span
-                className="block w-full h-[3px] bg-[#1B2C5C] rounded-full"
+                className="block w-full h-[3px] bg-white rounded-full"
                 animate={{
                   rotate: isMobileMenuOpen ? 45 : 0,
                   y: isMobileMenuOpen ? 9 : 0,
@@ -185,14 +185,14 @@ const Navbar = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
               <motion.span
-                className="block w-[18px] h-[3px] bg-[#1B2C5C] rounded-full"
+                className="block w-[18px] h-[3px] bg-white rounded-full"
                 animate={{
                   opacity: isMobileMenuOpen ? 0 : 1,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
               <motion.span
-                className="block w-full h-[3px] bg-[#1B2C5C] rounded-full"
+                className="block w-full h-[3px] bg-white rounded-full"
                 animate={{
                   rotate: isMobileMenuOpen ? -45 : 0,
                   y: isMobileMenuOpen ? -9 : 0,
@@ -206,7 +206,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Drawer */}
       <motion.div
-        className="lg:hidden fixed inset-0 bg-white/95 backdrop-blur-md z-40 pt-[82px]"
+        className="lg:hidden fixed inset-0 bg-[#00042A]/95 backdrop-blur-md z-40 pt-[98px]"
         initial={{ opacity: 0, x: "100%" }}
         animate={{
           opacity: isMobileMenuOpen ? 1 : 0,
@@ -226,7 +226,7 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               onClick={(e) => handleSmoothScroll(e, link.href)}
-              className="text-[#1B2C5C] hover:text-[#04E4FF] transition-colors text-2xl font-medium cursor-pointer"
+              className="text-white hover:text-[#04E4FF] transition-colors text-2xl font-source-sans font-medium cursor-pointer tracking-wide"
               variants={linkVariants}
               whileHover={{ scale: 1.1, x: 10 }}
               whileTap={{ scale: 0.95 }}
@@ -237,7 +237,7 @@ const Navbar = () => {
           <motion.a
             href="#contact"
             onClick={(e) => handleSmoothScroll(e, "#contact")}
-            className="bg-[#04E4FF] text-[#00042A] px-8 py-3 rounded-full font-semibold text-xl mt-8 cursor-pointer hover:bg-[#00B9FF] transition-colors"
+            className="bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-8 py-3 rounded-full font-poppins font-semibold text-xl mt-8 cursor-pointer hover:scale-105 transition-all duration-300 tracking-wide"
             variants={linkVariants}
             whileHover={{
               scale: 1.05,
@@ -245,7 +245,7 @@ const Navbar = () => {
             }}
             whileTap={{ scale: 0.98 }}
           >
-            Get Started
+            Contact Us
           </motion.a>
         </motion.nav>
       </motion.div>

@@ -100,17 +100,20 @@ export const commonStyles = {
   // Containers
   container: 'container mx-auto px-4 max-w-7xl',
   
-  // Typography
-  heading1: 'text-5xl md:text-6xl lg:text-7xl font-bold',
-  heading2: 'text-4xl md:text-5xl font-bold',
-  heading3: 'text-2xl md:text-3xl font-bold',
-  bodyLarge: 'text-lg md:text-xl',
-  bodyBase: 'text-base md:text-lg',
+  // Professional Typography
+  heading1: 'heading-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight',
+  heading2: 'heading-primary text-4xl md:text-5xl font-semibold tracking-tight',
+  heading3: 'heading-secondary text-2xl md:text-3xl font-medium tracking-tight',
+  heading4: 'heading-secondary text-xl md:text-2xl font-medium',
+  bodyLarge: 'body-professional text-lg md:text-xl leading-relaxed',
+  bodyBase: 'body-professional text-base md:text-lg leading-relaxed',
+  bodySmall: 'body-professional text-sm md:text-base leading-relaxed',
+  bodyEmphasis: 'body-emphasis text-base md:text-lg font-medium',
   
   // Buttons
-  buttonPrimary: 'inline-flex items-center justify-center bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg',
-  buttonSecondary: 'inline-flex items-center justify-center bg-transparent border-2 border-[#04E4FF] text-[#04E4FF] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-[#04E4FF] hover:text-white',
-  buttonGhost: 'inline-flex items-center justify-center text-[#04E4FF] px-6 py-3 rounded-lg font-semibold transition-colors duration-300 hover:bg-[#04E4FF]/10',
+  buttonPrimary: 'inline-flex items-center justify-center bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-8 py-4 rounded-full font-poppins font-semibold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg',
+  buttonSecondary: 'inline-flex items-center justify-center bg-transparent border-2 border-[#04E4FF] text-[#04E4FF] px-8 py-4 rounded-full font-poppins font-semibold tracking-wide transition-all duration-300 hover:bg-[#04E4FF] hover:text-white',
+  buttonGhost: 'inline-flex items-center justify-center text-[#04E4FF] px-6 py-3 rounded-lg font-poppins font-medium tracking-wide transition-colors duration-300 hover:bg-[#04E4FF]/10',
   
   // Cards
   cardGlass: 'bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 transition-all duration-300 hover:bg-white/15 hover:shadow-lg',

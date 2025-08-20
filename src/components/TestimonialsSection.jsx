@@ -3,6 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  MotionSection,
+  MotionDiv,
+  fadeInUp,
+  stagger,
+  cardHover,
+} from "./MotionSafe";
 import { commonStyles } from "../lib/design-system";
 import { ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
@@ -11,7 +19,7 @@ const testimonials = [
     logo: "/assets/images/spice-fusion-logo.svg",
     company: "Spice Fusion Restaurant",
     name: "Aslam KA",
-    title: "Manager", 
+    title: "Manager",
     quote:
       "Onzur Marketing's professional food photography helped us successfully integrate with Talabat and Snoonu. Our online visibility and customer engagement have grown significantly!",
   },
@@ -58,79 +66,113 @@ const TestimonialsSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}>
+    <section
+      id="testimonials"
+      className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}
+    >
       <div className="absolute inset-0 opacity-30">
         <Image
           src="/assets/images/hero-bg-3.png"
           alt="Background Gradient"
           fill
           style={{ objectFit: "cover" }}
+          sizes="100vw"
         />
       </div>
 
-      <div className={`${commonStyles.container} relative z-10 flex flex-col lg:flex-row items-center`}>
+      <div
+        className={`${commonStyles.container} relative z-10 flex flex-col lg:flex-row items-center`}
+      >
         {/* Left side: Testimonial Slider */}
-        <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+        <MotionDiv
+          className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0"
+          variants={fadeInUp()}
+        >
           <div className="relative min-h-[300px] sm:min-h-[350px] flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
             {/* Navigation Arrows */}
-            <button
+            <motion.button
               onClick={prevTestimonial}
               className="absolute left-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -ml-4 sm:-ml-8 lg:-ml-12"
               aria-label="Previous testimonial"
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <ChevronLeft
-                size={24}
-                className="text-white"
-              />
-            </button>
-            <button
+              <ChevronLeft size={24} className="text-white" />
+            </motion.button>
+            <motion.button
               onClick={nextTestimonial}
               className="absolute right-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -mr-4 sm:-mr-8 lg:-mr-12"
               aria-label="Next testimonial"
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <ChevronRight
-                size={24}
-                className="text-white"
-              />
-            </button>
+              <ChevronRight size={24} className="text-white" />
+            </motion.button>
 
-            <div className="w-full transition-opacity duration-500 ease-in-out">
-              <h2 className={`${commonStyles.heading3} text-[#04E4FF] mb-6 uppercase tracking-wider`}>
-                Client Testimonials
-              </h2>
-              <blockquote className="mb-6">
-                <p className={`${commonStyles.heading3} font-bold leading-tight mb-8`}>
-                  "{currentTestimonial.quote}"
-                </p>
-              </blockquote>
-              <div className="flex items-center justify-center lg:justify-start">
-                <div className="w-20 h-10 sm:w-24 sm:h-12 relative mr-4 flex items-center justify-center">
-                  <Image
-                    src={currentTestimonial.logo}
-                    alt={`${currentTestimonial.company} logo`}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    className="opacity-80"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-lg sm:text-xl">
-                    {currentTestimonial.name}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                className="w-full"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h2
+                  className={`${commonStyles.heading3} text-[#04E4FF] mb-6 uppercase tracking-wider`}
+                >
+                  Client Testimonials
+                </h2>
+                <blockquote className="mb-6">
+                  <p
+                    className={`${commonStyles.heading3} font-bold leading-tight mb-8`}
+                  >
+                    "{currentTestimonial.quote}"
                   </p>
-                  <p className="text-sm sm:text-base opacity-80">
-                    {currentTestimonial.title} at {currentTestimonial.company}
-                  </p>
+                </blockquote>
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-20 h-10 sm:w-24 sm:h-12 relative mr-4 flex items-center justify-center">
+                    <Image
+                      src={currentTestimonial.logo}
+                      alt={`${currentTestimonial.company} logo`}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      className="opacity-80"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-lg sm:text-xl">
+                      {currentTestimonial.name}
+                    </p>
+                    <p className="text-sm sm:text-base opacity-80">
+                      {currentTestimonial.title} at {currentTestimonial.company}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Client Logos Row - consider making this scrollable or a separate small carousel if many logos */}
-          <div className="mt-12 hidden lg:block">
+          <motion.div
+            className="mt-12 hidden lg:block"
+            variants={fadeInUp(0.3)}
+          >
             <p className="text-center text-sm uppercase tracking-widest opacity-60 mb-4">
               Trusted By Industry Leaders
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-70">
+            <motion.div
+              className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-70"
+              variants={stagger(0.02, 0.02)}
+            >
               {[
                 ...new Set(
                   testimonials.map((t) => ({
@@ -141,9 +183,11 @@ const TestimonialsSection = () => {
               ]
                 .slice(0, 6)
                 .map((client, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="h-8 w-24 relative grayscale hover:grayscale-0 transition-all duration-300"
+                    variants={fadeInUp(index * 0.05)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     <Image
                       src={client.logo}
@@ -151,15 +195,22 @@ const TestimonialsSection = () => {
                       fill
                       style={{ objectFit: "contain" }}
                     />
-                  </div>
+                  </motion.div>
                 ))}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </MotionDiv>
 
         {/* Right side: DesignRush Widget */}
-        <div className="lg:w-1/2 lg:pl-12 flex flex-col items-center lg:items-start">
-          <div className="bg-gradient-to-br from-[#00B9FF] to-[#9536E5] p-1 rounded-lg shadow-2xl w-full max-w-md mx-auto lg:mx-0">
+        <MotionDiv
+          className="lg:w-1/2 lg:pl-12 flex flex-col items-center lg:items-start"
+          variants={fadeInUp(0.2)}
+        >
+          <motion.div
+            className="bg-gradient-to-br from-[#00B9FF] to-[#9536E5] p-1 rounded-lg shadow-2xl w-full max-w-md mx-auto lg:mx-0"
+            whileHover={{ scale: 1.02, y: -2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
             <div className="bg-[#0A1138] p-6 sm:p-8 rounded-md">
               <div className="flex flex-col items-center text-center mb-6">
                 <div className="relative w-48 h-16 mb-3">
@@ -178,7 +229,9 @@ const TestimonialsSection = () => {
                       key={i}
                       size={20}
                       className={`mx-0.5 ${
-                        i < 4.9 ? "text-yellow-400 fill-current" : "text-gray-400"
+                        i < 4.9
+                          ? "text-yellow-400 fill-current"
+                          : "text-gray-400"
                       }`}
                     />
                   ))}
@@ -203,8 +256,8 @@ const TestimonialsSection = () => {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

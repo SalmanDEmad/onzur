@@ -1,20 +1,26 @@
-import { Inter, Roboto, DM_Sans } from "next/font/google";
+import { Inter, Poppins, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const roboto = Roboto({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
   display: "swap",
-  variable: "--font-roboto",
 });
-const dmSans = DM_Sans({
-  weight: ["400", "500", "600", "700"],
+
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
+  variable: "--font-poppins",
+});
+
+const sourceSans = Source_Sans_3({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-sans",
 });
 
 export const metadata = {
@@ -25,10 +31,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto.variable} ${dmSans.variable}`}>
-      <body className={`font-dm-sans bg-[#00042A] antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} ${sourceSans.variable}`}
+    >
+      <body
+        className={`font-source-sans bg-[#00042A] antialiased overflow-x-hidden`}
+      >
         <Navbar />
-        <main className="pt-[82px]">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

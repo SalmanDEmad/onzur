@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
+import { MotionButton, buttonHover } from "./MotionSafe";
 import { ArrowRight, Loader2 } from "lucide-react";
 
 const ExploreServicesButton = ({
@@ -68,7 +69,7 @@ const ExploreServicesButton = ({
   const magneticEffect = {
     x: 0,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 20 }
+    transition: { type: "spring", stiffness: 300, damping: 20 },
   };
 
   const handleMouseMove = (e) => {
@@ -76,54 +77,67 @@ const ExploreServicesButton = ({
     const rect = e.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    const deltaX = (e.clientX - centerX) * 0.1;
-    const deltaY = (e.clientY - centerY) * 0.1;
+    const deltaX = (e.clientX - centerX) * 0.05; // Reduced intensity for safer animation
+    const deltaY = (e.clientY - centerY) * 0.05;
     magneticEffect.x = deltaX;
     magneticEffect.y = deltaY;
   };
 
   const pulseAnimation = {
     boxShadow: [
-      "0 0 0 0 rgba(4, 228, 255, 0.7)",
-      "0 0 0 10px rgba(4, 228, 255, 0)",
-      "0 0 0 0 rgba(4, 228, 255, 0)"
+      "0 0 0 0 rgba(4, 228, 255, 0.4)",
+      "0 0 0 6px rgba(4, 228, 255, 0)",
+      "0 0 0 0 rgba(4, 228, 255, 0)",
     ],
     transition: {
-      duration: 2,
+      duration: 2.5,
       repeat: Infinity,
-      ease: "easeInOut"
-    }
+      ease: "easeInOut",
+    },
   };
 
   return (
     <Link href={href} target="_blank" rel="noopener noreferrer" passHref>
       <motion.button
-        className={`${baseStyles} ${buttonClasses} ${isLoading ? 'cursor-wait' : 'cursor-pointer'}`}
-        whileHover={{ 
-          scale: 1.05,
-          boxShadow: "0 10px 25px rgba(4, 228, 255, 0.3)"
+        className={`${baseStyles} ${buttonClasses} ${
+          isLoading ? "cursor-wait" : "cursor-pointer"
+        }`}
+        initial="rest"
+        whileHover="hover"
+        whileTap="tap"
+        variants={{
+          rest: { scale: 1, y: 0 },
+          hover: {
+            scale: 1.02,
+            y: -1,
+            boxShadow: "0 6px 15px rgba(4, 228, 255, 0.25)",
+          },
+          tap: { scale: 0.98 },
         }}
-        whileTap={{ scale: 0.98 }}
         animate={!isHovered && !isLoading ? pulseAnimation : magneticEffect}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseMove={handleMouseMove}
         disabled={isLoading}
+        style={{ willChange: "transform" }}
       >
         {/* Ripple effect */}
         <motion.span
-          className="absolute inset-0 bg-white/20 rounded-full"
+          className="absolute inset-0 bg-white/15 rounded-full"
           initial={{ scale: 0, opacity: 1 }}
-          animate={isHovered ? { scale: 2, opacity: 0 } : { scale: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          animate={
+            isHovered ? { scale: 1.5, opacity: 0 } : { scale: 0, opacity: 1 }
+          }
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         />
 
         {/* Text with loading state */}
-        <motion.span 
+        <motion.span
           className={`${textClasses} mr-2.5 flex items-center`}
-          animate={isLoading ? { opacity: [1, 0.6, 1] } : {}}
-          transition={{ duration: 1, repeat: isLoading ? Infinity : 0 }}
+          animate={isLoading ? { opacity: [1, 0.7, 1] } : {}}
+          transition={{ duration: 1.2, repeat: isLoading ? Infinity : 0 }}
         >
           {isLoading ? (
             <>
@@ -134,17 +148,17 @@ const ExploreServicesButton = ({
             text
           )}
         </motion.span>
-        
+
         {/* Enhanced arrow animations */}
         {!isLoading && (
-          <motion.span 
+          <motion.span
             className="relative w-3 h-4 flex items-center justify-center"
-            whileHover={{ x: 3, rotate: 12 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ x: 2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
             <motion.div
-              whileHover={{ x: 2 }}
-              transition={{ type: "spring", stiffness: 400 }}
+              whileHover={{ x: 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <ArrowRight
                 size={14}
@@ -153,9 +167,9 @@ const ExploreServicesButton = ({
             </motion.div>
             <motion.div
               className="absolute"
-              initial={{ x: -10, opacity: 0 }}
+              initial={{ x: -6, opacity: 0 }}
               whileHover={{ x: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
               <ArrowRight
                 size={14}
