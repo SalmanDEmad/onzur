@@ -2,12 +2,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "motion/react";
 import { commonStyles } from "../lib/design-system";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const backgroundOpacity = useTransform(scrollY, [0, 100], [0.95, 1]);
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 20]);
@@ -21,20 +23,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isActiveLink = (href) => {
+    if (href === "/" && pathname === "/") return true;
+    if (href !== "/" && pathname.startsWith(href)) return true;
+    return false;
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const navLinks = [
-    { href: "#services", label: "Services", isAnchor: true },
-    { href: "#team", label: "Team", isAnchor: true },
-    { href: "#case-studies", label: "Case Studies", isAnchor: true },
-    { href: "#portfolio", label: "Portfolio", isAnchor: true },
-    { href: "#testimonials", label: "Testimonials", isAnchor: true },
+    { href: "/services", label: "Services", isAnchor: false },
+    { href: "/team", label: "Team", isAnchor: false },
+    { href: "/case-studies", label: "Case Studies", isAnchor: false },
+    { href: "/portfolio", label: "Portfolio", isAnchor: false },
+    { href: "/testimonials", label: "Testimonials", isAnchor: false },
   ];
 
-  const handleSmoothScroll = (e, href) => {
-    if (href.startsWith("#")) {
+  const handleSmoothScroll = (e, href, isAnchor) => {
+    if (isAnchor && href.startsWith("#")) {
       e.preventDefault();
       const targetId = href.slice(1);
       const targetElement = document.getElementById(targetId);
@@ -46,6 +54,11 @@ const Navbar = () => {
           behavior: "smooth",
         });
       }
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    } else if (!isAnchor) {
+      // For non-anchor links, close mobile menu and let Next.js handle the routing
       if (isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
@@ -113,17 +126,14 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link href="/" className="flex items-center">
-              <div className="relative text-white text-xl md:text-2xl font-poppins font-bold tracking-tight">
-                <motion.span
-                  className="text-[#04E4FF]"
-                  whileHover={{
-                    color: "#00B9FF",
-                  }}
-                >
-                  Onzur
-                </motion.span>
-                <span className="text-white ml-2 font-medium">Media Studio</span>
-              </div>
+              <Image
+                src="/assets/images/onzur-logo-white.svg"
+                alt="Onzur Media Studio Logo"
+                width={220}
+                height={55}
+                className="h-10 md:h-12 w-auto"
+                priority
+              />
             </Link>
           </motion.div>
 
@@ -135,22 +145,55 @@ const Navbar = () => {
             animate="visible"
           >
             {navLinks.map((link) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="relative text-white hover:text-[#04E4FF] transition-colors text-base lg:text-lg font-source-sans font-medium cursor-pointer group tracking-wide"
-                variants={linkVariants}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {link.label}
-                <motion.div
-                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] group-hover:w-full transition-all duration-300"
-                  whileHover={{ scaleX: 1 }}
-                  initial={{ scaleX: 0 }}
-                />
-              </motion.a>
+              <motion.div key={link.href} variants={linkVariants}>
+                {link.isAnchor ? (
+                  <motion.a
+                    href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href, link.isAnchor)}
+                    className="relative text-white hover:text-[#04E4FF] transition-colors text-base lg:text-lg font-source-sans font-medium cursor-pointer group tracking-wide"
+                    whileHover={{ y: -2 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    {link.label}
+                    <motion.div
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] group-hover:w-full transition-all duration-300"
+                      whileHover={{ scaleX: 1 }}
+                      initial={{ scaleX: 0 }}
+                    />
+                  </motion.a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href, link.isAnchor)}
+                    className={`relative transition-colors text-base lg:text-lg font-source-sans font-medium cursor-pointer group tracking-wide ${
+                      isActiveLink(link.href) 
+                        ? "text-[#04E4FF]" 
+                        : "text-white hover:text-[#04E4FF]"
+                    }`}
+                  >
+                    <motion.span
+                      whileHover={{ y: -2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="block"
+                    >
+                      {link.label}
+                      <motion.div
+                        className={`absolute bottom-0 left-0 bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] transition-all duration-300 ${
+                          isActiveLink(link.href) 
+                            ? "w-full h-[2px] shadow-lg shadow-[#04E4FF]/50" 
+                            : "w-0 h-0.5 group-hover:w-full"
+                        }`}
+                        whileHover={{ scaleX: 1 }}
+                        initial={{ scaleX: isActiveLink(link.href) ? 1 : 0 }}
+                        animate={{ 
+                          scaleX: isActiveLink(link.href) ? 1 : 0,
+                          height: isActiveLink(link.href) ? "2px" : "2px"
+                        }}
+                      />
+                    </motion.span>
+                  </Link>
+                )}
+              </motion.div>
             ))}
           </motion.nav>
 
@@ -222,21 +265,49 @@ const Navbar = () => {
           animate={isMobileMenuOpen ? "visible" : "hidden"}
         >
           {navLinks.map((link) => (
-            <motion.a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleSmoothScroll(e, link.href)}
-              className="text-white hover:text-[#04E4FF] transition-colors text-2xl font-source-sans font-medium cursor-pointer tracking-wide"
-              variants={linkVariants}
-              whileHover={{ scale: 1.1, x: 10 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {link.label}
-            </motion.a>
+            <motion.div key={link.href} variants={linkVariants}>
+              {link.isAnchor ? (
+                <motion.a
+                  href={link.href}
+                  onClick={(e) => handleSmoothScroll(e, link.href, link.isAnchor)}
+                  className="text-white hover:text-[#04E4FF] transition-colors text-2xl font-source-sans font-medium cursor-pointer tracking-wide"
+                  whileHover={{ scale: 1.1, x: 10 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {link.label}
+                </motion.a>
+              ) : (
+                <Link
+                  href={link.href}
+                  onClick={(e) => handleSmoothScroll(e, link.href, link.isAnchor)}
+                  className={`relative transition-colors text-2xl font-source-sans font-medium cursor-pointer tracking-wide ${
+                    isActiveLink(link.href) 
+                      ? "text-[#04E4FF]" 
+                      : "text-white hover:text-[#04E4FF]"
+                  }`}
+                >
+                  <motion.span
+                    whileHover={{ scale: 1.1, x: 10 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="block relative"
+                  >
+                    {link.label}
+                    {isActiveLink(link.href) && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] shadow-lg shadow-[#04E4FF]/50"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </motion.span>
+                </Link>
+              )}
+            </motion.div>
           ))}
           <motion.a
             href="#contact"
-            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            onClick={(e) => handleSmoothScroll(e, "#contact", true)}
             className="bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-8 py-3 rounded-full font-poppins font-semibold text-xl mt-8 cursor-pointer hover:scale-105 transition-all duration-300 tracking-wide"
             variants={linkVariants}
             whileHover={{

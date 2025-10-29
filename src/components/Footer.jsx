@@ -221,9 +221,13 @@ const Footer = () => {
               href="/"
               className="flex items-center hover:opacity-80 transition-all duration-300 hover:scale-105"
             >
-              <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#A4DCFF] bg-clip-text text-transparent">
-                Onzur Media Studio
-              </span>
+              <Image
+                src="/assets/images/onzur-logo-white.svg"
+                alt="Onzur Media Studio Logo"
+                width={240}
+                height={60}
+                className="h-12 w-auto"
+              />
             </Link>
           </motion.div>
 
