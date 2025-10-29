@@ -27,6 +27,12 @@ export const metadata = {
   title: "Onzur Media Studio - Qatar's Leading Digital Marketing Agency",
   description:
     "Transform your brand with Onzur Media Studio. We create viral content, professional websites, and digital marketing strategies that drive real results in Qatar and beyond.",
+  icons: {
+    icon: [
+      { url: '/assets/images/onzur-logo-white.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/assets/images/onzur-logo-white.svg',
+  },
 };
 
 export default function RootLayout({ children }) {
