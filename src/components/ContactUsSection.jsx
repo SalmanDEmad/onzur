@@ -107,11 +107,11 @@ export default function ContactUsSection() {
               className={`${commonStyles.heading1} mb-8 leading-tight`}
               variants={fadeInUp(0.2)}
             >
-              <span className="text-[#04E4FF] [text-shadow:_0_0_10px_theme(colors.cyan.400)]">
+              <span className="text-[#04E4FF]">
                 Let's Discuss
               </span>
               <br />
-              <span className="text-[#04E4FF] [text-shadow:_0_0_10px_theme(colors.cyan.400)]">
+              <span className="text-white">
                 Your Project
               </span>
             </motion.h2>

@@ -107,16 +107,17 @@ const Navbar = () => {
       variants={navVariants}
     >
       <motion.div
-        className={`transition-all duration-300 rounded-2xl mx-auto max-w-7xl ${
+        className={`relative transition-all duration-300 rounded-2xl mx-auto max-w-7xl ${
           isScrolled
-            ? "bg-[#00042A]/95 backdrop-blur-md shadow-2xl border border-[#04E4FF]/20"
-            : "bg-[#00042A]/90 backdrop-blur-sm shadow-lg"
+            ? "bg-[#00042A]/70 backdrop-blur-md shadow-2xl border border-[#04E4FF]/10"
+            : "bg-[#00042A]/60 backdrop-blur-sm shadow-lg"
         }`}
         style={{
           backdropFilter: `blur(${backdropBlur}px)`,
           backgroundColor: isScrolled
-            ? `rgba(0, 4, 42, 0.95)`
-            : `rgba(0, 4, 42, 0.9)`,
+            ? `rgba(0, 4, 42, 0.7)`
+            : `rgba(0, 4, 42, 0.6)`,
+          zIndex: 60,
         }}
       >
         <div className="px-6 flex items-center justify-between h-[82px]">
@@ -215,7 +216,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={toggleMobileMenu}
-              className="lg:hidden text-white focus:outline-none relative w-[26px] h-[21px] flex flex-col justify-between items-end"
+              className="lg:hidden text-white focus:outline-none relative w-[26px] h-[21px] flex flex-col justify-between items-end z-[70]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -249,7 +250,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Drawer */}
       <motion.div
-        className="lg:hidden fixed inset-0 bg-[#00042A]/95 backdrop-blur-md z-40 pt-[98px]"
+        className="lg:hidden fixed inset-0 bg-[#00042A]/70 backdrop-blur-md z-[45] pt-[98px]"
         initial={{ opacity: 0, x: "100%" }}
         animate={{
           opacity: isMobileMenuOpen ? 1 : 0,
@@ -257,12 +258,14 @@ const Navbar = () => {
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         style={{ pointerEvents: isMobileMenuOpen ? "auto" : "none" }}
+        onClick={() => setIsMobileMenuOpen(false)}
       >
         <motion.nav
           className="flex flex-col items-center space-y-6 py-8"
           variants={staggerContainer}
           initial="hidden"
           animate={isMobileMenuOpen ? "visible" : "hidden"}
+          onClick={(e) => e.stopPropagation()}
         >
           {navLinks.map((link) => (
             <motion.div key={link.href} variants={linkVariants}>

@@ -49,17 +49,17 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Ayham",
+    name: "Sahid",
     role: "Senior Content Editor",
     department: "Production",
     image: "/assets/contents/IMG-20250708-WA0010.jpg", // Will be replaced with actual image
-    bio: "Master editor specializing in viral social media content, with expertise in creating engaging videos that drive millions of views and conversions. Ayham's editing skills have been instrumental in creating content that resonates with audiences.",
+    bio: "Master editor specializing in viral social media content, with expertise in creating engaging videos that drive millions of views and conversions. Sahid's editing skills have been instrumental in creating content that resonates with audiences.",
     specialties: ["Video Editing", "Motion Graphics", "Social Media Content", "Post-Production"],
     achievements: ["4M+ Video Views", "Viral Content Specialist", "Expert in Multi-Platform Editing"],
-    portfolioLink: "https://vt.tiktok.com/ZShBBeJnj/",
+    portfolioLink: "https://www.instagram.com/alysohel.mov",
     social: {
       linkedin: "#",
-      instagram: "#",
+      instagram: "https://www.instagram.com/alysohel.mov",
       twitter: "#"
     },
     experience: "4+ Years",

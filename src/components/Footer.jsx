@@ -23,7 +23,7 @@ const footerLinks = [
       { href: "/portfolio/spice-fusion", text: "Spice Fusion" },
       { href: "/portfolio/megabyte-store", text: "Megabyte Store" },
       { href: "https://daanishrayn.my.canva.site/portfolio-web", text: "Daanish Portfolio" },
-      { href: "https://vt.tiktok.com/ZShBBeJnj/", text: "Ayham Portfolio" },
+      { href: "https://www.instagram.com/alysohel.mov", text: "Sahid Portfolio" },
     ],
   },
   {

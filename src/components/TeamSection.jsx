@@ -21,10 +21,10 @@ const teamMembers = [
     description: "Award-winning creative director and videographer who brings brands to life through compelling visual storytelling and innovative content strategies.",
   },
   {
-    name: "Ayham",
+    name: "Sahid",
     role: "Senior Content Editor",
     image: "/assets/contents/IMG-20250708-WA0010.jpg",
-    portfolioLink: "https://vt.tiktok.com/ZShBBeJnj/",
+    portfolioLink: "https://www.instagram.com/alysohel.mov",
     description: "Master editor specializing in viral social media content, with expertise in creating engaging videos that drive millions of views and conversions.",
   },
 ];
