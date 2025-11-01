@@ -169,8 +169,8 @@ export const shimmer = {
 // Viewport animation settings - optimized for performance
 export const viewport = {
   once: true,
-  margin: "-50px",
-  amount: 0.2
+  margin: "-100px",
+  amount: 0.1
 };
 
 export const viewportFast = {

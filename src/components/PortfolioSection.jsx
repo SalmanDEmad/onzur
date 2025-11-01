@@ -3,13 +3,6 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
-import { 
-  fadeInUp, 
-  fadeInScale, 
-  staggerContainer, 
-  hoverLift,
-  viewport 
-} from "../lib/animation-variants";
 import OptimizedImage from "./OptimizedImage";
 
 const portfolioProjects = [
@@ -79,20 +72,10 @@ const portfolioProjects = [
 ];
 
 const PortfolioSection = () => {
-  // Use optimized shared variants
-  const optimizedStagger = {
-    ...staggerContainer,
-    visible: {
-      ...staggerContainer.visible,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
   return (
-    <section id="portfolio" className={`${commonStyles.sectionDark} relative overflow-hidden`}>
+    <section id="portfolio" className="bg-[#00042A] py-12 md:py-20 relative overflow-hidden min-h-screen"
+      style={{ opacity: 1, visibility: 'visible', display: 'block' }}
+    >
       {/* Background gradients */}
       <div className="absolute inset-0 opacity-30">
         <motion.div 
@@ -121,46 +104,22 @@ const PortfolioSection = () => {
         />
       </div>
 
-      <div className={`${commonStyles.container} relative z-10`}>
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={optimizedStagger}
-        >
-          <motion.h2 
-            className={`${commonStyles.heading2} text-white mb-6`}
-            variants={fadeInUp}
-          >
+      <div className="container mx-auto px-4 max-w-7xl relative z-10" style={{ opacity: 1 }}>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6">
             Featured Work & Real Analytics
-          </motion.h2>
-          <motion.p 
-            className={`${commonStyles.bodyLarge} text-white/80 max-w-2xl mx-auto`}
-            variants={fadeInUp}
-          >
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto">
             Real results from our video production, content creation, and social media management projects. From viral TikTok content to professional brand campaigns.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-          variants={optimizedStagger}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" style={{ opacity: 1 }}>
           {portfolioProjects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
-              className={`${commonStyles.cardGlass} overflow-hidden group cursor-pointer`}
-              variants={fadeInScale}
-              whileHover={{ 
-                ...hoverLift,
-                scale: 1.02,
-                boxShadow: "0 25px 50px rgba(4, 228, 255, 0.15)"
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-0 overflow-hidden group cursor-pointer transition-all duration-300 hover:bg-white/15 hover:shadow-lg"
+              style={{ opacity: 1, display: 'block' }}
             >
               <motion.div 
                 className="relative h-48 overflow-hidden"
@@ -193,66 +152,46 @@ const PortfolioSection = () => {
                 </motion.div>
               </motion.div>
               
-              <motion.div 
-                className="p-6"
-                variants={optimizedStagger}
-              >
-                <motion.h3 
-                  className={`${commonStyles.heading3} text-white mb-3`}
-                  variants={fadeInUp}
-                >
+              <div className="p-6">
+                <h3 className={`${commonStyles.heading3} text-white mb-3`}>
                   {project.title}
-                </motion.h3>
-                <motion.p 
-                  className={`${commonStyles.bodyBase} text-white/80 mb-3`}
-                  variants={fadeInUp}
-                >
+                </h3>
+                <p className={`${commonStyles.bodyBase} text-white/80 mb-3`}>
                   {project.description}
-                </motion.p>
-                <motion.p 
-                  className="text-[#04E4FF] font-semibold mb-4"
-                  variants={fadeInUp}
-                >
+                </p>
+                <p className="text-[#04E4FF] font-semibold mb-4">
                   {project.metrics}
-                </motion.p>
+                </p>
                 
                 {project.link !== "#" && (
-                  <motion.div variants={fadeInUp}>
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${commonStyles.buttonGhost} group/button`}
-                    >
-                      <motion.span
-                        className="flex items-center"
-                        whileHover={{ x: 3 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${commonStyles.buttonGhost} group/button inline-flex items-center`}
+                  >
+                    <span className="flex items-center transition-transform duration-300 group-hover/button:translate-x-1">
+                      View Project
+                      <svg
+                        className="ml-2 w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        View Project
-                        <motion.svg
-                          className="ml-2 w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          whileHover={{ x: 2, y: -2 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </motion.svg>
-                      </motion.span>
-                    </Link>
-                  </motion.div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
                 )}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

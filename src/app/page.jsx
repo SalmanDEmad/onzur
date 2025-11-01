@@ -15,66 +15,12 @@ export default function Home() {
     <div className="min-h-screen" data-anim="on">
       {/* Hero loads immediately without animation wrapper for better performance */}
       <HeroSection />
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <TeamSection />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <ExpertiseSection />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <CaseStudiesSection />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <PortfolioSection />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <TestimonialsSection />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        variants={fadeInUp}
-        className="motion-element"
-      >
-        <ContactUsSection />
-      </motion.div>
+      <TeamSection />
+      <ExpertiseSection />
+      <CaseStudiesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactUsSection />
     </div>
   );
 }
