@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import LanguageToggle from "./LanguageToggle";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -198,12 +199,17 @@ const Navbar = () => {
             ))}
           </motion.nav>
 
-          {/* Right side: CTA and Mobile Menu Button */}
-          <div className="flex items-center">
+          {/* Right side: Language Toggle, CTA and Mobile Menu Button */}
+          <div className="flex items-center gap-4">
+            {/* Language Toggle */}
+            <div className="hidden md:block">
+              <LanguageToggle />
+            </div>
+            
             <motion.a
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, "#contact")}
-              className="hidden sm:inline-block bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-6 py-2 rounded-full font-poppins font-semibold text-sm mr-6 cursor-pointer hover:scale-105 transition-all duration-300 tracking-wide"
+              className="hidden sm:inline-block bg-gradient-to-r from-[#00B9FF] to-[#04E4FF] text-white px-6 py-2 rounded-full font-poppins font-semibold text-sm cursor-pointer hover:scale-105 transition-all duration-300 tracking-wide"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 5px 15px rgba(4, 228, 255, 0.3)",
@@ -267,6 +273,11 @@ const Navbar = () => {
           animate={isMobileMenuOpen ? "visible" : "hidden"}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Language Toggle in Mobile Menu */}
+          <motion.div variants={linkVariants} className="mb-4">
+            <LanguageToggle />
+          </motion.div>
+          
           {navLinks.map((link) => (
             <motion.div key={link.href} variants={linkVariants}>
               {link.isAnchor ? (

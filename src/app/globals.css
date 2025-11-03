@@ -6,6 +6,15 @@
     scroll-behavior: smooth;
   }
   
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  [dir="ltr"] {
+    direction: ltr;
+  }
+  
   body {
     font-family: var(--font-source-sans), 'Source Sans 3', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
@@ -118,4 +127,65 @@
   animation: marquee-scroll 40s linear infinite;
   will-change: transform;
   transform: translateZ(0);
+}
+
+/* RTL-aware utilities */
+@layer utilities {
+  .rtl-mirror {
+    transform: scaleX(-1);
+  }
+  
+  [dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+  
+  /* Text alignment */
+  .text-start {
+    text-align: start;
+  }
+  
+  .text-end {
+    text-align: end;
+  }
+  
+  /* Margin utilities that respect RTL */
+  .ms-auto {
+    margin-inline-start: auto;
+  }
+  
+  .me-auto {
+    margin-inline-end: auto;
+  }
+  
+  /* Padding utilities that respect RTL */
+  .ps-4 {
+    padding-inline-start: 1rem;
+  }
+  
+  .pe-4 {
+    padding-inline-end: 1rem;
+  }
+  
+  /* Float utilities for RTL */
+  .float-start {
+    float: inline-start;
+  }
+  
+  .float-end {
+    float: inline-end;
+  }
+}
+
+/* Arabic font optimization */
+[dir="rtl"] {
+  font-family: 'Tajawal', 'Cairo', 'Noto Sans Arabic', var(--font-source-sans), sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .heading-display,
+[dir="rtl"] .heading-primary,
+[dir="rtl"] .heading-secondary {
+  font-family: 'Tajawal', 'Cairo', 'Noto Sans Arabic', var(--font-poppins), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
 }

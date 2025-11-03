@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "caseStudies": "Case Studies",
+    "team": "Team",
+    "testimonials": "Testimonials",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "badge": "Trusted by 100+ Brands in Qatar & Beyond",
+    "title1": "Transform Your Brand Into a",
+    "title2": "Digital Powerhouse",
+    "subtitle": "We don't just create content—we engineer viral moments, architect scalable growth strategies, and transform brands into market dominators through cutting-edge digital solutions.",
+    "cta1": "Start Your Project",
+    "cta2": "View Portfolio",
+    "phone": "Call Us Now",
+    "whatsapp": "WhatsApp Us"
+  },
+  "expertise": {
+    "badge": "What We Do Best",
+    "title": "Services That Actually Grow Your Business",
+    "card1": {
+      "title": "Viral Content & Video Production",
+      "description": "8M+ views don't happen by accident. Our proven content strategies have generated massive engagement for brands across Qatar, turning ordinary posts into viral sensations that drive real business results."
+    },
+    "card2": {
+      "title": "High-Converting Websites",
+      "description": "Your website should be your best salesperson. We build stunning, conversion-optimized sites that turn visitors into customers and scale with your business growth."
+    },
+    "card3": {
+      "title": "Social Media That Sells",
+      "description": "Stop posting into the void. Our organic content strategies turn your social media into a powerful customer acquisition engine that works 24/7 to grow your brand and drive sales."
+    },
+    "card4": {
+      "title": "High-ROI Paid Advertising",
+      "description": "Get immediate results with ads that actually work. Our data-driven campaigns on Instagram, Facebook, LinkedIn, and TikTok consistently deliver 40+ daily leads and maximize your advertising spend."
+    }
+  },
+  "caseStudies": {
+    "badge": "Proven Results",
+    "title": "Real Success Stories From Real Clients",
+    "viewAll": "View All Case Studies",
+    "viewDetails": "View Full Case Study"
+  },
+  "portfolio": {
+    "badge": "Our Work",
+    "title": "Portfolio That Speaks for Itself",
+    "viewAll": "Explore Full Portfolio"
+  },
+  "testimonials": {
+    "badge": "Client Love",
+    "title": "What Our Clients Say",
+    "viewAll": "Read All Testimonials"
+  },
+  "team": {
+    "badge": "Meet The Team",
+    "title": "The Minds Behind Your Success",
+    "viewAll": "Meet the Full Team"
+  },
+  "contact": {
+    "badge": "Ready to Scale Your Business?",
+    "title1": "Let's Discuss",
+    "title2": "Your Project",
+    "phone": "Phone: +974 5999 0137",
+    "whatsapp": "WhatsApp: +974 7750 7972",
+    "followUs": "Follow Us",
+    "formTitle": "Tell Us About Your Goals",
+    "name": "Name*",
+    "company": "Company Name*",
+    "email": "Email*",
+    "phoneLabel": "Phone*",
+    "message": "Your Message*",
+    "submit": "Start Your Project",
+    "success": "Form submitted successfully!",
+    "error": "Please fill out all required fields."
+  },
+  "footer": {
+    "tagline": "Let's Create Your Story",
+    "services": "Our Services",
+    "portfolio": "Portfolio",
+    "company": "Company",
+    "legal": "Legal",
+    "location": "Based in Qatar",
+    "locationInfo": "Doha, Qatar",
+    "phone": "Phone (Calls)",
+    "whatsapp": "WhatsApp",
+    "copyright": "Onzur Media Studio. All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "accessibility": "Accessibility"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewMore": "View More",
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "tryAgain": "Try Again"
+  }
+}

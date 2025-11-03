@@ -1,0 +1,21 @@
+{
+  "name": "Onzur Media Studio",
+  "short_name": "Onzur",
+  "description": "Qatar's leading digital marketing agency",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#00042A",
+  "theme_color": "#04E4FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/onzur-logo-white.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "marketing", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}
