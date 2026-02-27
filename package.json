@@ -15,24 +15,30 @@
     "@anthropic-ai/claude-code": "^1.0.51",
     "@react-three/drei": "9.114.3",
     "@react-three/fiber": "^9.4.0",
+    "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
-    "lucide-react": "^0.525.0",
+    "lucide-react": "^0.552.0",
     "motion": "^12.23.3",
-    "next": "15.3.2",
+    "next": "15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "three": "^0.180.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/eslint-plugin-next": "15",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^24.9.2",
-    "@types/react": "^19.2.2",
-    "eslint": "^9",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.181.0",
+    "eslint": "^8",
     "eslint-config-next": "15.3.2",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1"
   },
   "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"
 }

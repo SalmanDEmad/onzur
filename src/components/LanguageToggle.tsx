@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Globe } from 'lucide-react';
 
 export default function LanguageToggle() {

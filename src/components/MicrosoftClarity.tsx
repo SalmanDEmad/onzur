@@ -1,8 +1,9 @@
 'use client';
 
+import React from 'react';
 import Script from 'next/script';
 
-export default function MicrosoftClarity(): JSX.Element | null {
+export default function MicrosoftClarity(): React.ReactNode {
   const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 
   // Don't render if no project ID is set

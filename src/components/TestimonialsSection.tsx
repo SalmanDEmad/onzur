@@ -70,16 +70,6 @@ const TestimonialsSection = () => {
       id="testimonials"
       className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}
     >
-      <div className="absolute inset-0 opacity-30">
-        <Image
-          src="/assets/images/hero-bg-3.png"
-          alt="Background Gradient"
-          fill
-          style={{ objectFit: "cover" }}
-          sizes="100vw"
-        />
-      </div>
-
       <div
         className={`${commonStyles.container} relative z-10 flex flex-col lg:flex-row items-center`}
       >

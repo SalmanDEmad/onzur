@@ -21,8 +21,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     async function loadTranslations() {
       try {
-        const module = await import(`@/translations/${language}.json`);
-        setTranslations(module.default);
+        const translationModule = await import(`../translations/${language}.json`);
+        setTranslations(translationModule.default);
       } catch (error) {
         console.error('Failed to load translations:', error);
       }

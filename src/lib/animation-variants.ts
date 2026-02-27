@@ -1,12 +1,5 @@
 // Optimized animation variants for performance
-// Using transform3d for hardware acceleration and optimized easing
-
-// Optimized easing curves for smooth performance
-const easing = {
-  smooth: [0.25, 0.46, 0.45, 0.94],
-  snappy: [0.4, 0, 0.2, 1],
-  bounce: [0.68, -0.55, 0.265, 1.55],
-};
+// Using transform3d for hardware acceleration
 
 // Base animation variants - reusable and optimized
 export const fadeInUp = {
@@ -20,8 +13,7 @@ export const fadeInUp = {
     y: 0,
     transform: "translate3d(0, 0, 0)",
     transition: { 
-      duration: 0.6, 
-      ease: easing.smooth
+      duration: 0.6
     }
   }
 };
@@ -37,8 +29,7 @@ export const fadeInLeft = {
     x: 0,
     transform: "translate3d(0, 0, 0)",
     transition: { 
-      duration: 0.5, 
-      ease: easing.smooth
+      duration: 0.5
     }
   }
 };
@@ -54,8 +45,7 @@ export const fadeInScale = {
     scale: 1,
     transform: "translate3d(0, 0, 0) scale(1)",
     transition: { 
-      duration: 0.4, 
-      ease: easing.snappy
+      duration: 0.4
     }
   }
 };
@@ -88,16 +78,14 @@ export const fastStagger = {
 export const hoverScale = {
   scale: 1.05,
   transition: { 
-    duration: 0.2, 
-    ease: easing.snappy
+    duration: 0.2
   }
 };
 
 export const hoverLift = {
   y: -8,
   transition: { 
-    duration: 0.3, 
-    ease: easing.smooth
+    duration: 0.3
   }
 };
 
@@ -105,8 +93,7 @@ export const hoverLift = {
 export const buttonHover = {
   scale: 1.02,
   transition: { 
-    duration: 0.15, 
-    ease: easing.snappy
+    duration: 0.15
   }
 };
 

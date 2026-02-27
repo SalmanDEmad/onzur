@@ -79,17 +79,6 @@ export default function ContactUsSection() {
       id="contact"
       className={`relative ${commonStyles.sectionDark} text-white overflow-hidden`}
     >
-      <div className="absolute inset-0 opacity-50">
-        <Image
-          src="/assets/images/hero-bg-2.png"
-          alt="Abstract background design"
-          layout="fill"
-          objectFit="cover"
-          className="blur-sm"
-          sizes="100vw"
-        />
-      </div>
-
       <div className={`${commonStyles.container} relative z-10`}>
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
           {/* Left Column */}

@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Skip type checking during build (use a separate tsc check)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

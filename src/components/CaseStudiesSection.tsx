@@ -146,15 +146,6 @@ const CaseStudiesSection = () => {
           className="w-full lg:w-[672px] bg-gradient-to-br from-[#00042A] to-[#131848] relative text-white p-8 md:p-16 shadow-2xl"
           variants={fadeInLeft}
         >
-          <Image
-            src="/assets/images/hero-bg-1.png"
-            alt="Case Studies Background"
-            fill
-            style={{ objectFit: "cover" }}
-            className="opacity-60"
-            sizes="(max-width: 1024px) 100vw, 672px"
-            priority
-          />
           <div className="relative z-10">
             <motion.h2
               className={`${commonStyles.heading1} mb-12 text-shadow-lg`}

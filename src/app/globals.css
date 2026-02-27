@@ -129,6 +129,43 @@
   transform: translateZ(0);
 }
 
+/* Aurora background animations */
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(5%, 8%) scale(1.05); }
+  50% { transform: translate(-3%, 4%) scale(0.95); }
+  75% { transform: translate(7%, -5%) scale(1.02); }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-6%, -4%) scale(1.08); }
+  50% { transform: translate(4%, 6%) scale(0.92); }
+  75% { transform: translate(-3%, 8%) scale(1.04); }
+}
+
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(8%, -6%) scale(0.96); }
+  50% { transform: translate(-5%, -3%) scale(1.06); }
+  75% { transform: translate(3%, 7%) scale(0.98); }
+}
+
+.animate-aurora-1 {
+  animation: aurora-drift-1 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-aurora-2 {
+  animation: aurora-drift-2 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-aurora-3 {
+  animation: aurora-drift-3 22s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* RTL-aware utilities */
 @layer utilities {
   .rtl-mirror {

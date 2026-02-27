@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 
-export default function GoogleAnalytics(): JSX.Element | null {
+export default function GoogleAnalytics(): React.ReactNode {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   // Don't render if no measurement ID is set

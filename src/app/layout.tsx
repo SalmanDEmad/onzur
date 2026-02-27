@@ -1,8 +1,8 @@
 import { Inter, Poppins, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
-import StructuredData from "../components/StructuredData.jsx";
+import Navbar from "../components/Navbar.tsx";
+import Footer from "../components/Footer.tsx";
+import StructuredData from "../components/StructuredData.tsx";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import MicrosoftClarity from "../components/MicrosoftClarity";
 import { LanguageProvider } from "../contexts/LanguageContext";
