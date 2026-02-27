@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { caseStudiesData } from "../data/caseStudies";
 import { motion } from "motion/react";
 import {
   fadeInUp,
@@ -18,80 +20,7 @@ import {
 } from "../lib/animation-variants";
 import { commonStyles } from "../lib/design-system";
 
-const caseStudiesData = [
-  {
-    id: "spice-fusion",
-    name: "Spice Fusion Restaurant",
-    logo: "/assets/images/placeholder-logo.svg",
-    logoDark: "/assets/images/placeholder-logo-dark.svg",
-    bgColor: "#04E4FF",
-    title: "Spice Fusion Restaurant:",
-    subtitle: "Professional Food Photography & Platform Integration",
-    mainDescription:
-      "Challenge: Needed high-quality food photography for menu presentation and online delivery platform integration. Solution: Onzur Marketing conducted a professional food photography session, optimizing images for online menus.",
-    achievementIntro: "Results achieved:",
-    metric1: {
-      value: "100",
-      unit: "%",
-      description: "successful integration with Talabat & Snoonu",
-    },
-    metric2: {
-      value: "Major",
-      unit: "",
-      description: "boost in online sales & engagement",
-    },
-    ctaLink: "/case-studies/spice-fusion",
-    ctaText: "View Spice Fusion Results",
-  },
-  {
-    id: "megabyte-store",
-    name: "Megabyte Store",
-    logo: "/assets/images/placeholder-logo.svg",
-    logoDark: "/assets/images/placeholder-logo-dark.svg",
-    bgColor: "#04E4FF",
-    title: "Megabyte Store:",
-    subtitle: "Electronics Store Digital Transformation",
-    mainDescription:
-      "Challenge: Low product sales and limited online presence. Solution: Managed Meta and TikTok ads, created engaging content, and optimized campaigns for electronics and gadgets.",
-    achievementIntro: "Incredible results:",
-    metric1: {
-      value: "8",
-      unit: "M+",
-      description: "TikTok views in 3-4 months",
-    },
-    metric2: {
-      value: "40-50",
-      unit: "",
-      description: "daily leads generated",
-    },
-    ctaLink: "/case-studies/megabyte-store",
-    ctaText: "View Megabyte Analytics",
-  },
-  {
-    id: "islamic-scholars",
-    name: "Islamic Scholars Project",
-    logo: "/assets/images/placeholder-logo.svg",
-    logoDark: "/assets/images/placeholder-logo-dark.svg",
-    bgColor: "#04E4FF",
-    title: "Islamic Scholars Project:",
-    subtitle: "Expanding Reach for Islamic Education",
-    mainDescription:
-      "Challenge: Expanding reach for Islamic education on social media. Solution: Developed and managed Dr. Abdurrahman Shaybani's TikTok content strategy and onboarded multiple scholars.",
-    achievementIntro: "Outstanding growth:",
-    metric1: {
-      value: "80",
-      unit: "K",
-      description: "followers gained in 2 months",
-    },
-    metric2: {
-      value: "4",
-      unit: "M",
-      description: "views achieved in 2 months",
-    },
-    ctaLink: "/case-studies/islamic-scholars",
-    ctaText: "View Scholar Analytics",
-  },
-];
+
 
 const tabVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -123,6 +52,7 @@ const safeContentVariants = {
 };
 
 const CaseStudiesSection = () => {
+  const { t, language, isRTL } = useLanguage();
   const [activeTab, setActiveTab] = useState(caseStudiesData[0].id);
   const activeStudy =
     caseStudiesData.find((study) => study.id === activeTab) ||
@@ -153,7 +83,9 @@ const CaseStudiesSection = () => {
               whileInView="visible"
               viewport={viewport}
             >
-              Case <span className="text-[#04E4FF]">Studies</span>
+              {isRTL
+                ? t('nav.caseStudies')
+                : <>Case <span className="text-[#04E4FF]">Studies</span></>}
             </motion.h2>
             <motion.div className="space-y-2" variants={fastStagger}>
               {caseStudiesData.map((study, index) => (
@@ -176,7 +108,7 @@ const CaseStudiesSection = () => {
                   <div className="w-24 h-12 relative mr-4 flex items-center justify-start">
                     <Image
                       src={study.logo}
-                      alt={`${study.name} logo`}
+                      alt={`${study.name[language]} logo`}
                       width={
                         study.name === "Xerox" ||
                         study.name === "doForms" ||
@@ -229,7 +161,7 @@ const CaseStudiesSection = () => {
           >
             <Image
               src={activeStudy.logoDark}
-              alt={`${activeStudy.name} dark logo`}
+              alt={`${activeStudy.name[language]} dark logo`}
               width={200}
               height={200}
               style={{ objectFit: "contain" }}
@@ -240,12 +172,12 @@ const CaseStudiesSection = () => {
             <h3
               className={`${commonStyles.heading2} mb-2 text-[#1B2C5C]`}
             >
-              {activeStudy.title}
+              {activeStudy.title[language]}
             </h3>
             <h4
               className={`${commonStyles.heading4} mb-10 text-[#1B2C5C]/80`}
             >
-              {activeStudy.subtitle}
+              {activeStudy.subtitle[language]}
             </h4>
 
             <motion.div 
@@ -255,7 +187,7 @@ const CaseStudiesSection = () => {
               <div className="w-24 h-24 relative mr-6 flex items-center justify-center">
                 <Image
                   src={activeStudy.logoDark}
-                  alt={`${activeStudy.name} dark logo`}
+                  alt={`${activeStudy.name[language]} dark logo`}
                   width={80}
                   height={80}
                   style={{ objectFit: "contain" }}
@@ -268,13 +200,13 @@ const CaseStudiesSection = () => {
               className={`${commonStyles.bodyLarge} mb-6 text-[#1B2C5C]`}
               variants={fadeInUp}
             >
-              {activeStudy.mainDescription}
+              {activeStudy.mainDescription[language]}
             </motion.p>
             <motion.p
               className={`${commonStyles.bodyEmphasis} mb-10 text-[#1B2C5C]`}
               variants={fadeInUp}
             >
-              {activeStudy.achievementIntro}
+              {activeStudy.achievementIntro[language]}
             </motion.p>
 
             <motion.div 
@@ -295,7 +227,7 @@ const CaseStudiesSection = () => {
                   </span>
                 </div>
                 <p className={`${commonStyles.bodyBase} text-[#1B2C5C]/80`}>
-                  {activeStudy.metric1.description}
+                  {activeStudy.metric1.description[language]}
                 </p>
               </motion.div>
               <motion.div 
@@ -312,7 +244,7 @@ const CaseStudiesSection = () => {
                   </span>
                 </div>
                 <p className={`${commonStyles.bodyBase} text-[#1B2C5C]/80`}>
-                  {activeStudy.metric2.description}
+                  {activeStudy.metric2.description[language]}
                 </p>
               </motion.div>
             </motion.div>
@@ -326,7 +258,7 @@ const CaseStudiesSection = () => {
                   href={activeStudy.ctaLink}
                   className={`${commonStyles.buttonSecondary} group`}
                 >
-                  <span className="relative">{activeStudy.ctaText}</span>
+                  <span className="relative">{activeStudy.ctaText[language]}</span>
                   <svg
                     className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -347,7 +279,7 @@ const CaseStudiesSection = () => {
                   href="/request-a-quote"
                   className={`${commonStyles.buttonPrimary} group`}
                 >
-                  <span className="relative">Start Your Success Story</span>
+                  <span className="relative">{t('caseStudies.startStory')}</span>
                   <svg
                     className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"

@@ -4,67 +4,60 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import { useLanguage } from "../contexts/LanguageContext";
 
-const footerLinks = [
-  {
-    title: "Our Services",
-    links: [
-      { href: "/services/video-production", text: "Video Production" },
-      { href: "/services/content-creation", text: "Content Creation" },
-      { href: "/services/social-media-management", text: "Social Media Management" },
-      { href: "/services/ppc-marketing", text: "PPC Marketing" },
-      { href: "/services/web-development", text: "Web Development" },
-    ],
-  },
-  {
-    title: "Portfolio",
-    links: [
-      { href: "/portfolio/islamic-scholars", text: "Islamic Scholars" },
-      { href: "/portfolio/spice-fusion", text: "Spice Fusion" },
-      { href: "/portfolio/megabyte-store", text: "Megabyte Store" },
-      { href: "https://daanishrayn.my.canva.site/portfolio-web", text: "Daanish Portfolio" },
-      { href: "https://www.instagram.com/alysohel.mov", text: "Sahid Portfolio" },
-    ],
-  },
-  {
-    title: "Collaborations",
-    links: [
-      { href: "https://www.instagram.com/sharia_qusrb", text: "Qatar University" },
-      { href: "https://www.instagram.com/qsn.mazad", text: "QSN Mazad" },
-      { href: "https://mgbyt.com", text: "Megabyte Store" },
-      { href: "https://www.tiktok.com/@mgbytcom", text: "Megabyte TikTok" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { href: "/about", text: "About Us" },
-      { href: "/team", text: "Our Team" },
-      { href: "/case-studies", text: "Case Studies" },
-      { href: "/contact", text: "Contact Us" },
-    ],
-  },
-];
 
-const contactInfo = [
-  {
-    type: "location",
-    label: "Based in Qatar",
-    info: "Doha, Qatar",
-  },
-  {
-    type: "phone",
-    label: "Phone (Calls)",
-    info: "+974 5999 0137",
-  },
-  {
-    type: "whatsapp",
-    label: "WhatsApp",
-    info: "+974 7750 7972",
-  },
-];
 
 const Footer = () => {
+  const { t, isRTL } = useLanguage();
+
+  const footerLinks = [
+    {
+      title: t('footer.services'),
+      links: [
+        { href: "/services/video-production", text: t('footer.links.videoProd') },
+        { href: "/services/content-creation", text: t('footer.links.contentCreation') },
+        { href: "/services/social-media-management", text: t('footer.links.socialMedia') },
+        { href: "/services/ppc-marketing", text: t('footer.links.ppcMarketing') },
+        { href: "/services/web-development", text: t('footer.links.webDev') },
+      ],
+    },
+    {
+      title: t('footer.portfolio'),
+      links: [
+        { href: "/portfolio/islamic-scholars", text: t('footer.links.islamicScholars') },
+        { href: "/portfolio/spice-fusion", text: t('footer.links.spiceFusion') },
+        { href: "/portfolio/megabyte-store", text: t('footer.links.megabyteStore') },
+        { href: "https://daanishrayn.my.canva.site/portfolio-web", text: t('footer.links.daanishPortfolio') },
+        { href: "https://www.instagram.com/alysohel.mov", text: t('footer.links.sahidPortfolio') },
+      ],
+    },
+    {
+      title: t('footer.collaborations'),
+      links: [
+        { href: "https://www.instagram.com/sharia_qusrb", text: t('footer.links.qatarUniversity') },
+        { href: "https://www.instagram.com/qsn.mazad", text: t('footer.links.qsnMazad') },
+        { href: "https://mgbyt.com", text: t('footer.links.megabyteStore') },
+        { href: "https://www.tiktok.com/@mgbytcom", text: t('footer.links.megabyteTiktok') },
+      ],
+    },
+    {
+      title: t('footer.company'),
+      links: [
+        { href: "/about", text: t('footer.links.aboutUs') },
+        { href: "/team", text: t('footer.links.ourTeam') },
+        { href: "/case-studies", text: t('footer.links.caseStudies') },
+        { href: "/contact", text: t('footer.links.contactUs') },
+      ],
+    },
+  ];
+
+  const contactInfo = [
+    { type: "location", label: t('footer.location'), info: t('footer.locationInfo') },
+    { type: "phone", label: t('footer.phone'), info: "+974 5999 0137" },
+    { type: "whatsapp", label: t('footer.whatsapp'), info: "+974 7750 7972" },
+  ];
+
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
@@ -112,7 +105,7 @@ const Footer = () => {
             className={`${commonStyles.heading1} mb-12 max-w-2xl`}
             variants={sectionVariants}
           >
-            Let's Create Your Story
+            {t('footer.tagline')}
           </motion.h2>
         </motion.div>
 
@@ -223,7 +216,7 @@ const Footer = () => {
             >
               <Image
                 src="/assets/images/onzur-logo-white.svg"
-                alt="Onzur Media Studio Logo"
+                alt={t('footer.logoAlt')}
                 width={240}
                 height={60}
                 className="h-12 w-auto"
@@ -235,7 +228,7 @@ const Footer = () => {
             className="text-sm text-center md:text-left mb-4 md:mb-0"
             variants={sectionVariants}
           >
-            &copy;{new Date().getFullYear()} Onzur Media Studio. All rights reserved
+            &copy;{new Date().getFullYear()} {t('footer.copyright')}
           </motion.div>
 
           <motion.div 
@@ -247,7 +240,7 @@ const Footer = () => {
                 href="/privacy-policy"
                 className="hover:opacity-80 transition-all duration-300 hover:text-[#A4DCFF]"
               >
-                Privacy Policy
+                {t('footer.privacyPolicy')}
               </Link>
             </motion.div>
             <motion.div variants={linkVariants}>
@@ -255,7 +248,7 @@ const Footer = () => {
                 href="/accessibility"
                 className="hover:opacity-80 transition-all duration-300 hover:text-[#A4DCFF]"
               >
-                Accessibility
+                {t('footer.accessibility')}
               </Link>
             </motion.div>
             <motion.div variants={linkVariants}>
@@ -263,7 +256,7 @@ const Footer = () => {
                 href="tel:+97459990137"
                 className="hover:opacity-80 transition-all duration-300 hover:text-[#A4DCFF]"
               >
-                Call us at +974 5999 0137
+                {t('footer.callUs')}
               </a>
             </motion.div>
           </motion.div>

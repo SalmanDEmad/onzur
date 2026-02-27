@@ -6,21 +6,42 @@
     "caseStudies": "Case Studies",
     "team": "Team",
     "testimonials": "Testimonials",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "contactCta": "Contact Us",
+    "logoAlt": "Onzur Media Studio Logo"
   },
   "hero": {
     "badge": "Trusted by 100+ Brands in Qatar & Beyond",
-    "title1": "Transform Your Brand Into a",
-    "title2": "Digital Powerhouse",
-    "subtitle": "We don't just create content—we engineer viral moments, architect scalable growth strategies, and transform brands into market dominators through cutting-edge digital solutions.",
+    "title1": "We Build Brands",
+    "title2": "That Dominate Digital",
+    "subtitle": "From viral content to high-converting websites — we engineer digital experiences that captivate audiences and generate real, measurable growth for your business.",
     "cta1": "Start Your Project",
-    "cta2": "View Portfolio",
-    "phone": "Call Us Now",
-    "whatsapp": "WhatsApp Us"
+    "cta2": "View Our Work",
+    "callUs": "Call Us",
+    "whatsappUs": "WhatsApp",
+    "scroll": "Scroll",
+    "trustedBy": "Trusted by industry leaders",
+    "stats": {
+      "viewsGenerated": "Views Generated",
+      "projectsDelivered": "Projects Delivered",
+      "clientSatisfaction": "Client Satisfaction",
+      "dedicatedSupport": "Dedicated Support"
+    },
+    "services": {
+      "contentCreation": "Content Creation",
+      "socialMedia": "Social Media",
+      "webDev": "Web Development",
+      "paidAds": "Paid Advertising",
+      "videoProd": "Video Production",
+      "brandStrategy": "Brand Strategy"
+    }
   },
   "expertise": {
-    "badge": "What We Do Best",
-    "title": "Services That Actually Grow Your Business",
+    "badge": "WHY ONZUR MEDIA STUDIO?",
+    "title": "Services That Drive Real Growth",
+    "body": "Stop struggling with ineffective marketing. Our proven strategies have helped businesses across Qatar achieve viral success, generate quality leads, and dominate their markets. Ready to be next?",
+    "imageAlt": "Our Services Excellence",
+    "why": "What We Do Best",
     "card1": {
       "title": "Viral Content & Video Production",
       "description": "8M+ views don't happen by accident. Our proven content strategies have generated massive engagement for brands across Qatar, turning ordinary posts into viral sensations that drive real business results."
@@ -42,22 +63,36 @@
     "badge": "Proven Results",
     "title": "Real Success Stories From Real Clients",
     "viewAll": "View All Case Studies",
-    "viewDetails": "View Full Case Study"
+    "viewDetails": "View Full Case Study",
+    "startStory": "Start Your Success Story"
   },
   "portfolio": {
     "badge": "Our Work",
     "title": "Portfolio That Speaks for Itself",
-    "viewAll": "Explore Full Portfolio"
+    "viewAll": "Explore Full Portfolio",
+    "heading": "Featured Work & Real Analytics",
+    "subheading": "Real results from our video production, content creation, and social media management projects. From viral TikTok content to professional brand campaigns.",
+    "viewProject": "View Project"
   },
   "testimonials": {
     "badge": "Client Love",
     "title": "What Our Clients Say",
-    "viewAll": "Read All Testimonials"
+    "viewAll": "Read All Testimonials",
+    "heading": "Client Testimonials",
+    "trusted": "Trusted By Industry Leaders",
+    "reviewsOn": "38 REVIEWS ON DESIGNRUSH",
+    "viewReviews": "View client reviews",
+    "atLabel": "at",
+    "prevLabel": "Previous testimonial",
+    "nextLabel": "Next testimonial"
   },
   "team": {
     "badge": "Meet The Team",
     "title": "The Minds Behind Your Success",
-    "viewAll": "Meet the Full Team"
+    "viewAll": "Meet the Full Team",
+    "heading": "Meet Our Creators",
+    "subheading": "The creative minds behind Onzur Media Studio, bringing your vision to life through innovative storytelling and expert production.",
+    "viewPortfolio": "View Portfolio"
   },
   "contact": {
     "badge": "Ready to Scale Your Business?",
@@ -80,6 +115,7 @@
     "tagline": "Let's Create Your Story",
     "services": "Our Services",
     "portfolio": "Portfolio",
+    "collaborations": "Collaborations",
     "company": "Company",
     "legal": "Legal",
     "location": "Based in Qatar",
@@ -88,7 +124,28 @@
     "whatsapp": "WhatsApp",
     "copyright": "Onzur Media Studio. All rights reserved",
     "privacyPolicy": "Privacy Policy",
-    "accessibility": "Accessibility"
+    "accessibility": "Accessibility",
+    "callUs": "Call us at +974 5999 0137",
+    "logoAlt": "Onzur Media Studio Logo",
+    "links": {
+      "videoProd": "Video Production",
+      "contentCreation": "Content Creation",
+      "socialMedia": "Social Media Management",
+      "ppcMarketing": "PPC Marketing",
+      "webDev": "Web Development",
+      "islamicScholars": "Islamic Scholars",
+      "spiceFusion": "Spice Fusion",
+      "megabyteStore": "Megabyte Store",
+      "daanishPortfolio": "Daanish Portfolio",
+      "sahidPortfolio": "Sahid Portfolio",
+      "qatarUniversity": "Qatar University",
+      "qsnMazad": "QSN Mazad",
+      "megabyteTiktok": "Megabyte TikTok",
+      "aboutUs": "About Us",
+      "ourTeam": "Our Team",
+      "caseStudies": "Case Studies",
+      "contactUs": "Contact Us"
+    }
   },
   "common": {
     "learnMore": "Learn More",
@@ -98,6 +155,7 @@
     "readMore": "Read More",
     "loading": "Loading...",
     "error": "Something went wrong",
-    "tryAgain": "Try Again"
+    "tryAgain": "Try Again",
+    "toggleLanguage": "Toggle language"
   }
 }

@@ -5,24 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Phone, MessageCircle, ArrowRight, ChevronDown, Play } from "lucide-react";
 import { commonStyles } from "../lib/design-system";
 import { ClientMarquee } from "./hero/ClientMarquee";
-
-// ===== SERVICE HIGHLIGHTS =====
-const services = [
-  { label: "Content Creation", icon: "🎬" },
-  { label: "Social Media", icon: "📱" },
-  { label: "Web Development", icon: "💻" },
-  { label: "Paid Advertising", icon: "📈" },
-  { label: "Video Production", icon: "🎥" },
-  { label: "Brand Strategy", icon: "🎯" },
-];
-
-// ===== STATS DATA =====
-const stats = [
-  { value: "100M+", label: "Views Generated" },
-  { value: "500+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Dedicated Support" },
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 // ===== CLIENT LOGOS =====
 const clientLogos = [
@@ -100,7 +83,7 @@ const AuroraBackground = () => (
 );
 
 // ===== FLOATING SERVICE PILLS =====
-const FloatingPills = () => (
+const FloatingPills = ({ services }: { services: { label: string; icon: string }[] }) => (
   <div className="hidden lg:flex flex-col gap-3 absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 z-20">
     {services.map((service, i) => (
       <motion.div
@@ -119,14 +102,14 @@ const FloatingPills = () => (
 );
 
 // ===== SCROLL INDICATOR =====
-const ScrollIndicator = () => (
+const ScrollIndicator = ({ label }: { label: string }) => (
   <motion.div
     className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 2, duration: 0.6 }}
   >
-    <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">Scroll</span>
+    <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">{label}</span>
     <motion.div
       animate={{ y: [0, 8, 0] }}
       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -139,6 +122,7 @@ const ScrollIndicator = () => (
 // ===== MAIN HERO SECTION =====
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t, isRTL } = useLanguage();
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 600], [1, 0.95]);
@@ -166,6 +150,23 @@ const HeroSection = () => {
       transition: { duration: 0.7 },
     },
   };
+
+  // Translated data arrays (re-computed on language change)
+  const services = [
+    { label: t('hero.services.contentCreation'), icon: "🎬" },
+    { label: t('hero.services.socialMedia'), icon: "📱" },
+    { label: t('hero.services.webDev'), icon: "💻" },
+    { label: t('hero.services.paidAds'), icon: "📈" },
+    { label: t('hero.services.videoProd'), icon: "🎥" },
+    { label: t('hero.services.brandStrategy'), icon: "🎯" },
+  ];
+
+  const stats = [
+    { value: "100M+", label: t('hero.stats.viewsGenerated') },
+    { value: "500+", label: t('hero.stats.projectsDelivered') },
+    { value: "98%", label: t('hero.stats.clientSatisfaction') },
+    { value: "24/7", label: t('hero.stats.dedicatedSupport') },
+  ];
 
   return (
     <section className="relative min-h-screen text-white overflow-hidden">
@@ -196,7 +197,7 @@ const HeroSection = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   />
                   <span className="text-sm font-medium text-white/80 tracking-wide">
-                    Trusted by 100+ Brands in Qatar &amp; Beyond
+                    {t('hero.badge')}
                   </span>
                 </div>
               </motion.div>
@@ -206,12 +207,11 @@ const HeroSection = () => {
                 variants={itemVariant}
                 className="heading-display text-[clamp(2.8rem,6vw,5.5rem)] leading-[1.05] mb-6 tracking-tight"
               >
-                <span className="text-white">We Build Brands</span>
+                <span className="text-white">{t('hero.title1')}</span>
                 <br />
-                <span className="text-white">That </span>
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-[#04E4FF] via-[#06B6D4] to-[#8B5CF6] bg-clip-text text-transparent">
-                    Dominate
+                    {t('hero.title2')}
                   </span>
                   <motion.div
                     className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-[#04E4FF] to-[#8B5CF6] rounded-full"
@@ -220,7 +220,6 @@ const HeroSection = () => {
                     transition={{ delay: 1.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                   />
                 </span>
-                <span className="text-white"> Digital</span>
               </motion.h1>
 
               {/* Subtitle */}
@@ -228,13 +227,11 @@ const HeroSection = () => {
                 variants={itemVariant}
                 className="body-professional text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed"
               >
-                From viral content to high-converting websites — we engineer digital
-                experiences that captivate audiences and generate real, measurable growth
-                for your business.
+                {t('hero.subtitle')}
               </motion.p>
 
               {/* CTA Row */}
-              <motion.div variants={itemVariant} className="flex flex-col sm:flex-row items-start gap-4 mb-14">
+              <motion.div variants={itemVariant} className={`flex flex-col sm:flex-row items-start gap-4 mb-14 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
                 <motion.a
                   href="https://wa.me/97459990137?text=Hi! I'd like to discuss a project with Onzur."
                   target="_blank"
@@ -244,8 +241,8 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Start Your Project
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    {t('hero.cta1')}
+                    <ArrowRight size={18} className={`${isRTL ? 'group-hover:-translate-x-1 rotate-180' : 'group-hover:translate-x-1'} transition-transform`} />
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-white/20"
@@ -263,12 +260,12 @@ const HeroSection = () => {
                   <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#04E4FF]/50 group-hover:bg-[#04E4FF]/5 transition-all">
                     <Play size={14} className="text-white/60 group-hover:text-[#04E4FF] transition-colors ml-0.5" />
                   </div>
-                  View Our Work
+                  {t('hero.cta2')}
                 </motion.a>
               </motion.div>
 
               {/* Contact Quick Links */}
-              <motion.div variants={itemVariant} className="flex flex-wrap items-center gap-6">
+              <motion.div variants={itemVariant} className={`flex flex-wrap items-center gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <a
                   href="tel:+97459990137"
                   className="group flex items-center gap-3 text-white/50 hover:text-white transition-colors"
@@ -277,7 +274,7 @@ const HeroSection = () => {
                     <Phone size={15} className="text-[#04E4FF]" />
                   </div>
                   <div>
-                    <div className="text-xs text-white/40 leading-none mb-0.5">Call Us</div>
+                    <div className="text-xs text-white/40 leading-none mb-0.5">{t('hero.callUs')}</div>
                     <div className="text-sm font-semibold">+974 5999 0137</div>
                   </div>
                 </a>
@@ -294,7 +291,7 @@ const HeroSection = () => {
                     <MessageCircle size={15} className="text-[#8B5CF6]" />
                   </div>
                   <div>
-                    <div className="text-xs text-white/40 leading-none mb-0.5">WhatsApp</div>
+                    <div className="text-xs text-white/40 leading-none mb-0.5">{t('hero.whatsappUs')}</div>
                     <div className="text-sm font-semibold">+974 7750 7972</div>
                   </div>
                 </a>
@@ -354,10 +351,10 @@ const HeroSection = () => {
         </div>
 
         {/* Floating Service Pills - Desktop */}
-        <FloatingPills />
+        <FloatingPills services={services} />
 
         {/* Scroll Indicator */}
-        <ScrollIndicator />
+        <ScrollIndicator label={t('hero.scroll')} />
       </motion.div>
 
       {/* Client Logos Marquee */}

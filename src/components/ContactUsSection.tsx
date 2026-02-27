@@ -1,5 +1,5 @@
 "use client";
-import { useActionState } from "react"; // React 19 updated hook
+import { useActionState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import {
@@ -10,8 +10,9 @@ import {
   fadeInRight,
   stagger,
 } from "./MotionSafe";
-import { submitContactForm } from "../app/actions"; // Import the server action
+import { submitContactForm } from "../app/actions";
 import { commonStyles } from "../lib/design-system";
+import { useLanguage } from "../contexts/LanguageContext";
 import {
   User,
   Building,
@@ -28,32 +29,7 @@ const socialLinks = [
   { href: "#", icon: Linkedin, alt: "LinkedIn" },
 ];
 
-const formFields = [
-  {
-    id: "name",
-    label: "Name*",
-    type: "text",
-    icon: User,
-  },
-  {
-    id: "company",
-    label: "Company Name*",
-    type: "text",
-    icon: Building,
-  },
-  {
-    id: "email",
-    label: "Email*",
-    type: "email",
-    icon: Mail,
-  },
-  {
-    id: "phone",
-    label: "Phone*",
-    type: "tel",
-    icon: Phone,
-  },
-];
+
 
 const inputVariants = {
   focus: { scale: 1.02, borderColor: "#04E4FF" },
@@ -70,6 +46,15 @@ const fieldVariants = {
 };
 
 export default function ContactUsSection() {
+  const { t, isRTL } = useLanguage();
+
+  const formFields = [
+    { id: "name", label: t('contact.name'), type: "text", icon: User },
+    { id: "company", label: t('contact.company'), type: "text", icon: Building },
+    { id: "email", label: t('contact.email'), type: "email", icon: Mail },
+    { id: "phone", label: t('contact.phoneLabel'), type: "tel", icon: Phone },
+  ];
+
   // useActionState for handling server action response
   const initialState = { message: null, success: null };
   const [state, formAction] = useActionState(submitContactForm, initialState);
@@ -90,18 +75,18 @@ export default function ContactUsSection() {
               className={`${commonStyles.bodyLarge} uppercase tracking-wider font-semibold text-[#04E4FF] mb-6`}
               variants={fadeInUp(0.1)}
             >
-              Ready to Scale Your Business?
+              {t('contact.badge')}
             </motion.p>
             <motion.h2
               className={`${commonStyles.heading1} mb-8 leading-tight`}
               variants={fadeInUp(0.2)}
             >
               <span className="text-[#04E4FF]">
-                Let's Discuss
+                {t('contact.title1')}
               </span>
               <br />
               <span className="text-white">
-                Your Project
+                {t('contact.title2')}
               </span>
             </motion.h2>
             <motion.div
@@ -121,7 +106,7 @@ export default function ContactUsSection() {
               >
                 <Phone size={20} className="text-[#04E4FF] mr-3" />
                 <span className="text-lg font-medium">
-                  Phone: +974 5999 0137
+                  {t('contact.phone')}
                 </span>
               </motion.a>
               <motion.a
@@ -135,7 +120,7 @@ export default function ContactUsSection() {
               >
                 <MessageSquare size={20} className="text-[#04E4FF] mr-3" />
                 <span className="text-lg font-medium">
-                  WhatsApp: +974 7750 7972
+                  {t('contact.whatsapp')}
                 </span>
               </motion.a>
             </motion.div>
@@ -143,7 +128,7 @@ export default function ContactUsSection() {
               className="text-lg md:text-xl font-semibold mb-4"
               variants={fadeInUp(0.6)}
             >
-              Follow Us
+              {t('contact.followUs')}
             </motion.p>
             <motion.div
               className="flex justify-center lg:justify-start space-x-4"
@@ -173,7 +158,7 @@ export default function ContactUsSection() {
               className={`${commonStyles.heading2} mb-8 text-center lg:text-left text-white`}
               variants={fadeInUp(0.1)}
             >
-              Tell Us About Your Goals
+              {t('contact.formTitle')}
             </motion.h3>
             <motion.form
               action={formAction}
@@ -214,7 +199,7 @@ export default function ContactUsSection() {
                   name="message" // Name attribute is crucial
                   id="message"
                   // value and onChange removed
-                  placeholder="Your Message*"
+                  placeholder={t('contact.message')}
                   rows={4}
                   required
                   className="w-full pl-12 pr-4 py-3.5 bg-transparent border-b border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-[#04E4FF] transition-colors text-lg resize-none"
@@ -232,7 +217,7 @@ export default function ContactUsSection() {
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <span className="relative z-10 uppercase tracking-wider">
-                    Start Your Project
+                    {t('contact.submit')}
                   </span>
                   <motion.div
                     className="inline-block ml-3 relative z-10"

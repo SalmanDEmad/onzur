@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import { useLanguage } from "../contexts/LanguageContext";
+import { teamMembers } from "../data/team";
 import { 
   fadeInUp, 
   fadeInScale, 
@@ -12,24 +14,10 @@ import {
 } from "../lib/animation-variants";
 import OptimizedImage from "./OptimizedImage";
 
-const teamMembers = [
-  {
-    name: "Daanish Ryan",
-    role: "Creative Director & Videographer",
-    image: "/assets/contents/IMG-20250708-WA0008.jpg",
-    portfolioLink: "https://daanishrayn.my.canva.site/portfolio-web",
-    description: "Award-winning creative director and videographer who brings brands to life through compelling visual storytelling and innovative content strategies.",
-  },
-  {
-    name: "Sahid",
-    role: "Senior Content Editor",
-    image: "/assets/contents/IMG-20250708-WA0010.jpg",
-    portfolioLink: "https://www.instagram.com/alysohel.mov",
-    description: "Master editor specializing in viral social media content, with expertise in creating engaging videos that drive millions of views and conversions.",
-  },
-];
+
 
 const TeamSection = () => {
+  const { t, language, isRTL } = useLanguage();
   // Use optimized variants from shared library
   const optimizedStagger = {
     ...staggerContainer,
@@ -56,13 +44,13 @@ const TeamSection = () => {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1B2C5C] mb-6"
             variants={fadeInUp}
           >
-            Meet Our Creators
+            {t('team.heading')}
           </motion.h2>
           <motion.p 
             className="text-lg md:text-xl text-[#1B2C5C]/80 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            The creative minds behind Onzur Media Studio, bringing your vision to life through innovative storytelling and expert production.
+            {t('team.subheading')}
           </motion.p>
         </motion.div>
 
@@ -117,13 +105,13 @@ const TeamSection = () => {
                   className="text-lg font-semibold mb-4 text-[#04E4FF]"
                   variants={fadeInUp}
                 >
-                  {member.role}
+                  {member.role[language]}
                 </motion.p>
                 <motion.p 
                   className="text-base text-[#1B2C5C]/80 mb-6 leading-relaxed"
                   variants={fadeInUp}
                 >
-                  {member.description}
+                  {member.description[language]}
                 </motion.p>
                 
                 <motion.div
@@ -140,7 +128,7 @@ const TeamSection = () => {
                       whileHover={{ x: 2 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
-                      View Portfolio
+                      {t('team.viewPortfolio')}
                       <motion.svg
                         className="ml-2 w-4 h-4"
                         fill="none"

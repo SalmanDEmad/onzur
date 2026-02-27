@@ -1,4 +1,5 @@
-import { Inter, Poppins, Source_Sans_3 } from "next/font/google";
+import { Inter, Poppins, Source_Sans_3, Tajawal } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Navbar from "../components/Navbar.tsx";
 import Footer from "../components/Footer.tsx";
@@ -25,6 +26,14 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-source-sans",
+});
+
+// Arabic-first font — loaded via next/font for proper preloading and subsetting
+const tajawal = Tajawal({
+  weight: ["300", "400", "500", "700", "900"],
+  subsets: ["arabic"],
+  display: "swap",
+  variable: "--font-tajawal",
 });
 
 export const metadata = {
@@ -102,27 +111,30 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // Read the language resolved by middleware from the cookie — this allows the
+  // server to render the correct lang/dir on the very first response, eliminating
+  // the RTL layout flash for returning Arabic-language users.
+  const headersList = await headers();
+  const lang = (headersList.get('x-language') ?? 'en') as 'en' | 'ar';
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
   return (
     <html
-      lang="en"
-      dir="ltr"
-      className={`${inter.variable} ${poppins.variable} ${sourceSans.variable}`}
+      lang={lang}
+      dir={dir}
+      className={`${inter.variable} ${poppins.variable} ${sourceSans.variable} ${tajawal.variable}`}
       suppressHydrationWarning
     >
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#04E4FF" />
         <link rel="canonical" href="https://onzur.com" />
-        {/* Arabic font support */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
       </head>
       <body
         className={`font-source-sans bg-[#00042A] antialiased overflow-x-hidden`}
       >
-        <LanguageProvider>
+        <LanguageProvider initialLanguage={lang}>
           <GoogleAnalytics />
           <MicrosoftClarity />
           <StructuredData />

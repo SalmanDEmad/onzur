@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { testimonials } from "../data/testimonials";
 import {
   MotionSection,
   MotionDiv,
@@ -14,34 +16,10 @@ import {
 import { commonStyles } from "../lib/design-system";
 import { ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
-const testimonials = [
-  {
-    logo: "/assets/images/spice-fusion-logo.svg",
-    company: "Spice Fusion Restaurant",
-    name: "Aslam KA",
-    title: "Manager",
-    quote:
-      "Onzur Marketing's professional food photography helped us successfully integrate with Talabat and Snoonu. Our online visibility and customer engagement have grown significantly!",
-  },
-  {
-    logo: "/assets/images/megabyte-logo.svg",
-    company: "Megabyte Store",
-    name: "Mohammed Raihan",
-    title: "Owner",
-    quote:
-      "With Onzur Marketing's expert ad management, we achieved 8 million TikTok views, 800K ad-driven views, and 40-50 daily leads—our sales have never been better!",
-  },
-  {
-    logo: "/assets/images/islamic-scholars-logo.svg",
-    company: "Islamic Scholars Project",
-    name: "Dr. Abdurrahman Shaybani",
-    title: "Islamic Scholar",
-    quote:
-      "Thanks to Onzur Marketing, we reached 80,000 followers and 4 million views in just 2 months, allowing us to onboard more scholars and expand our initiative!",
-  },
-];
+
 
 const TestimonialsSection = () => {
+  const { t, language, isRTL } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevTestimonial = () => {
@@ -83,7 +61,7 @@ const TestimonialsSection = () => {
             <motion.button
               onClick={prevTestimonial}
               className="absolute left-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -ml-4 sm:-ml-8 lg:-ml-12"
-              aria-label="Previous testimonial"
+              aria-label={t('testimonials.prevLabel')}
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -96,7 +74,7 @@ const TestimonialsSection = () => {
             <motion.button
               onClick={nextTestimonial}
               className="absolute right-0 top-1/2 -translate-y-1/2 transform p-2 bg-white/10 hover:bg-white/20 rounded-full z-20 -mr-4 sm:-mr-8 lg:-mr-12"
-              aria-label="Next testimonial"
+              aria-label={t('testimonials.nextLabel')}
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -119,20 +97,20 @@ const TestimonialsSection = () => {
                 <h2
                   className={`${commonStyles.heading3} text-[#04E4FF] mb-6 uppercase tracking-wider`}
                 >
-                  Client Testimonials
+                  {t('testimonials.heading')}
                 </h2>
                 <blockquote className="mb-6">
                   <p
                     className={`${commonStyles.heading3} font-bold leading-tight mb-8`}
                   >
-                    "{currentTestimonial.quote}"
+                    "{currentTestimonial.quote[language]}"
                   </p>
                 </blockquote>
                 <div className="flex items-center justify-center lg:justify-start">
                   <div className="w-20 h-10 sm:w-24 sm:h-12 relative mr-4 flex items-center justify-center">
                     <Image
                       src={currentTestimonial.logo}
-                      alt={`${currentTestimonial.company} logo`}
+                      alt={`${currentTestimonial.company[language]} logo`}
                       fill
                       style={{ objectFit: "contain" }}
                       className="opacity-80"
@@ -143,7 +121,7 @@ const TestimonialsSection = () => {
                       {currentTestimonial.name}
                     </p>
                     <p className="text-sm sm:text-base opacity-80">
-                      {currentTestimonial.title} at {currentTestimonial.company}
+                      {currentTestimonial.title[language]} {t('testimonials.atLabel')} {currentTestimonial.company[language]}
                     </p>
                   </div>
                 </div>
@@ -157,7 +135,7 @@ const TestimonialsSection = () => {
             variants={fadeInUp(0.3)}
           >
             <p className="text-center text-sm uppercase tracking-widest opacity-60 mb-4">
-              Trusted By Industry Leaders
+              {t('testimonials.trusted')}
             </p>
             <motion.div
               className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-70"
@@ -181,7 +159,7 @@ const TestimonialsSection = () => {
                   >
                     <Image
                       src={client.logo}
-                      alt={`${client.company} Logo`}
+                      alt={`${client.company[language]} Logo`}
                       fill
                       style={{ objectFit: "contain" }}
                     />
@@ -227,7 +205,7 @@ const TestimonialsSection = () => {
                   ))}
                 </div>
                 <p className="text-sm sm:text-base uppercase tracking-wider">
-                  38 REVIEWS ON DESIGNRUSH
+                  {t('testimonials.reviewsOn')}
                 </p>
               </div>
 
@@ -238,7 +216,7 @@ const TestimonialsSection = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center text-[#01AFE9] hover:text-[#38d3ff] text-lg sm:text-xl font-bold uppercase group transition-colors"
                 >
-                  View client reviews
+                  {t('testimonials.viewReviews')}
                   <ArrowRight
                     size={16}
                     className="ml-2 transition-transform duration-300 group-hover:translate-x-1"

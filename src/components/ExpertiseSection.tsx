@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { commonStyles } from "../lib/design-system";
+import { useLanguage } from "../contexts/LanguageContext";
 import { motion } from "motion/react";
 import {
   MotionSection,
@@ -10,32 +13,7 @@ import {
   cardHover,
 } from "./MotionSafe";
 
-const expertiseData = [
-  {
-    icon: "/assets/images/web-development-icon.svg",
-    title: "Web & Software Development",
-    description:
-      "Transform your online presence into a lead-generating machine. Our custom websites and applications don't just look stunning—they convert visitors into customers and scale with your business growth.",
-  },
-  {
-    icon: "/assets/images/content-creation-icon.svg",
-    title: "Viral Content Creation",
-    description:
-      "From zero to millions of views—we've done it before, we'll do it for you. Our content strategies have generated 8M+ TikTok views and built massive followings for brands across Qatar.",
-  },
-  {
-    icon: "/assets/images/social-media-icon.svg",
-    title: "Social Media Domination",
-    description:
-      "Stop posting into the void. Our organic content strategies turn your social media into a powerful customer acquisition engine that works 24/7 to grow your brand and drive sales.",
-  },
-  {
-    icon: "/assets/images/ppc-marketing-icon.svg",
-    title: "High-ROI Paid Advertising",
-    description:
-      "Get immediate results with ads that actually work. Our data-driven campaigns on Instagram, Facebook, LinkedIn, and TikTok consistently deliver 40+ daily leads and maximize your advertising spend.",
-  },
-];
+
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -55,6 +33,27 @@ const safeCardVariants = {
 };
 
 const ExpertiseSection = () => {
+  const { t, isRTL } = useLanguage();
+
+  const expertiseData = [
+    {
+      title: t('expertise.card1.title'),
+      description: t('expertise.card1.description'),
+    },
+    {
+      title: t('expertise.card2.title'),
+      description: t('expertise.card2.description'),
+    },
+    {
+      title: t('expertise.card3.title'),
+      description: t('expertise.card3.description'),
+    },
+    {
+      title: t('expertise.card4.title'),
+      description: t('expertise.card4.description'),
+    },
+  ];
+
   return (
     <section
       id="services"
@@ -91,22 +90,19 @@ const ExpertiseSection = () => {
               className="text-[#04E4FF] text-xl font-bold tracking-wider uppercase mb-6"
               variants={fadeInUp(0.1)}
             >
-              WHY ONZUR MEDIA STUDIO?
+              {t('expertise.badge')}
             </motion.p>
             <motion.h2
               className={`${commonStyles.heading2} text-white mb-6 leading-tight`}
               variants={fadeInUp(0.2)}
             >
-              Services That Drive Real Growth
+              {t('expertise.title')}
             </motion.h2>
             <motion.p
               className={`${commonStyles.bodyLarge} text-white/90 mb-10 leading-relaxed`}
               variants={fadeInUp(0.3)}
             >
-              Stop struggling with ineffective marketing. Our proven strategies
-              have helped businesses across Qatar achieve viral success,
-              generate quality leads, and dominate their markets. Ready to be
-              next?
+              {t('expertise.body')}
             </motion.p>
             <motion.div
               className="relative w-full aspect-[778/549] max-w-xl mx-auto lg:mx-0 mb-10 lg:mb-0"
@@ -114,7 +110,7 @@ const ExpertiseSection = () => {
             >
               <Image
                 src="/assets/images/trophy-image.png"
-                alt="Our Services Excellence"
+                alt={t('expertise.imageAlt')}
                 fill
                 style={{ objectFit: "contain" }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"

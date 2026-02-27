@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewport } from "../../lib/animation-variants";
 import { commonStyles } from "../../lib/design-system";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { 
   TrendingUp, 
   Users, 
@@ -201,6 +202,7 @@ const overallStats = [
 ];
 
 export default function CaseStudiesPage() {
+  const { t, isRTL } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedCase, setSelectedCase] = useState(null);
 
@@ -209,7 +211,7 @@ export default function CaseStudiesPage() {
     : caseStudiesData.filter(cs => cs.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#00042A]">
+    <div className="min-h-screen bg-[#00042A]" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Elements */}

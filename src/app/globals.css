@@ -14,6 +14,13 @@
   [dir="ltr"] {
     direction: ltr;
   }
+
+  /* Arabic font: automatically activate Tajawal when the document is in RTL /
+     Arabic mode. The variable is injected by next/font in layout.tsx. */
+  :lang(ar),
+  [dir="rtl"] {
+    font-family: var(--font-tajawal), 'Tajawal', system-ui, sans-serif;
+  }
   
   body {
     font-family: var(--font-source-sans), 'Source Sans 3', system-ui, -apple-system, sans-serif;

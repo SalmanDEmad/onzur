@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewport } from "../../lib/animation-variants";
 import { commonStyles } from "../../lib/design-system";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { 
   Star, 
   Quote, 
@@ -203,13 +204,14 @@ const testimonialStats = [
 const industries = ["All", "Food & Beverage", "Electronics & Technology", "Education & Religion", "Fashion & Retail"];
 
 export default function TestimonialsPage() {
+  const { t, isRTL } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndustry, setSelectedIndustry] = useState("All");
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   const filteredTestimonials = selectedIndustry === "All" 
     ? testimonialsData 
-    : testimonialsData.filter(t => t.industry === selectedIndustry);
+    : testimonialsData.filter(item => item.industry === selectedIndustry);
 
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) =>
@@ -233,7 +235,7 @@ export default function TestimonialsPage() {
   const currentTestimonial = filteredTestimonials[currentIndex] || filteredTestimonials[0];
 
   return (
-    <div className="min-h-screen bg-[#00042A]">
+    <div className="min-h-screen bg-[#00042A]" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Elements */}

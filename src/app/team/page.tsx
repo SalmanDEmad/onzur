@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewport } from "../../lib/animation-variants";
 import { commonStyles } from "../../lib/design-system";
+import { useLanguage } from "../../contexts/LanguageContext";
 import OptimizedImage from "../../components/OptimizedImage";
 import { 
   Users, 
@@ -179,8 +180,9 @@ const teamStats = [
 ];
 
 export default function TeamPage() {
+  const { t, isRTL } = useLanguage();
   return (
-    <div className="min-h-screen bg-[#00042A]">
+    <div className="min-h-screen bg-[#00042A]" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Elements */}

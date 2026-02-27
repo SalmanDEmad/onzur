@@ -3,75 +3,14 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { commonStyles } from "../lib/design-system";
+import { useLanguage } from "../contexts/LanguageContext";
+import { portfolioProjects } from "../data/portfolio";
 import OptimizedImage from "./OptimizedImage";
 
-const portfolioProjects = [
-  {
-    title: "Dr. Abdurrahman Shaybani",
-    description: "Islamic Scholar TikTok Growth",
-    metrics: "80K followers, 4M views in 2 months",
-    image: "/assets/contents/IMG-20250708-WA0009.jpg",
-    link: "https://www.tiktok.com/@drshaybani",
-  },
-  {
-    title: "Sheikh Ali Qaradaghi",
-    description: "Religious content creation",
-    metrics: "Growing Islamic community",
-    image: "/assets/contents/IMG-20250708-WA0010.jpg",
-    link: "https://www.tiktok.com/@ali.qaradaghi",
-  },
-  {
-    title: "Sheikh Majd Makki",
-    description: "Engaging Islamic content",
-    metrics: "Expanding reach",
-    image: "/assets/contents/IMG-20250708-WA0008.jpg",
-    link: "https://www.tiktok.com/@majd.maki",
-  },
-  {
-    title: "Megabyte Store",
-    description: "Electronics & Gadgets Marketing",
-    metrics: "8M+ TikTok views, 40-50 daily leads",
-    image: "/assets/contents/IMG-20250708-WA0014.jpg",
-    link: "https://www.tiktok.com/@mgbytcom",
-  },
-  {
-    title: "Qatar University - Sharia Dept",
-    description: "Academic event coverage & student outreach",
-    metrics: "Educational content success",
-    image: "/assets/contents/IMG-20250708-WA0011.jpg",
-    link: "https://www.instagram.com/sharia_qusrb",
-  },
-  {
-    title: "QSN Mazad",
-    description: "Auction brand marketing & commercial reels",
-    metrics: "Enhanced brand presence",
-    image: "/assets/contents/IMG-20250708-WA0013.jpg",
-    link: "https://www.instagram.com/qsn.mazad",
-  },
-  {
-    title: "Spice Fusion Restaurant",
-    description: "Professional food photography & branding",
-    metrics: "100% platform integration success",
-    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.22_322b9df6.jpg",
-    link: "#",
-  },
-  {
-    title: "Content Creation Showcase",
-    description: "Behind-the-scenes content production",
-    metrics: "Professional video & photo shoots",
-    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.23_a05b9299.jpg",
-    link: "#",
-  },
-  {
-    title: "Brand Photography",
-    description: "High-quality commercial photography",
-    metrics: "Enhanced visual storytelling",
-    image: "/assets/contents/WhatsApp Image 2025-06-01 at 12.50.25_9cd4cc89.jpg",
-    link: "#",
-  },
-];
+
 
 const PortfolioSection = () => {
+  const { t, language, isRTL } = useLanguage();
   return (
     <section id="portfolio" className="bg-[#00042A] py-12 md:py-20 relative overflow-hidden min-h-screen"
       style={{ opacity: 1, visibility: 'visible', display: 'block' }}
@@ -107,10 +46,10 @@ const PortfolioSection = () => {
       <div className="container mx-auto px-4 max-w-7xl relative z-10" style={{ opacity: 1 }}>
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-4 md:mb-6">
-            Featured Work & Real Analytics
+            {t('portfolio.heading')}
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto">
-            Real results from our video production, content creation, and social media management projects. From viral TikTok content to professional brand campaigns.
+            {t('portfolio.subheading')}
           </p>
         </div>
 
@@ -128,7 +67,7 @@ const PortfolioSection = () => {
               >
                 <OptimizedImage
                   src={project.image}
-                  alt={project.title}
+                  alt={project.title[language]}
                   fill
                   objectFit="cover"
                   className="transition-transform duration-500 group-hover:scale-110"
@@ -154,13 +93,13 @@ const PortfolioSection = () => {
               
               <div className="p-6">
                 <h3 className={`${commonStyles.heading3} text-white mb-3`}>
-                  {project.title}
+                  {project.title[language]}
                 </h3>
                 <p className={`${commonStyles.bodyBase} text-white/80 mb-3`}>
-                  {project.description}
+                  {project.description[language]}
                 </p>
                 <p className="text-[#04E4FF] font-semibold mb-4">
-                  {project.metrics}
+                  {project.metrics[language]}
                 </p>
                 
                 {project.link !== "#" && (
@@ -171,7 +110,7 @@ const PortfolioSection = () => {
                     className={`${commonStyles.buttonGhost} group/button inline-flex items-center`}
                   >
                     <span className="flex items-center transition-transform duration-300 group-hover/button:translate-x-1">
-                      View Project
+                      {t('portfolio.viewProject')}
                       <svg
                         className="ml-2 w-4 h-4"
                         fill="none"

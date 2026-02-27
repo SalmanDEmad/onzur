@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "motion/react";
 import { commonStyles } from "../lib/design-system";
 import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,16 +31,18 @@ const Navbar = () => {
     return false;
   };
 
+  const { t, isRTL } = useLanguage();
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const navLinks = [
-    { href: "/services", label: "Services", isAnchor: false },
-    { href: "/team", label: "Team", isAnchor: false },
-    { href: "/case-studies", label: "Case Studies", isAnchor: false },
-    { href: "/portfolio", label: "Portfolio", isAnchor: false },
-    { href: "/testimonials", label: "Testimonials", isAnchor: false },
+    { href: "/services", label: t('nav.services'), isAnchor: false },
+    { href: "/team", label: t('nav.team'), isAnchor: false },
+    { href: "/case-studies", label: t('nav.caseStudies'), isAnchor: false },
+    { href: "/portfolio", label: t('nav.portfolio'), isAnchor: false },
+    { href: "/testimonials", label: t('nav.testimonials'), isAnchor: false },
   ];
 
   const handleSmoothScroll = (e, href, isAnchor) => {
@@ -130,7 +133,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center">
               <Image
                 src="/assets/images/onzur-logo-white.svg"
-                alt="Onzur Media Studio Logo"
+                alt={t('nav.logoAlt')}
                 width={220}
                 height={55}
                 className="h-10 md:h-12 w-auto"
@@ -141,7 +144,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <motion.nav
-            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
+            className={`hidden lg:flex items-center ${isRTL ? 'flex-row-reverse space-x-reverse' : ''} space-x-6 xl:space-x-8`}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -216,7 +219,7 @@ const Navbar = () => {
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Contact Us
+              {t('nav.contactCta')}
             </motion.a>
 
             {/* Mobile Menu Button */}
@@ -326,11 +329,11 @@ const Navbar = () => {
             variants={linkVariants}
             whileHover={{
               scale: 1.05,
-              boxShadow: "0 10px 25px rgba(4, 228, 255, 0.3)",
+                boxShadow: "0 10px 25px rgba(4, 228, 255, 0.3)",
             }}
             whileTap={{ scale: 0.98 }}
           >
-            Contact Us
+            {t('nav.contactCta')}
           </motion.a>
         </motion.nav>
       </motion.div>
